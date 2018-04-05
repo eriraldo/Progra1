@@ -9,4 +9,5 @@ public class Correo {
     
     private int pene;
     
+    private String hello;
 }
