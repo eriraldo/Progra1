@@ -10,11 +10,7 @@ public class Entregable {
     private String tipo;
     
     public Entregable(){
-        numReferencia = 0;
-        estado = false;
-        descripcion = "";
-        remitente = "";
-        tipo = "";
+   
                 
     }
     

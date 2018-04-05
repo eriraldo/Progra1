@@ -1,10 +1,7 @@
 
 package progra.pkg1;
 
-/**
- *
- * @author dereck
- */
+
 public class Casillero {
     private int numero = 1000;
     private boolean estado;
