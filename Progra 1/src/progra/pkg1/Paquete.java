@@ -14,5 +14,29 @@ public class Paquete extends Entregable {
         this.fragil = fragil;
         this.peso = peso;
     }
+
+    public boolean isFragil() {
+        return fragil;
+    }
+
+    public void setFragil(boolean fragil) {
+        this.fragil = fragil;
+    }
+
+    public boolean isEsElectronico() {
+        return esElectronico;
+    }
+
+    public void setEsElectronico(boolean esElectronico) {
+        this.esElectronico = esElectronico;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
     
 }

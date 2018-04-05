@@ -23,6 +23,46 @@ public class Entregable {
         this.tipo = tipo;
         
     }
+
+    public int getNumReferencia() {
+        return numReferencia;
+    }
+
+    public void setNumReferencia(int numReferencia) {
+        this.numReferencia = numReferencia;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getRemitente() {
+        return remitente;
+    }
+
+    public void setRemitente(String remitente) {
+        this.remitente = remitente;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
     
     
     

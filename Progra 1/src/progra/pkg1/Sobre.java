@@ -14,5 +14,22 @@ public class Sobre extends Entregable {
         this.peso = peso;
         
     }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+    
     
 }

@@ -22,5 +22,22 @@ public class Revista extends Entregable{
     public void imprimirPrueba(){
         System.out.println(getTitulo());
     }
+
+    public boolean isEsCatalogo() {
+        return esCatalogo;
+    }
+
+    public void setEsCatalogo(boolean esCatalogo) {
+        this.esCatalogo = esCatalogo;
+    }
+
+    public String getTema() {
+        return tema;
+    }
+
+    public void setTema(String tema) {
+        this.tema = tema;
+    }
+    
     
 }
