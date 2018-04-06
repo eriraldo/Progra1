@@ -1,5 +1,5 @@
 
-package progra.pkg1;
+package logica;
 
 
 public class Entregable {

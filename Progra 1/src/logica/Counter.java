@@ -1,7 +1,7 @@
 
-package progra.pkg1;
+package logica;
 
-import java.lang.reflect.Array;
+
 
 public class Counter {
     private String nombre ;
