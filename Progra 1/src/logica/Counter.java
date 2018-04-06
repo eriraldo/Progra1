@@ -8,7 +8,9 @@ public class Counter {
     private String identificacion ;
     private String direccion ;
     private int numCasilleros;
-    private Cliente[] listaClientes;// Esta es la relacion que tiene cliente con counter, una lista de clientes que va a almacenar
+    
+    
+    Cliente[] listaClientes;// Esta es la relacion que tiene cliente con counter, una lista de clientes que va a almacenar
     //no se si esa lista tiene que ser global o se puede manejar como un atributo, creo que es una lista global
 
 
@@ -59,4 +61,16 @@ public class Counter {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    
+    public Cliente[] getLista(){
+        return listaClientes;
+    }
+    
+    public void addCliente(String name,String id,String mail,String gender,String cellphone,String location,String nacimiento,String rango){
+        int largo = listaClientes.length;
+        Cliente nuevo = new Cliente(name,id,mail,gender,cellphone,location,nacimiento,rango);
+        
+        listaClientes[largo] = nuevo;
+    }
+    
 }

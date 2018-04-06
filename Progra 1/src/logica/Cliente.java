@@ -20,7 +20,7 @@ public class Cliente {
     
     
     
-    public void crearCliente(String name,String id,String mail,String gender,String cellphone,String location,String nacimiento,String rango){     
+    public Cliente(String name,String id,String mail,String gender,String cellphone,String location,String nacimiento,String rango){     
         this.correo = mail;
         this.direccion = location;
         this.fechaNacimiento = nacimiento;

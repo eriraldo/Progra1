@@ -11,6 +11,7 @@ public class Progra1 {
     public static void main(String[] args) {
         Funcionalidades f = new Funcionalidades();
         f.crearCounter("Aerocasillas", "28930", "Tibas", 30);      //El numero es el # de casilleros, segun la docu hay que especificarlo.
+        f.agregarCliente("Andres", "604490595", "abc@gmail.com", "Male", "85102666", "Tiquicia", "01/01/1999", "Platino");
     }
     
 }
