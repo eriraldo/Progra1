@@ -58,6 +58,21 @@ public class Counter {
         this.direccion = direccion;
     }
     
+    public int getSize(){
+        int acu = 0;
+        int i = 0;
+        while(i<listaClientes.length){
+            if (listaClientes[i]!= null){
+            acu++;
+            i++;
+            }
+            else
+                i++;
+                    
+        }
+        return acu;
+    }
+    
     public Cliente[] getLista(){
         return listaClientes;
     }
@@ -165,13 +180,14 @@ public class Counter {
         System.out.println("Correo: " + correo);
         System.out.println("Lugar de residencia: " + residencia);
         System.out.println("Rango de Cliente: " + tipoCliente);
+        System.out.println("***********************************");
         
         
         
     }
     
     public void eliminarCliente(String cedula){
-        
+        Cliente[] listaAux = new Cliente[listaClientes.length];
         int i=0;
         while(listaClientes[i] != null){
             String ced = listaClientes[i].getIdentificador();
@@ -180,8 +196,36 @@ public class Counter {
             else
                 i++;
         }
-        listaClientes[i] = null;
+        int contador = 0;
+        while (contador < i){
+            listaAux[contador]= listaClientes[contador];
+            contador++;
+        }
+        contador+=1;
+        while (contador < listaClientes.length){
+            listaAux[contador-1]= listaClientes[contador];
+            contador++;
+        }
+        listaClientes = listaAux;
         
+        System.out.println("Eliminado!");
+         
+        
+    }
+    
+    public void listarClientes(){
+        Counter c = new Counter();
+        int size = c.getSize();
+        int i = 0;
+        
+        while(i<size){
+            Cliente cliente = listaClientes[i];
+            String cedula = cliente.getIdentificador();
+            c.consultarCliente(cedula);
+            i++;
+            
+        }
+                
     }
     
             

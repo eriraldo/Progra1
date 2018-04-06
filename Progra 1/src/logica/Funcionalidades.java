@@ -27,5 +27,24 @@ public class Funcionalidades {
         System.out.println("Cliente agregado!");
         
     }
+    public void modificarCliente(String cedula,String dato,int tipo){
+        counter.modificarCliente(cedula, dato, tipo);
+    }
     
+    public Cliente[] demeLista(){
+        return counter.getLista();
+    }
+    
+    public void consultarCliente(String cedula){
+        counter.consultarCliente(cedula);
+        
+    }
+    public void eliminarCliente(String cedula){
+        counter.eliminarCliente(cedula);
+    }
+    
+    public void listarClientes(){
+        counter.listarClientes();
+    }
+            
 }

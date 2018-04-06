@@ -1,4 +1,4 @@
-
+/*
 package logica;
 
 
@@ -49,3 +49,4 @@ public class Correo {
 //
 //    }
 }
+*/
