@@ -15,7 +15,7 @@ public class Progra1 {
         f.agregarCliente("Maria", "110630719", "maria14@hotmail.com", "Female", "88262222", "Alajuela", "12/04/1990", "Oro");
         f.modificarCliente("110630719", "83150445", 5);
         
-        f.listarClientes();
+        //f.listarClientes();
         //f.consultarCliente("604490595");
         //f.eliminarCliente("110630719");
         

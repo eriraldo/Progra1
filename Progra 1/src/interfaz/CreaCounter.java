@@ -7,7 +7,7 @@ package interfaz;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
-import logica.Counter;
+import logica.Funcionalidades;
 /**
  *
  * @author erick
@@ -165,11 +165,13 @@ public class CreaCounter extends javax.swing.JFrame {
         String direccion = direccionCounter.getText();
         String cantCas = cantCasilleros.getText();
         int cantCasInt = Integer.parseInt(cantCas);
-        Counter counter = new Counter();
-        counter.crearCounter(nombre,id, direccion,cantCasInt);
+        Funcionalidades funcionalidades = new Funcionalidades();
+        funcionalidades.crearCounter(nombre,id, direccion,cantCasInt);
         JOptionPane.showMessageDialog(null,"se creo el nuevo counter");
         close();
-        //aqui tengo que crear el otro menu en el que se hace todo sobre el counter ya creado
+        FuncionalidadesI funcion = new FuncionalidadesI();
+        funcion.setVisible(true);
+        
     }//GEN-LAST:event_crearCActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

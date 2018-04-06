@@ -69,6 +69,11 @@ public class menuPrincipal extends javax.swing.JFrame {
 
         exit.setBackground(new java.awt.Color(51, 51, 51));
         exit.setText("Salir del Sistema");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,6 +124,10 @@ public class menuPrincipal extends javax.swing.JFrame {
         CreaCounter counter = new CreaCounter();
         counter.setVisible(true);
     }//GEN-LAST:event_crearCounterActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        close();
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments

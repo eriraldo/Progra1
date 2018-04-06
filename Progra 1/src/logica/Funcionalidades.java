@@ -24,19 +24,20 @@ public class Funcionalidades {
     public void agregarCliente(String name,String id,String mail,String gender,String cellphone,String location,String nacimiento,String rango){
         
         counter.addCliente(name, id, mail, gender, cellphone, location, nacimiento, rango);
-        System.out.println("Cliente agregado!");
+        //System.out.println("Cliente agregado!");
         
     }
     public void modificarCliente(String cedula,String dato,int tipo){
         counter.modificarCliente(cedula, dato, tipo);
     }
     
-    public Casillero[] demeLista(){
+    public Cliente[] demeLista(){
         return counter.getLista();
     }
     
-    public void consultarCliente(String cedula){
-        counter.consultarCliente(cedula);
+    public String consultarCliente(String cedula){
+        String temp = counter.consultarCliente(cedula);
+              return temp  ;
         
     }
     public void eliminarCliente(String cedula){

@@ -92,7 +92,7 @@ public class Counter {
                     
         }
         
-                
+           
     }
     public void modificarCliente(String cedula,String datoNuevo,int tipoDato){      
         Cliente temp = new Cliente();
@@ -149,7 +149,7 @@ public class Counter {
         
     }
     
-    public void consultarCliente(String cedula){
+    public String consultarCliente(String cedula){
         Cliente temp = new Cliente();
         int i=0;
         while(listaClientes[i] != null){
@@ -170,17 +170,16 @@ public class Counter {
         String nacimiento = temp.getFechaNacimiento();
         String residencia = temp.getDireccion();
         String tipoCliente = temp.getTipoCliente();
-        
-        System.out.println("   **Datos del Cliente**   ");
-        System.out.println("Nombre: " + name);
-        System.out.println("Identificacion: " + id);
-        System.out.println("Genero: " + genero);
-        System.out.println("Fecha de Nacimiento: " + nacimiento);
-        System.out.println("Telefono: " + telefono);
-        System.out.println("Correo: " + correo);
-        System.out.println("Lugar de residencia: " + residencia);
-        System.out.println("Rango de Cliente: " + tipoCliente);
-        System.out.println("***********************************");
+        String info = "nombre: " + name + "\n";
+        info += "id: " + id + "\n";
+        info += "genero: " + genero + "\n";
+        info += "correo: " + correo + "\n";
+        info += "telefono: " + telefono + "\n";
+        info += "nacimiento: " + nacimiento + "\n";
+        info += "residencia: " + residencia + "\n";
+        info += "tipoCliente: " + tipoCliente + "\n";
+        return info;
+
         
         
         
