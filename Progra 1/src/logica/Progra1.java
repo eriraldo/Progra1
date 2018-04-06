@@ -11,15 +11,19 @@ public class Progra1 {
     public static void main(String[] args) {
         Funcionalidades f = new Funcionalidades();
         f.crearCounter("Aerocasillas", "28930", "Tibas", 30);      //El numero es el # de casilleros, segun la docu hay que especificarlo.
-        f.agregarCliente("Andres", "604490595", "abc@gmail.com", "Male", "85102666", "Tiquicia", "01/01/1999", "Platino");
+        f.agregarCliente("Andres", "604490595", "avargas@gmail.com", "Male", "85102666", "Tibas", "01/01/1999", "Platino");
+        f.agregarCliente("Maria", "110630719", "maria14@hotmail.com", "Female", "88262222", "Alajuela", "12/04/1990", "Oro");
+        f.modificarCliente("110630719", "83150445", 5);
+        
+        f.listarClientes();
+        //f.consultarCliente("604490595");
+        //f.eliminarCliente("110630719");
+        
+        //Cliente[] temp = f.demeLista();
+        //String n = temp[0].getTelefono();
+        //System.out.println(n);
     }
     
 }
 
 
-//Trate usted de representar las relaciones de dependencia en codigo para darme una idea, por lo menos entre Counter,Cliente y casillero
-
-//Estoy indeciso de donde colocar el array, porque puede ser que tambien al crear un counter, ahi inicializo el array(casilleros) de ese counter.
-//No tendria sentido que en funcionalidades tenga un array si no ha creado un counter, no se que opina.
-
-//Anemonas
