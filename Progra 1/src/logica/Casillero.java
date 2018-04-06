@@ -10,11 +10,12 @@ public class Casillero {
         
     }
     
-    public Casillero(int number, boolean state){
+    public Casillero(int number, boolean state,Cliente cliente){
         
         if (number>=1000){
             this.estado = state;
             this.numero = number;
+            this.cliente = cliente;
         }
         else{
             System.out.println("Error, el numero de casillero debe ser mayor o igual a 1000");
@@ -36,6 +37,13 @@ public class Casillero {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+    
+    public Cliente getCliente(){
+        return this.cliente;
+    }
+    public void setCliente(Cliente nuevo){
+        this.cliente = nuevo;
     }
     
 }

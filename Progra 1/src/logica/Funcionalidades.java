@@ -31,7 +31,7 @@ public class Funcionalidades {
         counter.modificarCliente(cedula, dato, tipo);
     }
     
-    public Cliente[] demeLista(){
+    public Casillero[] demeLista(){
         return counter.getLista();
     }
     

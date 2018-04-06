@@ -9,7 +9,9 @@ public class Counter {
     private int numCasilleros;
     
     
-    public static Cliente[] listaClientes;
+    public static Casillero[] listaCasilleros;
+    
+    public static int casilleroAsignado = 1000;
 
 
     public Counter(){
@@ -20,7 +22,7 @@ public class Counter {
         this.identificacion = identificacion;
         this.direccion = direccion;
         this.numCasilleros = numCasilleros;
-        listaClientes = new Cliente[numCasilleros];
+        listaCasilleros= new Casillero[numCasilleros];
     }
     
     public void crearCounter(String nombre, String identificacion,String direccion,int numCasilleros){
@@ -61,8 +63,8 @@ public class Counter {
     public int getSize(){
         int acu = 0;
         int i = 0;
-        while(i<listaClientes.length){
-            if (listaClientes[i]!= null){
+        while(i<listaCasilleros.length){
+            if (listaCasilleros[i]!= null){
             acu++;
             i++;
             }
@@ -73,17 +75,18 @@ public class Counter {
         return acu;
     }
     
-    public Cliente[] getLista(){
-        return listaClientes;
+    public Casillero[] getLista(){
+        return listaCasilleros;
     }
     
     public void addCliente(String name,String id,String mail,String gender,String cellphone,String location,String nacimiento,String rango){
-        int largo = listaClientes.length;
+        int largo = listaCasilleros.length;
         Cliente nuevo = new Cliente(name,id,mail,gender,cellphone,location,nacimiento,rango);
+        Casillero cas = new Casillero (casilleroAsignado,true,nuevo);
         int cont =0;
         while(cont<largo){
-            if (listaClientes[cont]== null){
-                listaClientes[cont] = nuevo;
+            if (listaCasilleros[cont]== null){
+                listaCasilleros[cont] = cas;
                 break;
                 
             }
@@ -97,10 +100,10 @@ public class Counter {
     public void modificarCliente(String cedula,String datoNuevo,int tipoDato){      
         Cliente temp = new Cliente();
         int i=0;
-        while(listaClientes[i]!= null){
-            String ced = listaClientes[i].getIdentificador();
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
             if (ced == cedula){
-                temp = listaClientes[i];
+                temp = listaCasilleros[i].getCliente();
                 break;
                 
             }
@@ -144,7 +147,7 @@ public class Counter {
                 break;
             }
         }
-        listaClientes[i]= temp;
+        listaCasilleros[i].setCliente(temp);
         System.out.println("Modificado!");
         
     }
@@ -152,10 +155,10 @@ public class Counter {
     public String consultarCliente(String cedula){
         Cliente temp = new Cliente();
         int i=0;
-        while(listaClientes[i] != null){
-            String ced = listaClientes[i].getIdentificador();
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
             if (ced == cedula){
-                temp = listaClientes[i];
+                temp = listaCasilleros[i].getCliente();
                 break;
                 
             }
@@ -186,26 +189,28 @@ public class Counter {
     }
     
     public void eliminarCliente(String cedula){
-        Cliente[] listaAux = new Cliente[listaClientes.length];
+        Casillero[] listaAux = new Casillero[listaCasilleros.length];
         int i=0;
-        while(listaClientes[i] != null){
-            String ced = listaClientes[i].getIdentificador();
-            if (ced == cedula)
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced == cedula){
                 break;
+                
+            }
             else
                 i++;
         }
         int contador = 0;
         while (contador < i){
-            listaAux[contador]= listaClientes[contador];
+            listaAux[contador]= listaCasilleros[contador];
             contador++;
         }
         contador+=1;
-        while (contador < listaClientes.length){
-            listaAux[contador-1]= listaClientes[contador];
+        while (contador < listaCasilleros.length){
+            listaAux[contador-1]= listaCasilleros[contador];
             contador++;
         }
-        listaClientes = listaAux;
+        listaCasilleros = listaAux;
         
         System.out.println("Eliminado!");
          
@@ -217,8 +222,9 @@ public class Counter {
         int size = c.getSize();
         int i = 0;
         
+        
         while(i<size){
-            Cliente cliente = listaClientes[i];
+            Cliente cliente = listaCasilleros[i].getCliente();
             String cedula = cliente.getIdentificador();
             c.consultarCliente(cedula);
             i++;
