@@ -207,7 +207,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
         }
         else{
             funcion.agregarCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
-            
+            //funcion.consultarCliente(id);
             JOptionPane.showMessageDialog(null,"Cliente añadido a la Base de Datos del Counter");
             close();
             FuncionalidadesI fun = new FuncionalidadesI();

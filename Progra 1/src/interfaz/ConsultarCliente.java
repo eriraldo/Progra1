@@ -117,7 +117,7 @@ public class ConsultarCliente extends javax.swing.JFrame {
         //System.out.println(lista[0].getIdentificador() + " = id");
         String temp;
         temp = funcion.consultarCliente(cedula);
-        System.out.println(temp);
+        //System.out.println(temp);
         cuadroInfoCliente.setText(temp);
     }//GEN-LAST:event_consultarClienteActionPerformed
 
