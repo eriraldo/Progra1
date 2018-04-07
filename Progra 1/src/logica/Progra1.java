@@ -3,8 +3,6 @@ package logica;
 
 
 
-
-
 public class Progra1 {
 
     
