@@ -47,5 +47,16 @@ public class Funcionalidades {
     public void listarClientes(){
         counter.listarClientes();
     }
+    
+    public void registarSobre(String cedula,Sobre sobre){
+        counter.registrarSobre(cedula, sobre);
+    }
+    public void registrarRevista(String cedula,Revista revista){
+        counter.registrarRevista(cedula, revista);
+    }
+    public void registrarPaquete(String cedula,Paquete paquete){
+        counter.registrarPaquete(cedula, paquete);
+    }
+    
             
 }

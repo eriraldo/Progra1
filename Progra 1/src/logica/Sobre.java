@@ -5,13 +5,15 @@ package logica;
 public class Sobre extends Entregable {
     
     private String contenido;
-    private int peso;
+    private double peso;
+    private String tipoSobre;
     
     
-    public Sobre(int numReferencia,boolean estado,String descripcion,String remitente,String tipo,String contenido,int peso){
-        super(numReferencia,estado,descripcion,remitente,tipo);
+    public Sobre(int numReferencia,boolean estado,String descripcion,String remitente,String tipoSobre,String contenido,double peso){
+        super(numReferencia,estado,descripcion,remitente);
         this.contenido = contenido;
         this.peso = peso;
+        this.tipoSobre = tipoSobre;
         
     }
 
@@ -23,12 +25,19 @@ public class Sobre extends Entregable {
         this.contenido = contenido;
     }
 
-    public int getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(int peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
+    }
+    public void setTipoSobre(String tipo){
+        this.tipoSobre = tipo;
+    }
+    
+    public String getTipoSobre(){
+        return tipoSobre;
     }
     
     

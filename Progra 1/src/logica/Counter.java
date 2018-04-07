@@ -83,6 +83,7 @@ public class Counter {
         int largo = listaCasilleros.length;
         Cliente nuevo = new Cliente(name,id,mail,gender,cellphone,location,nacimiento,rango);
         Casillero cas = new Casillero (casilleroAsignado,true,nuevo);
+        casilleroAsignado++;
         int cont =0;
         while(cont<largo){
             if (listaCasilleros[cont]== null){
@@ -211,6 +212,8 @@ public class Counter {
             contador++;
         }
         listaCasilleros = listaAux;
+        casilleroAsignado--;
+        
         
         System.out.println("Eliminado!");
          
@@ -232,6 +235,80 @@ public class Counter {
         }
                 
     }
+    
+    public void registrarPaquete(String cedula,Paquete paquete){
+        Casillero temp = new Casillero();
+        int i=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced == cedula){
+                temp = listaCasilleros[i];
+                break;
+                
+            }
+            else
+                i++;
+        }
+        
+        temp.setListaPaquetes(paquete);
+        listaCasilleros[i] = temp;
+        String destino = temp.getCliente().getCorreo();
+        String descripcion = temp.listarEntregables();
+        Correo mail = new Correo();
+        mail.sendMail(destino, descripcion);
+        System.out.println("Paquete agregado al casillero!");
+        
+    }
+    public void registrarSobre(String cedula,Sobre sobre){
+        Casillero temp = new Casillero();
+        int i=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced == cedula){
+                temp = listaCasilleros[i];
+                break;
+                
+            }
+            else
+                i++;
+        }
+        
+        temp.setListaSobres(sobre);
+        listaCasilleros[i] = temp;
+        String destino = temp.getCliente().getCorreo();
+        String descripcion = temp.listarEntregables();
+        Correo mail = new Correo();
+        mail.sendMail(destino, descripcion);
+        System.out.println("Sobre agregado al casillero!");
+        
+        
+    }
+    public void registrarRevista(String cedula,Revista revista){
+        Casillero temp = new Casillero();
+        int i=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced == cedula){
+                temp = listaCasilleros[i];
+                break;
+                
+            }
+            else
+                i++;
+        }
+        
+        temp.setListaRevistas(revista);
+        listaCasilleros[i] = temp;
+        String destino = temp.getCliente().getCorreo();
+        String descripcion = temp.listarEntregables();
+        Correo mail = new Correo();
+        mail.sendMail(destino, descripcion);
+        System.out.println("Revista agregada al casillero!");
+        
+    }
+    
+    
+    
     
             
           

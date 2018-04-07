@@ -6,13 +6,15 @@ public class Paquete extends Entregable {
     
     private boolean fragil;
     private boolean esElectronico;
-    private int peso;
+    private double peso;
+    private String tipoEntrega;
     
-    public Paquete(int numReferencia,boolean estado,String descripcion,String remitente,String tipo,boolean fragil,boolean esElectronico,int peso){
-        super(numReferencia,estado,descripcion,remitente,tipo);
+    public Paquete(int numReferencia,boolean estadoEntrega,String descripcion,String remitente,String tipoEntrega,boolean fragil,boolean esElectronico,double peso){
+        super(numReferencia,estadoEntrega,descripcion,remitente);
         this.esElectronico  = esElectronico;
         this.fragil = fragil;
         this.peso = peso;
+        this.tipoEntrega = tipoEntrega;
     }
 
     public boolean isFragil() {
@@ -31,12 +33,20 @@ public class Paquete extends Entregable {
         this.esElectronico = esElectronico;
     }
 
-    public int getPeso() {
+    public double getPeso() {
         return peso;
     }
 
     public void setPeso(int peso) {
         this.peso = peso;
+    }
+    
+    public void setTipoEntrega(String tipo){
+        this.tipoEntrega = tipo;
+    }
+    
+    public String getTipoEntrega(){
+        return tipoEntrega;
     }
     
 }

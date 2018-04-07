@@ -8,8 +8,8 @@ public class Revista extends Entregable{
     private boolean esCatalogo;
     private String tema;
     
-    public Revista(int numReferencia,boolean estado,String descripcion,String remitente,String tipo,String titulo,boolean esCatalogo,String tema){
-        super(numReferencia,estado,descripcion,remitente,tipo);
+    public Revista(int numReferencia,boolean estado,String descripcion,String remitente,String titulo,boolean esCatalogo,String tema){
+        super(numReferencia,estado,descripcion,remitente);
         this.esCatalogo = esCatalogo;
         this.tema = tema;
         this.titulo = titulo;
