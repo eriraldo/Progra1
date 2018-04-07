@@ -57,6 +57,19 @@ public class Funcionalidades {
     public void registrarPaquete(String cedula,Paquete paquete){
         counter.registrarPaquete(cedula, paquete);
     }
+    public double calcularImpuestoSobre(Sobre sobre,boolean moneda){
+        return counter.calcularImpuestoSobre(sobre, moneda);
+    }
+    public double calcularImpuestoRevista(Revista rev,boolean moneda){
+        return counter.calcularImpuestoRevista(rev, moneda);
+    }
+    public double calcularImpuestoPaquete(Paquete paquete,boolean moneda){
+        return counter.calcularImpuestoPaquete(paquete, moneda);
+    }
+    
+    public double calcularDescuentoCliente(String cedula){
+        return counter.descuentoClientePaquete(cedula);
+    }
     
             
 }

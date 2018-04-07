@@ -17,7 +17,7 @@ public class Paquete extends Entregable {
         this.tipoEntrega = tipoEntrega;
     }
 
-    public boolean isFragil() {
+    public boolean esFragil() {
         return fragil;
     }
 
@@ -25,7 +25,7 @@ public class Paquete extends Entregable {
         this.fragil = fragil;
     }
 
-    public boolean isEsElectronico() {
+    public boolean esElectronico() {
         return esElectronico;
     }
 

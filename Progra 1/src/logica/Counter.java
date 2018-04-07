@@ -1,6 +1,8 @@
 
 package logica;
 
+import indicadoresEconomicosBCCR.TipoCambio;
+
 
 public class Counter {
     private String nombre ;
@@ -254,8 +256,8 @@ public class Counter {
         listaCasilleros[i] = temp;
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
-        Correo mail = new Correo();
-        mail.sendMail(destino, descripcion);
+        //Correo mail = new Correo();                           //Deshabilite el envio de correos para que no envie en cada corrida
+        //mail.sendMail(destino, descripcion);
         System.out.println("Paquete agregado al casillero!");
         
     }
@@ -277,8 +279,8 @@ public class Counter {
         listaCasilleros[i] = temp;
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
-        Correo mail = new Correo();
-        mail.sendMail(destino, descripcion);
+        //Correo mail = new Correo();                               //Deshabilite el envio de correos para que no envie en cada corrida
+        //mail.sendMail(destino, descripcion);
         System.out.println("Sobre agregado al casillero!");
         
         
@@ -301,9 +303,144 @@ public class Counter {
         listaCasilleros[i] = temp;
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
-        Correo mail = new Correo();
-        mail.sendMail(destino, descripcion);
+        //Correo mail = new Correo();                       //Deshabilite el envio de correos para que no envie en cada corrida
+        //mail.sendMail(destino, descripcion);
         System.out.println("Revista agregada al casillero!");
+        
+    }
+    public double calcularImpuestoSobre(Sobre sobre,boolean moneda){         //moneda: false si es colones y true si es dolares
+        TipoCambio t = new TipoCambio();
+        double tipoCambio = t.getCompra();
+        String contenido = sobre.getContenido();
+        String tipoSobre = sobre.getTipoSobre();
+        double resul = 0;
+        if((tipoSobre == "Aereo")||(tipoSobre=="aereo")){
+            if ((contenido=="Documento")||(contenido == "documento")){
+                resul = 0;
+                
+                
+            }
+            else if((contenido=="articulo")||(contenido =="Articulo")){
+                if (moneda==false)
+                    resul = tipoCambio;
+                else
+                    resul = 1;
+                
+                
+            }
+            else{
+                System.out.println("Error al calcular impuesto, recuerde que contenido es documento o articulo y tipoSobre es aereo o manila");
+            }
+            
+        }
+        if((tipoSobre == "Manila")||(tipoSobre=="manila")){
+            if ((contenido=="Documento")||(contenido == "documento")){
+                if (moneda==false)
+                    resul = tipoCambio;
+                else
+                    resul = 1;
+                
+                
+                
+            }
+            else if((contenido=="articulo")||(contenido =="Articulo")){
+                if(moneda==false)
+                    resul = 2*tipoCambio;
+                else
+                    resul = 2;
+                
+                
+            }
+            else{
+                System.out.println("Error al calcular impuesto, recuerde que contenido es documento o articulo y tipoSobre es aereo o manila");
+            }
+            
+        }
+        return resul;
+        
+        
+    }
+    public double calcularImpuestoPaquete(Paquete paquete,boolean moneda){
+        TipoCambio t = new TipoCambio();
+        double tipoCambio = t.getCompra();       //aqui se cambia cuando funcione la clase impuesto
+        double resul =0;
+        boolean electronico = paquete.esElectronico();
+        boolean fragil = paquete.esFragil();
+        double peso = paquete.getPeso();
+        if(fragil && electronico){
+            if(moneda==false)
+                resul = (tipoCambio*4)+(peso*0.02);
+            else
+                resul = 4+(peso*0.02);
+            
+        }
+        if ((fragil&&!electronico) || (!fragil && electronico)){
+            if(moneda==false)
+                resul = (tipoCambio*2)+(peso*0.02);
+            else
+                resul = 2+(peso*0.02);
+            
+        }
+        if (!electronico && !fragil ){
+            if(moneda==false)
+                resul = tipoCambio*(peso*0.02);
+            else
+                resul = peso*0.02;
+            
+        }
+        return resul;
+        
+        
+    }
+    
+    public double calcularImpuestoRevista(Revista revista,boolean moneda){
+        TipoCambio t = new TipoCambio();
+        double tipoCambio = t.getCompra();
+        boolean tipo = revista.esCatalogo();
+        double res ;
+        if(tipo)
+            res=0;
+        else{
+            if (moneda == false)
+                res = tipoCambio;
+            else
+                res = 1;
+        
+        }
+        return res;
+            
+               
+    }
+    
+    public double descuentoClientePaquete(String cedula){        
+        Casillero temp = new Casillero();
+        Cliente c = new Cliente();
+        int i=0;
+        double descuento=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced == cedula){
+                temp = listaCasilleros[i];
+                break;
+                
+            }
+            else
+                i++;
+        }
+        c = temp.getCliente();
+        String rango = c.getTipoCliente();
+        if((rango=="Normal")||(rango == "normal"))      //Nada descuento para cliente Normal
+            descuento = 0;
+        
+        if((rango=="Plata")||(rango == "plata")){       //5% descuento para cliente Plata
+            
+            descuento = 0.05;  
+        }
+        if((rango=="Oro")||(rango == "oro")){           //10% descuento para cliente Oro
+            
+            descuento = 0.10;  
+        }
+        return descuento;
         
     }
     

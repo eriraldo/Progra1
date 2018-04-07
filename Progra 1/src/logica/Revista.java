@@ -23,7 +23,7 @@ public class Revista extends Entregable{
         System.out.println(getTitulo());
     }
 
-    public boolean isEsCatalogo() {
+    public boolean esCatalogo() {
         return esCatalogo;
     }
 
