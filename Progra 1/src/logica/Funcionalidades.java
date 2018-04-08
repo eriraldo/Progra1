@@ -5,7 +5,7 @@ package logica;
 
 public class Funcionalidades {
     
-    protected static Counter counter = new Counter();
+    public static Counter counter = new Counter();
     //public static Funcionalidades f = new Funcionalidades();
     
     
@@ -15,6 +15,7 @@ public class Funcionalidades {
     public Funcionalidades(){
         
     }
+    public static Funcionalidades f = new Funcionalidades();
     
     public static boolean crearCounter(String nombre,String identificacion,String direccion,int numCasilleros){
         

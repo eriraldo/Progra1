@@ -165,8 +165,7 @@ public class CreaCounter extends javax.swing.JFrame {
         String direccion = direccionCounter.getText();
         String cantCas = cantCasilleros.getText();
         int cantCasInt = Integer.parseInt(cantCas);
-        Funcionalidades funcionalidades = new Funcionalidades();
-        funcionalidades.crearCounter(nombre,id, direccion,cantCasInt);
+        Funcionalidades.f.crearCounter(nombre, direccion, direccion, cantCasInt);
         JOptionPane.showMessageDialog(null,"se creo el nuevo counter");
         close();
         FuncionalidadesI funcion = new FuncionalidadesI();

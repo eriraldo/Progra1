@@ -87,7 +87,7 @@ public class Counter {
         Casillero cas = new Casillero (casilleroAsignado,true,nuevo);
         casilleroAsignado++;
         int cont =0;
-        while(cont<largo){
+        while(cont<largo-1){
             if (listaCasilleros[cont]== null){
                 listaCasilleros[cont] = cas;
                 break;
@@ -184,6 +184,7 @@ public class Counter {
         info += "nacimiento: " + nacimiento + "\n";
         info += "residencia: " + residencia + "\n";
         info += "tipoCliente: " + tipoCliente + "\n";
+        System.out.println(info);
         return info;
 
         
