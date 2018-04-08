@@ -200,13 +200,14 @@ public class RegistrarCliente extends javax.swing.JFrame {
         String nacimiento = nacimientoCliente.getText();
         String rang = rangoCliente.getText();
         
-        Funcionalidades funcion = new Funcionalidades();
-        if(funcion.demeLista() == null){
+        //Funcionalidades.f.agregarCliente(rang, id, email, gen, tel, email, nacimiento, rang);
+        if(Funcionalidades.demeLista() == null){
             JOptionPane.showMessageDialog(null,"No se ha creado ningun counter");
             close();
         }
         else{
-            funcion.agregarCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
+            Funcionalidades.f.agregarCliente(rang, id, email, gen, tel, email, nacimiento, rang);
+            Funcionalidades.f.consultarCliente(id);
             //funcion.consultarCliente(id);
             JOptionPane.showMessageDialog(null,"Cliente añadido a la Base de Datos del Counter");
             close();

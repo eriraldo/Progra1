@@ -5,7 +5,6 @@
  */
 package interfaz;
 import logica.Funcionalidades;
-import logica.Cliente;
 /**
  *
  * @author erick
@@ -111,14 +110,8 @@ public class ConsultarCliente extends javax.swing.JFrame {
 
     private void consultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarClienteActionPerformed
         String cedula = cedulaCliente.getText();
-        Funcionalidades funcion = new Funcionalidades();
-        //Cliente[] lista = funcion.demeLista();
-        //System.out.println(cedula + " = id de consultar");
-        //System.out.println(lista[0].getIdentificador() + " = id");
-        String temp;
-        temp = funcion.consultarCliente(cedula);
-        //System.out.println(temp);
-        cuadroInfoCliente.setText(temp);
+        
+        cuadroInfoCliente.setText(Funcionalidades.f.consultarCliente(cedula));
     }//GEN-LAST:event_consultarClienteActionPerformed
 
     /**

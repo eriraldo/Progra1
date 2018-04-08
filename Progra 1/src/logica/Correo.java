@@ -61,6 +61,7 @@ public class Correo {
         catch(Exception ex)
         {
             System.out.println(ex);//si algo pasa con el envio del correo tira un mensaje
+            
         }
 
     }
