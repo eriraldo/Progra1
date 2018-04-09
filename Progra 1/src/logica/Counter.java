@@ -5,10 +5,12 @@ import indicadoresEconomicosBCCR.TipoCambio;
 
 
 public class Counter {
+    
     private String nombre ;
     private String identificacion ;
     private String direccion ;
     private int numCasilleros;
+    private int rangoAscenso;        //Paquetes que debe recibir cliente para ascender de rango
     
     
     public static Casillero[] listaCasilleros;
@@ -25,6 +27,7 @@ public class Counter {
         this.direccion = direccion;
         this.numCasilleros = numCasilleros;
         listaCasilleros= new Casillero[numCasilleros];
+        rangoAscenso = 10;
     }
     
     public void crearCounter(String nombre, String identificacion,String direccion,int numCasilleros){
@@ -253,6 +256,20 @@ public class Counter {
         
         temp.setListaPaquetes(paquete);
         listaCasilleros[i] = temp;
+        temp.setCantidadPaquetes(temp.getCantidadPaquetes()+1);
+        if(temp.getCantidadPaquetes()% rangoAscenso == 0 ){     //Cuando los paquetes recibidos es multiplo del rango de ascenso, se sube de nivel
+            String rango = temp.getCliente().getTipoCliente();
+            if(rango.equals("Normal")||rango.equals("normal")){
+                temp.getCliente().setTipoCliente("Plata");
+            }
+            if(rango.equals("Plata")||rango.equals("plata")){
+                temp.getCliente().setTipoCliente("Oro");
+            }
+            if(rango.equals("Oro")||rango.equals("oro")){       //Si es oro y detecta un ascenso, se mantiene en oro
+                temp.getCliente().setTipoCliente("Oro");
+            }
+            
+        }
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
         //Correo mail = new Correo();                           //Deshabilite el envio de correos para que no envie en cada corrida
@@ -276,6 +293,20 @@ public class Counter {
         
         temp.setListaSobres(sobre);
         listaCasilleros[i] = temp;
+        temp.setCantidadPaquetes(temp.getCantidadPaquetes()+1);
+        if(temp.getCantidadPaquetes()% rangoAscenso == 0 ){     //Cuando los paquetes recibidos es multiplo del rango de ascenso, se sube de nivel
+            String rango = temp.getCliente().getTipoCliente();
+            if(rango.equals("Normal")||rango.equals("normal")){
+                temp.getCliente().setTipoCliente("Plata");
+            }
+            if(rango.equals("Plata")||rango.equals("plata")){
+                temp.getCliente().setTipoCliente("Oro");
+            }
+            if(rango.equals("Oro")||rango.equals("oro")){       //Si es oro y detecta un ascenso, se mantiene en oro
+                temp.getCliente().setTipoCliente("Oro");
+            }
+            
+        }
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
         //Correo mail = new Correo();                               //Deshabilite el envio de correos para que no envie en cada corrida
@@ -300,6 +331,20 @@ public class Counter {
         
         temp.setListaRevistas(revista);
         listaCasilleros[i] = temp;
+        temp.setCantidadPaquetes(temp.getCantidadPaquetes()+1);
+        if(temp.getCantidadPaquetes()% rangoAscenso == 0 ){     //Cuando los paquetes recibidos es multiplo del rango de ascenso, se sube de nivel
+            String rango = temp.getCliente().getTipoCliente();
+            if(rango.equals("Normal")||rango.equals("normal")){
+                temp.getCliente().setTipoCliente("Plata");
+            }
+            if(rango.equals("Plata")||rango.equals("plata")){
+                temp.getCliente().setTipoCliente("Oro");
+            }
+            if(rango.equals("Oro")||rango.equals("oro")){       //Si es oro y detecta un ascenso, se mantiene en oro
+                temp.getCliente().setTipoCliente("Oro");
+            }
+            
+        }
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
         //Correo mail = new Correo();                       //Deshabilite el envio de correos para que no envie en cada corrida
@@ -441,6 +486,11 @@ public class Counter {
         }
         return descuento;
         
+    }
+    
+    public void modificarAscensoDeRango(int valor){     //Por default, se asciende cada 10 paquetes
+        rangoAscenso = valor;
+       
     }
     
     

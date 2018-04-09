@@ -14,7 +14,7 @@ public class Funcionalidades {
     public Funcionalidades(){
         
     }
-    public static Funcionalidades f = new Funcionalidades();
+    
     
     public static boolean crearCounter(String nombre,String identificacion,String direccion,int numCasilleros){
         
@@ -64,7 +64,7 @@ public class Funcionalidades {
         return true;
     }
     
-    public static boolean registarSobre(String cedula,Sobre sobre){
+    public static boolean registrarSobre(String cedula,Sobre sobre){
         counter.registrarSobre(cedula, sobre);
         return true;
     }
@@ -89,6 +89,10 @@ public class Funcionalidades {
     
     public static double calcularDescuentoCliente(String cedula){
         return counter.descuentoClientePaquete(cedula);
+    }
+    public static boolean modificarAscensoDeRango(int valor){
+        counter.modificarAscensoDeRango(valor);
+        return true;
     }
     
             

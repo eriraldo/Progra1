@@ -1,4 +1,4 @@
-/*
+
 package logica;
 
 
@@ -8,20 +8,27 @@ public class Progra1 {
     
     public static void main(String[] args) {
         
-        Funcionalidades f = new Funcionalidades();
+        Counter f = new Counter();
+        
         f.crearCounter("Aerocasillas", "28930", "Tibas", 30);      //El numero es el # de casilleros, segun la docu hay que especificarlo.
-        f.agregarCliente("Andres", "604490595", "automaticcounterbot@gmail.com", "Male", "85102666", "Tibas", "01/01/1999", "Plata");
-        f.agregarCliente("Maria", "110630719", "automaticcounterbot@gmail.com", "Female", "88262222", "Alajuela", "12/04/1990", "Oro");
+        
+        f.addCliente("Andres", "604490595", "automaticcounterbot@gmail.com", "Male", "85102666", "Tibas", "01/01/1999", "Normal");
+        f.addCliente("Maria", "110630719", "automaticcounterbot@gmail.com", "Female", "88262222", "Alajuela", "12/04/1990", "Oro");
         f.modificarCliente("110630719", "83150445", 5);
         
         Sobre sob1 = new Sobre(92345,false,"Sobre comun de manila","Pedro Cunha","manila","Documento",0.05);
         Revista rev1 = new Revista(23734,false,"Revista de coleccion","Amazon","Anemona Paradise",false,"Naturaleza");
         Paquete paq1 = new Paquete(83823,false,"Tablet Samsung color negro","Amazon","Caja",true,true,2);
         
-        f.registarSobre("604490595", sob1);
-        f.registrarPaquete("110630719", paq1);
-        f.registrarRevista("110630719", rev1);
+        f.modificarAscensoDeRango(1);
         
+        f.registrarSobre("604490595", sob1);//Esta en normal, asciende a plata
+        f.registrarPaquete("604490595", paq1);//Esta en plata, asciende a oro
+        f.registrarRevista("110630719", rev1);//Esta en oro ,se queda en oro
+        
+        
+        
+        /*
         double imp1= f.calcularImpuestoSobre(sob1, true);
         double imp2= f.calcularImpuestoRevista(rev1, true);
         double imp3 = f.calcularImpuestoPaquete(paq1, true);
@@ -37,10 +44,11 @@ public class Progra1 {
         //f.consultarCliente("604490595");
         //f.eliminarCliente("110630719");
         
-        
+       */
     }
+        
+        
     
 }
 
 
-*/

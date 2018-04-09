@@ -6,6 +6,7 @@ public class Casillero {
     private int numero = 1000;
     private boolean estado;
     private Cliente cliente;//cada casillero debe de tener unicamente un cliente
+    private int cantPaquetes;
     
     private Paquete[] listaPaquetes;
     private Sobre[] listaSobres;
@@ -23,6 +24,7 @@ public class Casillero {
             listaPaquetes = new Paquete[50];
             listaRevistas = new Revista[50];
             listaSobres = new Sobre[50];
+            cantPaquetes = 0;
         }
         else{
             System.out.println("Error, el numero de casillero debe ser mayor o igual a 1000");
@@ -53,6 +55,12 @@ public class Casillero {
         this.cliente = nuevo;
     }
     
+    public void setCantidadPaquetes(int n){
+        cantPaquetes = n;
+    }
+    public int getCantidadPaquetes(){
+        return cantPaquetes;
+    }
     public int largoListaPaquetes(){
         int cont =0;
         while (listaPaquetes[cont]!= null)
