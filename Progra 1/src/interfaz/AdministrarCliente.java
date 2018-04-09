@@ -40,8 +40,8 @@ public class AdministrarCliente extends javax.swing.JFrame {
         registrarCliente = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        eliminar = new javax.swing.JButton();
+        listarClientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -69,11 +69,21 @@ public class AdministrarCliente extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(51, 51, 51));
-        jButton3.setText("Eliminar Cliente");
+        eliminar.setBackground(new java.awt.Color(51, 51, 51));
+        eliminar.setText("Eliminar Cliente");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(51, 51, 51));
-        jButton4.setText("Listar Clientes");
+        listarClientes.setBackground(new java.awt.Color(51, 51, 51));
+        listarClientes.setText("Listar Clientes");
+        listarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarClientesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,8 +101,8 @@ public class AdministrarCliente extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jButton1)
                                 .addComponent(registrarCliente))
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(listarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -107,9 +117,9 @@ public class AdministrarCliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(eliminar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(listarClientes)
                 .addContainerGap(260, Short.MAX_VALUE))
         );
 
@@ -138,6 +148,18 @@ public class AdministrarCliente extends javax.swing.JFrame {
         ConsultarCliente consultar = new ConsultarCliente();
         consultar.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        close();
+        EliminarCliente elimin = new EliminarCliente();
+        elimin.setVisible(true);
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void listarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarClientesActionPerformed
+        close();
+        ListarClientes lista = new ListarClientes();
+        lista.setVisible(true);
+    }//GEN-LAST:event_listarClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,12 +197,12 @@ public class AdministrarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton eliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton listarClientes;
     private javax.swing.JButton registrarCliente;
     // End of variables declaration//GEN-END:variables
 }

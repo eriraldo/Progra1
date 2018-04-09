@@ -59,9 +59,10 @@ public class Funcionalidades {
         
     }
     
-    public static boolean listarClientes(){
-        counter.listarClientes();
-        return true;
+    public static String listarClientes(){
+        String lista;
+        lista = counter.listarClientes();
+        return lista;
     }
     
     public static boolean registrarSobre(String cedula,Sobre sobre){

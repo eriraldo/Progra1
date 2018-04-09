@@ -231,19 +231,21 @@ public class Counter {
         
     }
     
-    public void listarClientes(){
+    public String listarClientes(){
         Counter c = new Counter();
         int size = c.getSize();
         int i = 0;
-        
+        String lista = "";
         
         while(i<size){
             Cliente cliente = listaCasilleros[i].getCliente();
             String cedula = cliente.getIdentificador();
-            c.consultarCliente(cedula);
+            lista += c.consultarCliente(cedula);
+            lista += "---------------------------\n";
             i++;
             
         }
+        return lista;
                 
     }
     
