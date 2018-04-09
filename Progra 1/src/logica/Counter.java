@@ -96,9 +96,7 @@ public class Counter {
             else
                 cont++;
                     
-        }
-        
-           
+        }        
     }
     public void modificarCliente(String cedula,String datoNuevo,int tipoDato){      
         Cliente temp = new Cliente();

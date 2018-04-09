@@ -5,8 +5,7 @@ package logica;
 
 public class Funcionalidades {
     
-    public static Counter counter = new Counter();
-    //public static Funcionalidades f = new Funcionalidades();
+    public static Counter counter;
     
     
     
@@ -25,6 +24,15 @@ public class Funcionalidades {
         
         
     }
+
+    public static Counter getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(Counter counter) {
+        Funcionalidades.counter = counter;
+    }
+    
     public static boolean agregarCliente(String name,String id,String mail,String gender,String cellphone,String location,String nacimiento,String rango){
         
         counter.addCliente(name, id, mail, gender, cellphone, location, nacimiento, rango);

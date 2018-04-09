@@ -3,7 +3,7 @@ import logica.Funcionalidades;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
-
+import logica.Counter;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -206,12 +206,14 @@ public class RegistrarCliente extends javax.swing.JFrame {
             close();
         }
         else{
-            Funcionalidades.f.agregarCliente(rang, id, email, gen, tel, email, nacimiento, rang);
-            Funcionalidades.f.consultarCliente(id);
+            Counter nuevo = new Counter();
+            nuevo.addCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
+            Funcionalidades.setCounter(nuevo);
+            Funcionalidades.counter.consultarCliente(id);
             //funcion.consultarCliente(id);
             JOptionPane.showMessageDialog(null,"Cliente añadido a la Base de Datos del Counter");
             close();
-            FuncionalidadesI fun = new FuncionalidadesI();
+            AdministrarCliente fun = new AdministrarCliente();
             fun.setVisible(true);
         }
         

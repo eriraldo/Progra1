@@ -5,6 +5,7 @@
  */
 package interfaz;
 import logica.Funcionalidades;
+import logica.Counter;
 /**
  *
  * @author erick
@@ -110,8 +111,9 @@ public class ConsultarCliente extends javax.swing.JFrame {
 
     private void consultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarClienteActionPerformed
         String cedula = cedulaCliente.getText();
-        
-        cuadroInfoCliente.setText(Funcionalidades.f.consultarCliente(cedula));
+        Counter nuevo;
+        nuevo = Funcionalidades.getCounter();
+        cuadroInfoCliente.setText(nuevo.consultarCliente(cedula));
     }//GEN-LAST:event_consultarClienteActionPerformed
 
     /**

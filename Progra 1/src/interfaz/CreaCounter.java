@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import logica.Funcionalidades;
+import logica.Counter;
 /**
  *
  * @author erick
@@ -165,7 +166,9 @@ public class CreaCounter extends javax.swing.JFrame {
         String direccion = direccionCounter.getText();
         String cantCas = cantCasilleros.getText();
         int cantCasInt = Integer.parseInt(cantCas);
-        Funcionalidades.f.crearCounter(nombre, direccion, direccion, cantCasInt);
+        Counter nuevo = new Counter();
+        nuevo.crearCounter(nombre, direccion, direccion, cantCasInt);
+        Funcionalidades.setCounter(nuevo);
         JOptionPane.showMessageDialog(null,"se creo el nuevo counter");
         close();
         FuncionalidadesI funcion = new FuncionalidadesI();
