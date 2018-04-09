@@ -103,7 +103,7 @@ public class Counter {
         int i=0;
         while(listaCasilleros[i]!= null){
             String ced = listaCasilleros[i].getCliente().getIdentificador();
-            if (ced == cedula){
+            if (ced.equals(cedula)){
                 temp = listaCasilleros[i].getCliente();
                 break;
                 
@@ -158,7 +158,7 @@ public class Counter {
         int i=0;
         while(listaCasilleros[i]!= null){
             String ced = listaCasilleros[i].getCliente().getIdentificador();
-            if (ced == cedula){
+            if (ced.equals(cedula)){
                 temp = listaCasilleros[i].getCliente();
                 break;
                 
@@ -195,7 +195,7 @@ public class Counter {
         int i=0;
         while(listaCasilleros[i]!= null){
             String ced = listaCasilleros[i].getCliente().getIdentificador();
-            if (ced == cedula){
+            if (ced.equals(cedula)){
                 break;
                 
             }
@@ -242,7 +242,7 @@ public class Counter {
         int i=0;
         while(listaCasilleros[i]!= null){
             String ced = listaCasilleros[i].getCliente().getIdentificador();
-            if (ced == cedula){
+            if (ced.equals(cedula)){
                 temp = listaCasilleros[i];
                 break;
                 
@@ -265,7 +265,7 @@ public class Counter {
         int i=0;
         while(listaCasilleros[i]!= null){
             String ced = listaCasilleros[i].getCliente().getIdentificador();
-            if (ced == cedula){
+            if (ced.equals(cedula)){
                 temp = listaCasilleros[i];
                 break;
                 
@@ -289,7 +289,7 @@ public class Counter {
         int i=0;
         while(listaCasilleros[i]!= null){
             String ced = listaCasilleros[i].getCliente().getIdentificador();
-            if (ced == cedula){
+            if (ced.equals(cedula)){
                 temp = listaCasilleros[i];
                 break;
                 
@@ -313,13 +313,13 @@ public class Counter {
         String contenido = sobre.getContenido();
         String tipoSobre = sobre.getTipoSobre();
         double resul = 0;
-        if((tipoSobre == "Aereo")||(tipoSobre=="aereo")){
-            if ((contenido=="Documento")||(contenido == "documento")){
+        if(tipoSobre.equals("Aereo")||tipoSobre.equals("aereo")){
+            if (contenido.equals("Documento")||contenido.equals("documento")){
                 resul = 0;
                 
                 
             }
-            else if((contenido=="articulo")||(contenido =="Articulo")){
+            else if(contenido.equals("Articulo")||contenido.equals("articulo")){
                 if (moneda==false)
                     resul = tipoCambio;
                 else
@@ -332,8 +332,8 @@ public class Counter {
             }
             
         }
-        if((tipoSobre == "Manila")||(tipoSobre=="manila")){
-            if ((contenido=="Documento")||(contenido == "documento")){
+        if(tipoSobre.equals( "Manila")||tipoSobre.equals( "manila")){
+            if (contenido.equals("Documento")||contenido.equals("documento")){
                 if (moneda==false)
                     resul = tipoCambio;
                 else
@@ -342,7 +342,7 @@ public class Counter {
                 
                 
             }
-            else if((contenido=="articulo")||(contenido =="Articulo")){
+            else if(contenido.equals("Articulo")||contenido.equals("articulo")){
                 if(moneda==false)
                     resul = 2*tipoCambio;
                 else
@@ -418,7 +418,7 @@ public class Counter {
         double descuento=0;
         while(listaCasilleros[i]!= null){
             String ced = listaCasilleros[i].getCliente().getIdentificador();
-            if (ced == cedula){
+            if (ced.equals(cedula)){
                 temp = listaCasilleros[i];
                 break;
                 
@@ -428,14 +428,14 @@ public class Counter {
         }
         c = temp.getCliente();
         String rango = c.getTipoCliente();
-        if((rango=="Normal")||(rango == "normal"))      //Nada descuento para cliente Normal
+        if((rango.equals("Normal"))||rango.equals("normal"))      //Nada descuento para cliente Normal
             descuento = 0;
         
-        if((rango=="Plata")||(rango == "plata")){       //5% descuento para cliente Plata
+        if((rango.equals("Plata"))||rango.equals("plata")){       //5% descuento para cliente Plata
             
             descuento = 0.05;  
         }
-        if((rango=="Oro")||(rango == "oro")){           //10% descuento para cliente Oro
+        if((rango.equals("Oro"))||rango.equals("oro")){           //10% descuento para cliente Oro
             
             descuento = 0.10;  
         }

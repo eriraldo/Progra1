@@ -113,7 +113,8 @@ public class ConsultarCliente extends javax.swing.JFrame {
         String cedula = cedulaCliente.getText();
         Counter nuevo;
         nuevo = Funcionalidades.getCounter();
-        cuadroInfoCliente.setText(nuevo.consultarCliente(cedula));
+        String r = nuevo.consultarCliente(cedula);
+        cuadroInfoCliente.setText(r);
     }//GEN-LAST:event_consultarClienteActionPerformed
 
     /**

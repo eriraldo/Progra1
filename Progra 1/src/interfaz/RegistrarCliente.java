@@ -209,7 +209,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
             Counter nuevo = new Counter();
             nuevo.addCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
             Funcionalidades.setCounter(nuevo);
-            Funcionalidades.counter.consultarCliente(id);
+            //Funcionalidades.counter.consultarCliente(id);
             //funcion.consultarCliente(id);
             JOptionPane.showMessageDialog(null,"Cliente añadido a la Base de Datos del Counter");
             close();

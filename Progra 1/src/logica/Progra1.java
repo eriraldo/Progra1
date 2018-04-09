@@ -1,4 +1,4 @@
-
+/*
 package logica;
 
 
@@ -22,9 +22,9 @@ public class Progra1 {
         f.registrarPaquete("110630719", paq1);
         f.registrarRevista("110630719", rev1);
         
-        double imp1= f.calcularImpuestoSobre(sob1, false);
-        double imp2= f.calcularImpuestoRevista(rev1, false);
-        double imp3 = f.calcularImpuestoPaquete(paq1, false);
+        double imp1= f.calcularImpuestoSobre(sob1, true);
+        double imp2= f.calcularImpuestoRevista(rev1, true);
+        double imp3 = f.calcularImpuestoPaquete(paq1, true);
         
         double desc1 = f.calcularDescuentoCliente("604490595");
         double desc2 = f.calcularDescuentoCliente("110630719");
@@ -43,3 +43,4 @@ public class Progra1 {
 }
 
 
+*/
