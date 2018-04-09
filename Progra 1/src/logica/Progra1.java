@@ -1,5 +1,6 @@
 
 package logica;
+import java.util.*;
 
 
 
@@ -16,15 +17,22 @@ public class Progra1 {
         f.addCliente("Maria", "110630719", "automaticcounterbot@gmail.com", "Female", "88262222", "Alajuela", "12/04/1990", "Oro");
         f.modificarCliente("110630719", "83150445", 5);
         
-        Sobre sob1 = new Sobre(92345,false,"Sobre comun de manila","Pedro Cunha","manila","Documento",0.05);
-        Revista rev1 = new Revista(23734,false,"Revista de coleccion","Amazon","Anemona Paradise",false,"Naturaleza");
-        Paquete paq1 = new Paquete(83823,false,"Tablet Samsung color negro","Amazon","Caja",true,true,2);
+        Sobre sob1 = new Sobre(92345,false,"Sobre comun ","Pedro Cunha","manila","Documento",0.05);
+        Revista rev1 = new Revista(23734,false,"Revista Natural","Amazon","Anemona Paradise",false,"Naturaleza");
+        Paquete paq1 = new Paquete(83823,false,"Tablet Samsung","Amazon","Caja",true,true,2);
         
         f.modificarAscensoDeRango(1);
         
         f.registrarSobre("604490595", sob1);//Esta en normal, asciende a plata
         f.registrarPaquete("604490595", paq1);//Esta en plata, asciende a oro
         f.registrarRevista("110630719", rev1);//Esta en oro ,se queda en oro
+        
+        ArrayList v = new ArrayList(20);
+        v.add(sob1);
+        v.add(paq1);
+        v.add(rev1);
+        
+        System.out.println(f.retirarPaquetes(v, "604490595"));
         
         
         
@@ -45,6 +53,8 @@ public class Progra1 {
         //f.eliminarCliente("110630719");
         
        */
+        
+        
     }
         
         

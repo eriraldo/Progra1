@@ -3,6 +3,10 @@ package logica;
 
 import indicadoresEconomicosBCCR.TipoCambio;
 
+import java.util.ArrayList;
+
+import java.lang.Math;
+
 
 public class Counter {
     
@@ -30,9 +34,10 @@ public class Counter {
         rangoAscenso = 10;
     }
     
-    public void crearCounter(String nombre, String identificacion,String direccion,int numCasilleros){
+    public boolean crearCounter(String nombre, String identificacion,String direccion,int numCasilleros){
         Counter nuevo = new Counter(nombre,identificacion,direccion,numCasilleros);
-        System.out.println("Counter creado exitosamente!");
+        
+        return true;
         
         
     }
@@ -101,7 +106,7 @@ public class Counter {
                     
         }        
     }
-    public void modificarCliente(String cedula,String datoNuevo,int tipoDato){      
+    public boolean modificarCliente(String cedula,String datoNuevo,int tipoDato){      
         Cliente temp = new Cliente();
         int i=0;
         while(listaCasilleros[i]!= null){
@@ -152,7 +157,8 @@ public class Counter {
             }
         }
         listaCasilleros[i].setCliente(temp);
-        System.out.println("Modificado!");
+        
+        return true;
         
     }
     
@@ -193,7 +199,7 @@ public class Counter {
         
     }
     
-    public void eliminarCliente(String cedula){
+    public boolean eliminarCliente(String cedula){
         Casillero[] listaAux = new Casillero[listaCasilleros.length];
         int i=0;
         while(listaCasilleros[i]!= null){
@@ -219,7 +225,8 @@ public class Counter {
         casilleroAsignado--;
         
         
-        System.out.println("Eliminado!");
+        
+        return true;
          
         
     }
@@ -240,7 +247,7 @@ public class Counter {
                 
     }
     
-    public void registrarPaquete(String cedula,Paquete paquete){
+    public boolean registrarPaquete(String cedula,Paquete paquete){
         Casillero temp = new Casillero();
         int i=0;
         while(listaCasilleros[i]!= null){
@@ -274,10 +281,10 @@ public class Counter {
         String descripcion = temp.listarEntregables();
         //Correo mail = new Correo();                           //Deshabilite el envio de correos para que no envie en cada corrida
         //mail.sendMail(destino, descripcion);
-        System.out.println("Paquete agregado al casillero!");
+        return true;
         
     }
-    public void registrarSobre(String cedula,Sobre sobre){
+    public boolean registrarSobre(String cedula,Sobre sobre){
         Casillero temp = new Casillero();
         int i=0;
         while(listaCasilleros[i]!= null){
@@ -311,11 +318,11 @@ public class Counter {
         String descripcion = temp.listarEntregables();
         //Correo mail = new Correo();                               //Deshabilite el envio de correos para que no envie en cada corrida
         //mail.sendMail(destino, descripcion);
-        System.out.println("Sobre agregado al casillero!");
+        return true;
         
         
     }
-    public void registrarRevista(String cedula,Revista revista){
+    public boolean registrarRevista(String cedula,Revista revista){
         Casillero temp = new Casillero();
         int i=0;
         while(listaCasilleros[i]!= null){
@@ -349,8 +356,8 @@ public class Counter {
         String descripcion = temp.listarEntregables();
         //Correo mail = new Correo();                       //Deshabilite el envio de correos para que no envie en cada corrida
         //mail.sendMail(destino, descripcion);
-        System.out.println("Revista agregada al casillero!");
-        
+        //System.out.println("Revista agregada al casillero!");
+        return true;
     }
     public double calcularImpuestoSobre(Sobre sobre,boolean moneda){         //moneda: false si es colones y true si es dolares
         TipoCambio t = new TipoCambio();
@@ -494,8 +501,62 @@ public class Counter {
     }
     
     
-    
-    
+    public String retirarPaquetes(ArrayList arr,String cedula){
+        int largo = arr.size();
+        String resul = "Paquete\t\t\t\tImpuesto Colones\tDescuento Colones\tImpuesto Dolares\tDescuento Dolares\n" ;
+        resul+="---------------------------------------------------------------------------------------------------------------------\n";
+        int cont =0;
+        double totalCol = 0;
+        double totalDol = 0;
+        while (cont<largo){
+            String tipoObjeto =String.valueOf(arr.get(cont).getClass());
+            if(tipoObjeto.equals("class logica.Sobre")){
+                Sobre s = (Sobre)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
+                resul+=s.getDescripcion()+"\t\t\t";
+                String impuestoColon = String.valueOf(calcularImpuestoSobre(s,false));
+                String impuestoDolar = String.valueOf(calcularImpuestoSobre(s,true));
+                String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoSobre(s,false)));
+                String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoSobre(s,true));
+                resul+=impuestoColon+"\t\t\t"+descuentoColon+"\t\t\t"+impuestoDolar+"\t\t\t"+descuentoDolar+"\n"; 
+                totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
+                totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
+                cont++;
+                
+            }
+            if(tipoObjeto.equals("class logica.Paquete")){
+                Paquete p = (Paquete)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
+                resul+=p.getDescripcion()+"\t\t\t";
+                String impuestoColon = String.valueOf(calcularImpuestoPaquete(p,false));
+                String impuestoDolar = String.valueOf(calcularImpuestoPaquete(p,true));
+                String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoPaquete(p,false)));
+                String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoPaquete(p,true));
+                resul+=impuestoColon+"\t\t\t"+descuentoColon+"\t\t\t"+impuestoDolar+"\t\t\t"+descuentoDolar+"\n";
+                totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
+                totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
+                cont++;
+                
+            }
+            if(tipoObjeto.equals("class logica.Revista")){
+                Revista r = (Revista)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
+                resul+=r.getDescripcion()+"\t\t\t";
+                String impuestoColon = String.valueOf(calcularImpuestoRevista(r,false));
+                String impuestoDolar = String.valueOf(calcularImpuestoRevista(r,true));
+                String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoRevista(r,false)));
+                String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoRevista(r,true));
+                resul+=impuestoColon+"\t\t\t"+descuentoColon+"\t\t\t"+impuestoDolar+"\t\t\t"+descuentoDolar+"\n";
+                totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
+                totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
+                cont++;
+                
+            }
             
-          
+        }
+        resul+="---------------------------------------------------------------------------------------------------------------------\n";
+        resul+="Total Colones:\t"+String.valueOf(totalCol)+"\nTotal Dolares:\t"+String.valueOf(totalDol);
+        return resul;
+        
+    }
+    
+                    
+                    
 }
