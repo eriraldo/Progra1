@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package interfaz;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import logica.Counter;
+import logica.Funcionalidades;
 
 /**
  *
@@ -16,8 +22,25 @@ public class modificarCliente extends javax.swing.JFrame {
      */
     public modificarCliente() {
         initComponents();
+        groupButton();
+    }
+    public void close(){
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
 
+    public void groupButton(){
+        ButtonGroup gb = new ButtonGroup();
+        gb.add(nombre);
+        gb.add(fechaN);
+        gb.add(cedula);
+        gb.add(genero);
+        gb.add(direccion);
+        gb.add(rangoC);
+        gb.add(telefono);
+        gb.add(correo);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,10 +50,24 @@ public class modificarCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        nombreCliente = new javax.swing.JTextField();
+        cedulaC = new javax.swing.JTextField();
+        nombre = new javax.swing.JRadioButton();
+        correo = new javax.swing.JRadioButton();
+        telefono = new javax.swing.JRadioButton();
+        direccion = new javax.swing.JRadioButton();
+        cedula = new javax.swing.JRadioButton();
+        genero = new javax.swing.JRadioButton();
+        fechaN = new javax.swing.JRadioButton();
+        rangoC = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        DatoNuevo = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        aceptar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -41,11 +78,48 @@ public class modificarCliente extends javax.swing.JFrame {
 
         jLabel2.setText("Cedula:");
 
-        nombreCliente.addActionListener(new java.awt.event.ActionListener() {
+        cedulaC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreClienteActionPerformed(evt);
+                cedulaCActionPerformed(evt);
             }
         });
+
+        nombre.setBackground(new java.awt.Color(0, 102, 102));
+        nombre.setText("nombre");
+
+        correo.setBackground(new java.awt.Color(0, 102, 102));
+        correo.setText("correo");
+
+        telefono.setBackground(new java.awt.Color(0, 102, 102));
+        telefono.setText("telefono");
+
+        direccion.setBackground(new java.awt.Color(0, 102, 102));
+        direccion.setText("direccion");
+
+        cedula.setBackground(new java.awt.Color(0, 102, 102));
+        cedula.setText("cedula");
+
+        genero.setBackground(new java.awt.Color(0, 102, 102));
+        genero.setText("genero");
+
+        fechaN.setBackground(new java.awt.Color(0, 102, 102));
+        fechaN.setText("fecha de nacimiento");
+
+        rangoC.setBackground(new java.awt.Color(0, 102, 102));
+        rangoC.setText("Rango del Cliente");
+
+        jLabel3.setText("Ingrese el dato por el cual va a ser remplazado el anterior:");
+
+        jLabel4.setText("Seccione el valor que se va a cambiar:");
+
+        aceptar.setText("Aceptar");
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarActionPerformed(evt);
+            }
+        });
+
+        cancelar.setText("Cancelar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -53,15 +127,41 @@ public class modificarCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cedulaC, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                            .addComponent(DatoNuevo)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 224, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(218, 218, 218)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(nombre)
+                                    .addComponent(correo)
+                                    .addComponent(telefono)
+                                    .addComponent(fechaN))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(genero)
+                                    .addComponent(cedula)
+                                    .addComponent(direccion)
+                                    .addComponent(rangoC))))
+                        .addGap(0, 174, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(228, 228, 228)
-                        .addComponent(nombreCliente)))
+                        .addComponent(aceptar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cancelar)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -72,8 +172,35 @@ public class modificarCliente extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(248, Short.MAX_VALUE))
+                    .addComponent(cedulaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(DatoNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nombre)
+                            .addComponent(cedula))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(correo)
+                            .addComponent(genero))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(telefono)
+                            .addComponent(direccion))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(fechaN)
+                            .addComponent(rangoC))))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aceptar)
+                    .addComponent(cancelar))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,9 +217,48 @@ public class modificarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreClienteActionPerformed
+    private void cedulaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cedulaCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombreClienteActionPerformed
+    }//GEN-LAST:event_cedulaCActionPerformed
+
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        String ced = cedulaC.getText();
+        String data = DatoNuevo.getText();
+        int opcion = 0;
+        if(nombre.isSelected()){
+            opcion = 1;
+            JOptionPane.showMessageDialog(null, " se escogio nombre");
+        }
+        else if(cedula.isSelected()){
+            opcion = 2;
+        }
+        else if(correo.isSelected()){
+            opcion = 3;
+        }
+        else if(genero.isSelected()){
+            opcion = 4;
+        }
+        else if(telefono.isSelected()){
+            opcion = 5;
+        }
+        else if(direccion.isSelected()){
+            opcion = 6;
+        }
+        else if(fechaN.isSelected()){
+            opcion = 7;
+        }
+        else if(rangoC.isSelected()){
+            opcion = 8;
+        }
+            
+        
+        Funcionalidades.modificarCliente(ced, data, opcion);
+        JOptionPane.showMessageDialog(null, "se modifico el cliente");
+        close();
+        AdministrarCliente re = new AdministrarCliente();
+        re.setVisible(true);
+        
+    }//GEN-LAST:event_aceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,9 +296,23 @@ public class modificarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DatoNuevo;
+    private javax.swing.JButton aceptar;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton cancelar;
+    private javax.swing.JRadioButton cedula;
+    private javax.swing.JTextField cedulaC;
+    private javax.swing.JRadioButton correo;
+    private javax.swing.JRadioButton direccion;
+    private javax.swing.JRadioButton fechaN;
+    private javax.swing.JRadioButton genero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField nombreCliente;
+    private javax.swing.JRadioButton nombre;
+    private javax.swing.JRadioButton rangoC;
+    private javax.swing.JRadioButton telefono;
     // End of variables declaration//GEN-END:variables
 }
