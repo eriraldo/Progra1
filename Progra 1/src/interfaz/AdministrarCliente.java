@@ -42,6 +42,7 @@ public class AdministrarCliente extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         listarClientes = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -85,6 +86,13 @@ public class AdministrarCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Regresar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -102,7 +110,10 @@ public class AdministrarCliente extends javax.swing.JFrame {
                                 .addComponent(jButton1)
                                 .addComponent(registrarCliente))
                             .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(listarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton3)))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,7 +131,9 @@ public class AdministrarCliente extends javax.swing.JFrame {
                 .addComponent(eliminar)
                 .addGap(18, 18, 18)
                 .addComponent(listarClientes)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -161,6 +174,12 @@ public class AdministrarCliente extends javax.swing.JFrame {
         lista.setVisible(true);
     }//GEN-LAST:event_listarClientesActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        close();
+        FuncionalidadesI fun = new FuncionalidadesI();
+        fun.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -200,6 +219,7 @@ public class AdministrarCliente extends javax.swing.JFrame {
     private javax.swing.JButton eliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton listarClientes;

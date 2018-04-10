@@ -50,10 +50,14 @@
                           <Component id="jLabel1" min="-2" pref="332" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="administrarCliente" pref="201" max="32767" attributes="0"/>
+                              <Component id="administrarCliente" max="32767" attributes="0"/>
                               <Component id="jButton4" max="32767" attributes="0"/>
+                              <Component id="recepcion" max="32767" attributes="0"/>
+                              <Component id="retiro" max="32767" attributes="0"/>
+                              <Component id="AdminEntregables" max="32767" attributes="0"/>
+                              <Component id="listaClientes" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -68,9 +72,17 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   <Component id="administrarCliente" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="recepcion" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="retiro" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="AdminEntregables" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="295" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="listaClientes" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="264" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -104,6 +116,44 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="recepcion">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Recepci&#xf3;n de Art&#xed;culos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recepcionActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="retiro">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Retiro de Art&#xed;culos"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="AdminEntregables">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Administraci&#xf3;n de Entregables"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="listaClientes">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Listado de Clientes con paquetes pendientes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaClientesActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

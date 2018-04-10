@@ -38,6 +38,10 @@ public class FuncionalidadesI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         administrarCliente = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        recepcion = new javax.swing.JButton();
+        retiro = new javax.swing.JButton();
+        AdminEntregables = new javax.swing.JButton();
+        listaClientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -62,6 +66,28 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
+        recepcion.setBackground(new java.awt.Color(51, 51, 51));
+        recepcion.setText("Recepción de Artículos");
+        recepcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recepcionActionPerformed(evt);
+            }
+        });
+
+        retiro.setBackground(new java.awt.Color(51, 51, 51));
+        retiro.setText("Retiro de Artículos");
+
+        AdminEntregables.setBackground(new java.awt.Color(51, 51, 51));
+        AdminEntregables.setText("Administración de Entregables");
+
+        listaClientes.setBackground(new java.awt.Color(51, 51, 51));
+        listaClientes.setText("Listado de Clientes con paquetes pendientes");
+        listaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaClientesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -72,10 +98,14 @@ public class FuncionalidadesI extends javax.swing.JFrame {
                         .addGap(137, 137, 137)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
+                        .addGap(166, 166, 166)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(administrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(administrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(recepcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(retiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AdminEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(listaClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -85,9 +115,17 @@ public class FuncionalidadesI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(77, 77, 77)
                 .addComponent(administrarCliente)
-                .addGap(159, 159, 159)
+                .addGap(18, 18, 18)
+                .addComponent(recepcion)
+                .addGap(18, 18, 18)
+                .addComponent(retiro)
+                .addGap(18, 18, 18)
+                .addComponent(AdminEntregables)
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(listaClientes)
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -115,6 +153,16 @@ public class FuncionalidadesI extends javax.swing.JFrame {
         TipoDeCambio cambio = new TipoDeCambio();
         cambio.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void listaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaClientesActionPerformed
+
+    private void recepcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recepcionActionPerformed
+        close();
+        RecepcionArticulo recep = new RecepcionArticulo();
+        recep.setVisible(true);
+    }//GEN-LAST:event_recepcionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,9 +215,13 @@ public class FuncionalidadesI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AdminEntregables;
     private javax.swing.JButton administrarCliente;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton listaClientes;
+    private javax.swing.JButton recepcion;
+    private javax.swing.JButton retiro;
     // End of variables declaration//GEN-END:variables
 }
