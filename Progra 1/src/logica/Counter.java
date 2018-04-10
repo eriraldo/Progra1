@@ -23,6 +23,7 @@ public class Counter {
 
 
     public Counter(){
+        rangoAscenso = 10;
     }
 
     public Counter(String nombre, String identificacion, String direccion, int numCasilleros) {
@@ -265,8 +266,10 @@ public class Counter {
         
         temp.setListaPaquetes(paquete);
         listaCasilleros[i] = temp;
+        
         temp.setCantidadPaquetes(temp.getCantidadPaquetes()+1);
-        if(temp.getCantidadPaquetes()% rangoAscenso == 0 ){     //Cuando los paquetes recibidos es multiplo del rango de ascenso, se sube de nivel
+        int cant = temp.getCantidadPaquetes();
+        if(cant % rangoAscenso == 0 ){     //Cuando los paquetes recibidos es multiplo del rango de ascenso, se sube de nivel
             String rango = temp.getCliente().getTipoCliente();
             if(rango.equals("Normal")||rango.equals("normal")){
                 temp.getCliente().setTipoCliente("Plata");
