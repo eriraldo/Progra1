@@ -415,7 +415,7 @@ public class Counter {
     }
     public double calcularImpuestoPaquete(Paquete paquete,boolean moneda){
         TipoCambio t = new TipoCambio();
-        double tipoCambio = t.getCompra();       //aqui se cambia cuando funcione la clase impuesto
+        double tipoCambio = t.getCompra();      //tipo de cambio en tiempo real
         double resul =0;
         boolean electronico = paquete.esElectronico();
         boolean fragil = paquete.esFragil();
@@ -505,57 +505,75 @@ public class Counter {
     
     public String retirarPaquetes(ArrayList arr,String cedula){
         int largo = arr.size();
-        String resul = "Paquete\t\t\t\tImpuesto Colones\tDescuento Colones\tImpuesto Dolares\tDescuento Dolares\n" ;
-        resul+="---------------------------------------------------------------------------------------------------------------------\n";
+        String resul ="" ;
+        
         int cont =0;
         double totalCol = 0;
         double totalDol = 0;
         while (cont<largo){
             String tipoObjeto =String.valueOf(arr.get(cont).getClass());
+            
+            resul+="------------------------------------------------\n";
             if(tipoObjeto.equals("class logica.Sobre")){
                 Sobre s = (Sobre)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
-                resul+=s.getDescripcion()+"\t\t\t";
+                resul+=s.getDescripcion()+"\n";
                 String impuestoColon = String.valueOf(calcularImpuestoSobre(s,false));
                 String impuestoDolar = String.valueOf(calcularImpuestoSobre(s,true));
                 String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoSobre(s,false)));
                 String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoSobre(s,true));
-                resul+=impuestoColon+"\t\t\t"+descuentoColon+"\t\t\t"+impuestoDolar+"\t\t\t"+descuentoDolar+"\n"; 
+                resul+="Impuesto Colones:\t"+impuestoColon+"\n"+"Descuento Colones:\t"+descuentoColon+"\n"+"Impuesto Dolares:\t"+impuestoDolar+"\n"+"Descuento Dolares:\t"+descuentoDolar+"\n";
                 totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
+                resul+="Total Sobre Colones:\t¢"+(String.valueOf((Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon))))+"\n";
+                resul+="Total Sobre Dolares:\t$"+(String.valueOf((Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar))))+"\n";
+                s.setEstadoEntrega(true);
                 cont++;
+                
                 
             }
             if(tipoObjeto.equals("class logica.Paquete")){
                 Paquete p = (Paquete)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
-                resul+=p.getDescripcion()+"\t\t\t";
+                resul+=p.getDescripcion()+"\n";
                 String impuestoColon = String.valueOf(calcularImpuestoPaquete(p,false));
                 String impuestoDolar = String.valueOf(calcularImpuestoPaquete(p,true));
                 String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoPaquete(p,false)));
                 String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoPaquete(p,true));
-                resul+=impuestoColon+"\t\t\t"+descuentoColon+"\t\t\t"+impuestoDolar+"\t\t\t"+descuentoDolar+"\n";
+                resul+="Impuesto Colones:\t"+impuestoColon+"\n"+"Descuento Colones:\t"+descuentoColon+"\n"+"Impuesto Dolares:\t"+impuestoDolar+"\n"+"Descuento Dolares:\t"+descuentoDolar+"\n"; 
                 totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
+                resul+="Total Paquete Colones:\t¢"+(String.valueOf((Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon))))+"\n";
+                resul+="Total Paquete Dolares:\t$"+(String.valueOf((Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar))))+"\n";
+                p.setEstadoEntrega(true);
                 cont++;
                 
             }
             if(tipoObjeto.equals("class logica.Revista")){
                 Revista r = (Revista)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
-                resul+=r.getDescripcion()+"\t\t\t";
+                resul+=r.getDescripcion()+"\n";
                 String impuestoColon = String.valueOf(calcularImpuestoRevista(r,false));
                 String impuestoDolar = String.valueOf(calcularImpuestoRevista(r,true));
                 String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoRevista(r,false)));
                 String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoRevista(r,true));
-                resul+=impuestoColon+"\t\t\t"+descuentoColon+"\t\t\t"+impuestoDolar+"\t\t\t"+descuentoDolar+"\n";
+                resul+="Impuesto Colones:\t"+impuestoColon+"\n"+"Descuento Colones:\t"+descuentoColon+"\n"+"Impuesto Dolares:\t"+impuestoDolar+"\n"+"Descuento Dolares:\t"+descuentoDolar+"\n"; 
                 totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
+                resul+="Total Revista Colones:\t¢"+(String.valueOf((Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon))))+"\n";
+                resul+="Total Revista Dolares:\t$"+(String.valueOf((Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar))))+"\n";
+                r.setEstadoEntrega(true);
                 cont++;
                 
             }
             
         }
-        resul+="---------------------------------------------------------------------------------------------------------------------\n";
-        resul+="Total Colones:\t"+String.valueOf(totalCol)+"\nTotal Dolares:\t"+String.valueOf(totalDol);
+        resul+="*************************************************\n";
+        resul+="\nTotal Final Colones:\t¢"+String.valueOf(totalCol)+"\nTotal Final Dolares:\t$"+String.valueOf(totalDol);
         return resul;
+        
+    }
+    
+    public String listaEntregablesPendientes(String cedula){
+        ArrayList arr ;
+        return "";
         
     }
     
