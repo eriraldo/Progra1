@@ -21,18 +21,22 @@ public class Progra1 {
         Revista rev1 = new Revista(23734,false,"Revista Natural","Amazon","Anemona Paradise",false,"Naturaleza");
         Paquete paq1 = new Paquete(83823,false,"Tablet Samsung","Amazon","Caja",true,true,2);
         
-        f.modificarAscensoDeRango(1);
+        //f.modificarAscensoDeRango(1);
         
         f.registrarSobre("604490595", sob1);//Esta en normal, asciende a plata
         f.registrarPaquete("604490595", paq1);//Esta en plata, asciende a oro
         f.registrarRevista("110630719", rev1);//Esta en oro ,se queda en oro
+        f.listaEntregablesPendientes("604490595");
+        String str = "92345,83823";
+        ArrayList array = f.obtenerEntregablesDeString(str, "604490595");
+        System.out.println(f.retirarPaquetes(array, "604490595"));
+        //ArrayList v = new ArrayList(20);
+        //v.add(sob1);
+        //v.add(paq1);
+        //v.add(rev1);
         
-        ArrayList v = new ArrayList(20);
-        v.add(sob1);
-        v.add(paq1);
-        v.add(rev1);
-        
-        System.out.println(f.retirarPaquetes(v, "604490595"));
+        //System.out.println(f.retirarPaquetes(v, "604490595")+"\n");
+        //System.out.println(f.listaEntregablesPendientes("604490595"));
         
         
         

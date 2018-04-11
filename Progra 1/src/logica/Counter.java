@@ -505,17 +505,123 @@ public class Counter {
        
     }
     
+    public ArrayList obtenerEntregablesDeString(String str,String cedula){
+        Casillero temp = new Casillero();
+        int i=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced.equals(cedula)){
+                temp = listaCasilleros[i];
+                break;              
+            }
+            else
+                i++;
+        }
+        ArrayList arr = new ArrayList(15);
+        int indice =0;
+        int largo = str.length();
+        String referencia = "";
+        ArrayList listaGlobal = temp.getListaEntregables();
+        while(indice<=largo){
+            if (indice<largo){
+                String pba =str.substring(indice,indice+1);
+                if (!str.substring(indice,indice+1).equals(",")){
+                    referencia+=Character.toString(str.charAt(indice));
+                    indice++;
+                }
+                else{
+                    indice++;
+                    int ind2 = 0;
+                    while(listaGlobal.get(ind2)!= null){
+                        String tipoObjeto =String.valueOf(listaGlobal.get(ind2).getClass());
+                        if(tipoObjeto.equals("class logica.Sobre")){
+                            Sobre s = (Sobre)listaGlobal.get(ind2);
+                            if(String.valueOf(s.getNumReferencia()).equals(referencia)){
+                                arr.add(s);
+                                referencia="";
+                                break;
+                            }
+                            else{
+                                ind2++;
+                            }
+                        }
+                        if(tipoObjeto.equals("class logica.Revista")){
+                            Revista r = (Revista)listaGlobal.get(ind2);
+                            if(String.valueOf(r.getNumReferencia()).equals(referencia)){
+                                arr.add(r);
+                                referencia="";
+                                break;
+                            }
+                            else{
+                                ind2++;
+                            }
+                        }
+                        if(tipoObjeto.equals("class logica.Paquete")){
+                            Paquete p = (Paquete)listaGlobal.get(ind2);
+                            if(String.valueOf(p.getNumReferencia()).equals(referencia)){
+                                arr.add(p);
+                                referencia="";
+                                break;
+                            }
+                            else{
+                                ind2++;
+                            }
+                        }
+                    }
+                }
+            }
+            if(indice ==largo){
+                indice++;
+                    int ind2 = 0;
+                    while(listaGlobal.get(ind2)!= null){
+                        String tipoObjeto =String.valueOf(listaGlobal.get(ind2).getClass());
+                        if(tipoObjeto.equals("class logica.Sobre")){
+                            Sobre s = (Sobre)listaGlobal.get(ind2);
+                            if(String.valueOf(s.getNumReferencia()).equals(referencia)){
+                                arr.add(s);
+                                referencia="";
+                                break;
+                            }
+                            else{
+                                ind2++;
+                            }
+                        }
+                        if(tipoObjeto.equals("class logica.Revista")){
+                            Revista r = (Revista)listaGlobal.get(ind2);
+                            if(String.valueOf(r.getNumReferencia()).equals(referencia)){
+                                arr.add(r);
+                                referencia="";
+                                break;
+                            }
+                            else{
+                                ind2++;
+                            }
+                        }
+                        if(tipoObjeto.equals("class logica.Paquete")){
+                            Paquete p = (Paquete)listaGlobal.get(ind2);
+                            if(String.valueOf(p.getNumReferencia()).equals(referencia)){
+                                arr.add(p);
+                                referencia="";
+                                break;
+                            }
+                            else{
+                                ind2++;
+                            }
+                        }
+                    }
+            }
+        }
+        return arr;   
+    }
     
     public String retirarPaquetes(ArrayList arr,String cedula){
         int largo = arr.size();
         String resul ="" ;
-        
         int cont =0;
         double totalCol = 0;
         double totalDol = 0;
         while (cont<largo){
             String tipoObjeto =String.valueOf(arr.get(cont).getClass());
-            
             resul+="------------------------------------------------\n";
             if(tipoObjeto.equals("class logica.Sobre")){
                 Sobre s = (Sobre)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
@@ -531,8 +637,6 @@ public class Counter {
                 resul+="Total Sobre Dolares:\t$"+(String.valueOf((Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar))))+"\n";
                 s.setEstadoEntrega(true);
                 cont++;
-                
-                
             }
             if(tipoObjeto.equals("class logica.Paquete")){
                 Paquete p = (Paquete)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
@@ -575,11 +679,73 @@ public class Counter {
     }
     
     public String listaEntregablesPendientes(String cedula){
-        ArrayList arr ;
-        return "";
+        Cliente temp = new Cliente();
+        int i=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced.equals(cedula)){
+                temp = listaCasilleros[i].getCliente();
+                break;  
+            }
+            else
+                i++;
+        }
+        String resul ="Lista de Entregables Pendientes para "+temp.getNombre()+":\n";
+        Casillero cas = listaCasilleros[i];
+        resul+="Paquetes:\n";
+        int cont = 0;
+        ArrayList array = cas.getListaEntregables();        //agrego a lista global de entregables para no hacer otra funcion
+        while(cas.getListaPaquetes()[cont]!= null){
+            Paquete paq = cas.getListaPaquetes()[cont]; 
+            array.add(paq);
+            if (paq.getEstadoEntrega()==false){
+                resul+="-"+paq.getDescripcion()+"\n"+"Referencia:"+String.valueOf(paq.getNumReferencia())+"\n";
+                cont++;
+            }
+            else{
+                cont++;
+            }
+        }
+        cont = 0;
+        resul+="Sobres:\n";
+        while(cas.getListaSobres()[cont]!= null){
+            Sobre s = cas.getListaSobres()[cont];
+           
+            array.add(s);
+            if (s.getEstadoEntrega()==false){
+                resul+="-"+s.getDescripcion()+"\n"+"Referencia:"+String.valueOf(s.getNumReferencia())+"\n";
+                cont++;
+            }
+            else{
+                cont++;
+            }
+        }
+        cont =0;
+        while(cas.getListaRevistas()[cont]!= null){
+            Revista r = cas.getListaRevistas()[cont];
+            
+            array.add(r);
+            if (r.getEstadoEntrega()==false){
+                resul+="-"+r.getDescripcion()+"\n"+"Referencia:"+String.valueOf(r.getNumReferencia())+"\n";
+                cont++;
+            }
+            else{
+                cont++;
+            }
+        }
+        
+        return resul;
         
     }
     
+    
+    
+        
+        
+        
+        
+        
+     
                     
                     
 }

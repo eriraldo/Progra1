@@ -1,7 +1,7 @@
 package logica;
 
 
-
+import java.util.ArrayList;
 
 public class Funcionalidades {
     
@@ -94,6 +94,24 @@ public class Funcionalidades {
     public static boolean modificarAscensoDeRango(int valor){
         counter.modificarAscensoDeRango(valor);
         return true;
+    }
+    public static String retirarEntregable(ArrayList arr,String cedula){
+        String res = counter.retirarPaquetes(arr, cedula);
+        return res;
+                
+    }
+    public static String listarEntregablesPendientes(String cedula){
+        String res = counter.listaEntregablesPendientes(cedula);
+        return res;
+    }
+    public static ArrayList obtenerEntregablesDeString(String tiraRegistros,String cedula){
+        ArrayList arr = counter.obtenerEntregablesDeString(tiraRegistros, cedula);
+        return arr;
+        
+    }
+    public static String retirarEntregables(ArrayList arr,String cedula){
+        String res = counter.retirarPaquetes(arr, cedula);
+        return res;
     }
     
             

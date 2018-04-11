@@ -1,12 +1,15 @@
 
 package logica;
 
+import java.util.ArrayList;
 
 public class Casillero {
     private int numero = 1000;
     private boolean estado;
     private Cliente cliente;//cada casillero debe de tener unicamente un cliente
     private int cantPaquetes;
+    
+    private ArrayList listaEntregables;
     
     private Paquete[] listaPaquetes;
     private Sobre[] listaSobres;
@@ -25,6 +28,7 @@ public class Casillero {
             listaRevistas = new Revista[50];
             listaSobres = new Sobre[50];
             cantPaquetes = 0;
+            listaEntregables = new ArrayList(15);
         }
         else{
             System.out.println("Error, el numero de casillero debe ser mayor o igual a 1000");
@@ -147,6 +151,10 @@ public class Casillero {
         return resul;
         
     }
+    public ArrayList getListaEntregables(){
+        return listaEntregables;
+    }
+
 }
 
 
