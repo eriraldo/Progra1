@@ -10,6 +10,7 @@ public class Casillero {
     private int cantPaquetes;
     
     private ArrayList listaEntregables;
+    private String informeEstadoCasillero;
     
     private Paquete[] listaPaquetes;
     private Sobre[] listaSobres;
@@ -28,7 +29,9 @@ public class Casillero {
             listaRevistas = new Revista[50];
             listaSobres = new Sobre[50];
             cantPaquetes = 0;
-            listaEntregables = new ArrayList(15);
+            listaEntregables = new ArrayList(20);
+            informeEstadoCasillero = "";
+            
         }
         else{
             System.out.println("Error, el numero de casillero debe ser mayor o igual a 1000");
@@ -43,7 +46,22 @@ public class Casillero {
     public void setNumero(int numero) {
         this.numero = numero;
     }
+    public String getInformeEstado() {
+        return informeEstadoCasillero;
+    }
 
+    public void setInformeEstado(String s) {
+        informeEstadoCasillero+= s;
+    }
+    
+    public void resetInformeEstado(){
+        informeEstadoCasillero ="";
+        
+    }
+    public void resetListaEntregables(){
+        listaEntregables.clear();
+    }
+    
     public boolean isEstado() {
         return estado;
     }

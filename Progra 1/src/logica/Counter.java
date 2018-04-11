@@ -6,6 +6,8 @@ import indicadoresEconomicosBCCR.TipoCambio;
 import java.util.ArrayList;
 
 import java.lang.Math;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class Counter {
@@ -86,7 +88,7 @@ public class Counter {
         return acu;
     }
     
-    public Casillero[] getLista(){
+    public static Casillero[] getLista(){
         return listaCasilleros;
     }
     
@@ -286,6 +288,7 @@ public class Counter {
         String descripcion = temp.listarEntregables();
         //Correo mail = new Correo();                           //Deshabilite el envio de correos para que no envie en cada corrida
         //mail.sendMail(destino, descripcion);
+        
         return true;
         
     }
@@ -620,11 +623,12 @@ public class Counter {
         int cont =0;
         double totalCol = 0;
         double totalDol = 0;
+        Date dNow = new Date( );
         while (cont<largo){
             String tipoObjeto =String.valueOf(arr.get(cont).getClass());
             resul+="------------------------------------------------\n";
             if(tipoObjeto.equals("class logica.Sobre")){
-                Sobre s = (Sobre)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
+                Sobre s = (Sobre)arr.get(cont);             //Hice un casteo
                 resul+=s.getDescripcion()+"\n";
                 String impuestoColon = String.valueOf(calcularImpuestoSobre(s,false));
                 String impuestoDolar = String.valueOf(calcularImpuestoSobre(s,true));
@@ -635,11 +639,18 @@ public class Counter {
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
                 resul+="Total Sobre Colones:\t¢"+(String.valueOf((Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon))))+"\n";
                 resul+="Total Sobre Dolares:\t$"+(String.valueOf((Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar))))+"\n";
-                s.setEstadoEntrega(true);
+                
+                s.setEstadoEntrega(true);   //Paquete entregado
+                SimpleDateFormat date = new SimpleDateFormat ("dd.MM.yyyy");
+                SimpleDateFormat hour = new SimpleDateFormat("hh:mm:ss");
+                String fechaEntrega = date.format(dNow);        //Marca fecha y hora
+                String horaEntrega = hour.format(dNow);
+                s.setFechaEntrega(fechaEntrega);
+                s.setHoraEntrega(horaEntrega);
                 cont++;
             }
             if(tipoObjeto.equals("class logica.Paquete")){
-                Paquete p = (Paquete)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
+                Paquete p = (Paquete)arr.get(cont);             //Hice un casteo
                 resul+=p.getDescripcion()+"\n";
                 String impuestoColon = String.valueOf(calcularImpuestoPaquete(p,false));
                 String impuestoDolar = String.valueOf(calcularImpuestoPaquete(p,true));
@@ -650,12 +661,18 @@ public class Counter {
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
                 resul+="Total Paquete Colones:\t¢"+(String.valueOf((Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon))))+"\n";
                 resul+="Total Paquete Dolares:\t$"+(String.valueOf((Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar))))+"\n";
-                p.setEstadoEntrega(true);
+                p.setEstadoEntrega(true);       //Paquete Entregado
+                SimpleDateFormat date = new SimpleDateFormat ("dd.MM.yyyy");
+                SimpleDateFormat hour = new SimpleDateFormat("hh:mm:ss");
+                String fechaEntrega = date.format(dNow);        //Marca fecha y hora
+                String horaEntrega = hour.format(dNow);
+                p.setFechaEntrega(fechaEntrega);
+                p.setHoraEntrega(horaEntrega);
                 cont++;
                 
             }
             if(tipoObjeto.equals("class logica.Revista")){
-                Revista r = (Revista)arr.get(cont);             //Hice un casteo, no se que putas es pero sirve jajaj
+                Revista r = (Revista)arr.get(cont);             //Hice un casteo
                 resul+=r.getDescripcion()+"\n";
                 String impuestoColon = String.valueOf(calcularImpuestoRevista(r,false));
                 String impuestoDolar = String.valueOf(calcularImpuestoRevista(r,true));
@@ -666,7 +683,13 @@ public class Counter {
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
                 resul+="Total Revista Colones:\t¢"+(String.valueOf((Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon))))+"\n";
                 resul+="Total Revista Dolares:\t$"+(String.valueOf((Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar))))+"\n";
-                r.setEstadoEntrega(true);
+                r.setEstadoEntrega(true);      //Paquete Entregado
+                SimpleDateFormat date = new SimpleDateFormat ("dd.MM.yyyy");
+                SimpleDateFormat hour = new SimpleDateFormat("hh:mm:ss");
+                String fechaEntrega = date.format(dNow);        //Marca fecha y hora
+                String horaEntrega = hour.format(dNow);
+                r.setFechaEntrega(fechaEntrega);
+                r.setHoraEntrega(horaEntrega);
                 cont++;
                 
             }
@@ -695,14 +718,18 @@ public class Counter {
         resul+="Paquetes:\n";
         int cont = 0;
         ArrayList array = cas.getListaEntregables();        //agrego a lista global de entregables para no hacer otra funcion
+        cas.resetInformeEstado();
+        cas.setInformeEstado("Informe de Estado de Casillero:\n------------------------------\n\n");      //Esto es usado en otra funcion adelante, no aqui
         while(cas.getListaPaquetes()[cont]!= null){
             Paquete paq = cas.getListaPaquetes()[cont]; 
             array.add(paq);
             if (paq.getEstadoEntrega()==false){
+                cas.setInformeEstado("Paquete:"+paq.getDescripcion()+"\nEstado:\t"+"Pendiente de retiro\n\n");//Esto es usado en otra funcion adelante, no aqui
                 resul+="-"+paq.getDescripcion()+"\n"+"Referencia:"+String.valueOf(paq.getNumReferencia())+"\n";
                 cont++;
             }
             else{
+                cas.setInformeEstado("Paquete:"+paq.getDescripcion()+"\nEstado:\t"+"Entregado\n\n");
                 cont++;
             }
         }
@@ -713,10 +740,12 @@ public class Counter {
            
             array.add(s);
             if (s.getEstadoEntrega()==false){
+                cas.setInformeEstado("Sobre:"+s.getDescripcion()+"\nEstado:\t"+"Pendiente de retiro\n\n");
                 resul+="-"+s.getDescripcion()+"\n"+"Referencia:"+String.valueOf(s.getNumReferencia())+"\n";
                 cont++;
             }
             else{
+                cas.setInformeEstado("Sobre:\t"+s.getDescripcion()+"\nEstado:\t"+"Entregado\n\n");
                 cont++;
             }
         }
@@ -726,15 +755,165 @@ public class Counter {
             
             array.add(r);
             if (r.getEstadoEntrega()==false){
+                cas.setInformeEstado("Revista:"+r.getDescripcion()+"\nEstado:\t"+"Pendiente de retiro\n\n");
                 resul+="-"+r.getDescripcion()+"\n"+"Referencia:"+String.valueOf(r.getNumReferencia())+"\n";
                 cont++;
             }
             else{
+                cas.setInformeEstado("Revista:\t"+r.getDescripcion()+"\nEstado:\t"+"Entregado\n\n");
                 cont++;
             }
         }
-        
         return resul;
+    }
+    
+    public String estadoCasillero(String num){       //Puede consultarse por cedula o numCasillero
+        int cont = 0;
+        String resul="";
+        if (num.length()==4){          //Osea es un numero de casillero
+            while(listaCasilleros[cont]!=null){
+                if (String.valueOf(listaCasilleros[cont].getNumero()).equals(num)){
+                    break;
+                }
+                else{
+                    cont++;
+                }
+            }
+            Casillero cas = listaCasilleros[cont];
+            Counter c = new Counter();
+            String ced = cas.getCliente().getIdentificador();
+            c.listaEntregablesPendientes(ced);
+            resul+=cas.getInformeEstado();
+        }
+        else{
+            int i=0;
+            while(listaCasilleros[i]!= null){
+                String ced = listaCasilleros[i].getCliente().getIdentificador();
+                if (ced.equals(num)){
+                    
+                    break;
+
+                }
+                else
+                    i++;
+            }
+            Casillero cas = listaCasilleros[cont];
+            Counter c = new Counter();
+            String ced = cas.getCliente().getIdentificador();
+            c.listaEntregablesPendientes(ced);
+            resul+=cas.getInformeEstado();
+            
+        }
+        return resul;
+    }
+    
+    public String detalleRecibidosPorFecha(String fecha){
+        String resul = "Articulos recibidos el "+fecha+"\n";
+        if(fecha.length() != 10 ){
+            return "Error, el formato de fecha debe ser dd.mm.yyyy";
+        }
+        else{
+            int cont =0;
+            while(listaCasilleros[cont]!= null){
+                Casillero cas = listaCasilleros[cont];
+                Counter count = new Counter();
+                cas.resetListaEntregables();
+                count.listaEntregablesPendientes(cas.getCliente().getIdentificador());
+                int index = 0;
+                ArrayList arr = cas.getListaEntregables();
+                while(index<arr.size()){
+                    String tipoObjeto =String.valueOf(arr.get(index).getClass());
+                    if(tipoObjeto.equals("class logica.Sobre")){
+                        Sobre s = (Sobre)arr.get(index);
+                        if (s.getFechaRecibido().equals(fecha)){
+                            resul+="-"+s.getDescripcion()+"\n";
+                            index++;
+                        }
+                        else{
+                            index++;
+                        }
+                    }
+                    if(tipoObjeto.equals("class logica.Paquete")){
+                        Paquete p = (Paquete)arr.get(index);
+                        if (p.getFechaRecibido().equals(fecha)){
+                            resul+="-"+p.getDescripcion()+"\n";
+                            index++;
+                        }
+                        else{
+                            index++;
+                        }
+                    }
+                    if(tipoObjeto.equals("class logica.Revista")){
+                        Revista r = (Revista)arr.get(index);
+                        if (r.getFechaRecibido().equals(fecha)){
+                            resul+="-"+r.getDescripcion()+"\n";
+                            index++;
+                        }
+                        else{
+                            index++;
+                        }
+                    }
+                       
+                }
+                cont++;
+                
+            }
+            return resul;
+        }
+    }
+    public String detalleEntregadosPorFecha(String fecha){
+        String resul = "Articulos entregados el "+fecha+"\n";
+        if(fecha.length() != 10 ){
+            return "Error, el formato de fecha debe ser dd.mm.yyyy";
+        }
+        else{
+            int cont =0;
+            while(listaCasilleros[cont]!= null){
+                Casillero cas = listaCasilleros[cont];
+                //Counter count = new Counter();
+                //count.listaEntregablesPendientes(cas.getCliente().getIdentificador());
+                int index = 0;
+                ArrayList arr = cas.getListaEntregables();
+                while(index<arr.size()){
+                    String tipoObjeto =String.valueOf(arr.get(index).getClass());
+                    if(tipoObjeto.equals("class logica.Sobre")){
+                        Sobre s = (Sobre)arr.get(index);
+                        if (s.getFechaEntrega().equals(fecha)){
+                            resul+="-"+s.getDescripcion()+"\n";
+                            index++;
+                        }
+                        
+                        else{
+                            index++;
+                        }
+                    }
+                    if(tipoObjeto.equals("class logica.Paquete")){
+                        Paquete p = (Paquete)arr.get(index);
+                        if (p.getFechaEntrega().equals(fecha)){
+                            resul+="-"+p.getDescripcion()+"\n";
+                            index++;
+                        }
+                        else{
+                            index++;
+                        }
+                    }
+                    if(tipoObjeto.equals("class logica.Revista")){
+                        Revista r = (Revista)arr.get(index);
+                        if (r.getFechaEntrega().equals(fecha)){
+                            resul+="-"+r.getDescripcion()+"\n";
+                            index++;
+                        }
+                        else{
+                            index++;
+                        }
+                    }
+                       
+                }
+                cont++;
+                
+            }
+            return resul;
+        }
         
     }
     
