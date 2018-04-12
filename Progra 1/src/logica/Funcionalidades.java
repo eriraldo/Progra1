@@ -113,6 +113,26 @@ public class Funcionalidades {
         String res = counter.retirarPaquetes(arr, cedula);
         return res;
     }
+    public static String listaEntregablesPendientes(String cedula){
+        String res = counter.listaEntregablesPendientes(cedula);
+        return res;
+    }
+    public static String estadoCasillero(String s){
+        String res = counter.estadoCasillero(s);
+        return res;
+    }
+    public static String detalleRecibidosPorFecha(String fecha){
+        String res = counter.detalleRecibidosPorFecha(fecha);
+        return res;
+    }
+    public static String detalleEntregadosPorFecha(String fecha){
+        String res = counter.detalleEntregadosPorFecha(fecha);
+        return res;
+    }
+    public static String listaClientesConPendientes(){
+        String res = counter.listaClientesConPendientes();
+        return res;
+    }
     
             
 }

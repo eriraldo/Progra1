@@ -8,6 +8,7 @@ public class Casillero {
     private boolean estado;
     private Cliente cliente;//cada casillero debe de tener unicamente un cliente
     private int cantPaquetes;
+    private int cantPendientes;
     
     private ArrayList listaEntregables;
     private String informeEstadoCasillero;
@@ -31,6 +32,7 @@ public class Casillero {
             cantPaquetes = 0;
             listaEntregables = new ArrayList(20);
             informeEstadoCasillero = "";
+            cantPendientes= 0;
             
         }
         else{
@@ -64,6 +66,12 @@ public class Casillero {
     
     public boolean isEstado() {
         return estado;
+    }
+    public void setCantidadPendientes(int n){
+        cantPendientes+=n;
+    }
+    public int getCantidadPendientes(){
+        return cantPendientes;
     }
 
     public void setEstado(boolean estado) {

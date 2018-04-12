@@ -286,6 +286,7 @@ public class Counter {
         }
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
+        temp.setCantidadPendientes(1);
         //Correo mail = new Correo();                           //Deshabilite el envio de correos para que no envie en cada corrida
         //mail.sendMail(destino, descripcion);
         
@@ -324,6 +325,7 @@ public class Counter {
         }
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
+        temp.setCantidadPendientes(1);
         //Correo mail = new Correo();                               //Deshabilite el envio de correos para que no envie en cada corrida
         //mail.sendMail(destino, descripcion);
         return true;
@@ -362,6 +364,7 @@ public class Counter {
         }
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
+        temp.setCantidadPendientes(1);
         //Correo mail = new Correo();                       //Deshabilite el envio de correos para que no envie en cada corrida
         //mail.sendMail(destino, descripcion);
         //System.out.println("Revista agregada al casillero!");
@@ -383,32 +386,24 @@ public class Counter {
                 if (moneda==false)
                     resul = tipoCambio;
                 else
-                    resul = 1;
-                
-                
+                    resul = 1; 
             }
             else{
                 System.out.println("Error al calcular impuesto, recuerde que contenido es documento o articulo y tipoSobre es aereo o manila");
-            }
-            
+            }  
         }
         if(tipoSobre.equals( "Manila")||tipoSobre.equals( "manila")){
             if (contenido.equals("Documento")||contenido.equals("documento")){
                 if (moneda==false)
                     resul = tipoCambio;
                 else
-                    resul = 1;
-                
-                
-                
+                    resul = 1;  
             }
             else if(contenido.equals("Articulo")||contenido.equals("articulo")){
                 if(moneda==false)
                     resul = 2*tipoCambio;
                 else
                     resul = 2;
-                
-                
             }
             else{
                 System.out.println("Error al calcular impuesto, recuerde que contenido es documento o articulo y tipoSobre es aereo o manila");
@@ -624,6 +619,18 @@ public class Counter {
         double totalCol = 0;
         double totalDol = 0;
         Date dNow = new Date( );
+        Casillero temp = new Casillero();
+        int i=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced.equals(cedula)){
+                temp = listaCasilleros[i];
+                break;
+                
+            }
+            else
+                i++;
+        }
         while (cont<largo){
             String tipoObjeto =String.valueOf(arr.get(cont).getClass());
             resul+="------------------------------------------------\n";
@@ -639,7 +646,6 @@ public class Counter {
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
                 resul+="Total Sobre Colones:\t¢"+(String.valueOf((Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon))))+"\n";
                 resul+="Total Sobre Dolares:\t$"+(String.valueOf((Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar))))+"\n";
-                
                 s.setEstadoEntrega(true);   //Paquete entregado
                 SimpleDateFormat date = new SimpleDateFormat ("dd.MM.yyyy");
                 SimpleDateFormat hour = new SimpleDateFormat("hh:mm:ss");
@@ -647,6 +653,7 @@ public class Counter {
                 String horaEntrega = hour.format(dNow);
                 s.setFechaEntrega(fechaEntrega);
                 s.setHoraEntrega(horaEntrega);
+                temp.setCantidadPendientes(-1);
                 cont++;
             }
             if(tipoObjeto.equals("class logica.Paquete")){
@@ -668,6 +675,7 @@ public class Counter {
                 String horaEntrega = hour.format(dNow);
                 p.setFechaEntrega(fechaEntrega);
                 p.setHoraEntrega(horaEntrega);
+                temp.setCantidadPendientes(-1);
                 cont++;
                 
             }
@@ -690,6 +698,7 @@ public class Counter {
                 String horaEntrega = hour.format(dNow);
                 r.setFechaEntrega(fechaEntrega);
                 r.setHoraEntrega(horaEntrega);
+                temp.setCantidadPendientes(-1);
                 cont++;
                 
             }
@@ -852,11 +861,9 @@ public class Counter {
                         else{
                             index++;
                         }
-                    }
-                       
+                    }   
                 }
                 cont++;
-                
             }
             return resul;
         }
@@ -917,7 +924,22 @@ public class Counter {
         
     }
     
-    
+    public String  listaClientesConPendientes(){
+        String resul="Clientes con articulos pendientes"+"\n\n";
+        int cont = 0;
+        while(listaCasilleros[cont]!=null){
+            Casillero cas = listaCasilleros[cont];
+            if (cas.getCantidadPendientes() != 0){
+                Cliente cl = cas.getCliente();
+                resul+="Nombre:"+cl.getNombre()+"\nID:"+cl.getIdentificador()+"\nCorreo:"+cl.getCorreo()+"\nTelefono:"+cl.getTelefono();
+                resul+="\nArticulos Pendientes:"+String.valueOf(cas.getCantidadPendientes())+"\n"+"****************************\n";
+                cont++;
+            }
+            else
+                cont++;    
+        }
+        return resul;  
+    }
     
         
         

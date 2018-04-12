@@ -26,12 +26,14 @@ public class Progra1 {
         f.registrarSobre("604490595", sob1);//Esta en normal, asciende a plata
         f.registrarPaquete("604490595", paq1);//Esta en plata, asciende a oro
         f.registrarRevista("110630719", rev1);//Esta en oro ,se queda en oro
+        System.out.println(f.listaClientesConPendientes());
         f.listaEntregablesPendientes("604490595");
         f.listaEntregablesPendientes("110630719");
         String ent = "83823";
         ArrayList arr = f.obtenerEntregablesDeString(ent, "604490595");
         f.retirarPaquetes(arr, "604490595");
-        //System.out.println(f.estadoCasillero("1000"));
+        System.out.println(f.listaClientesConPendientes());
+        System.out.println(f.estadoCasillero("1000"));
         System.out.println(f.detalleRecibidosPorFecha("11.04.2018"));
         System.out.println(f.detalleEntregadosPorFecha("11.04.2018"));
         
