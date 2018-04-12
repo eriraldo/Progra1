@@ -84,6 +84,11 @@ public class FuncionalidadesI extends javax.swing.JFrame {
 
         AdminEntregables.setBackground(new java.awt.Color(51, 51, 51));
         AdminEntregables.setText("Administración de Entregables");
+        AdminEntregables.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminEntregablesActionPerformed(evt);
+            }
+        });
 
         listaClientes.setBackground(new java.awt.Color(51, 51, 51));
         listaClientes.setText("Listado de Clientes con paquetes pendientes");
@@ -174,6 +179,12 @@ public class FuncionalidadesI extends javax.swing.JFrame {
         retiroArticulo retirar = new retiroArticulo();
         retirar.setVisible(true);
     }//GEN-LAST:event_retiroActionPerformed
+
+    private void AdminEntregablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminEntregablesActionPerformed
+        close();
+        administracionEntregable admin = new administracionEntregable();
+        admin.setVisible(true);
+    }//GEN-LAST:event_AdminEntregablesActionPerformed
 
     /**
      * @param args the command line arguments
