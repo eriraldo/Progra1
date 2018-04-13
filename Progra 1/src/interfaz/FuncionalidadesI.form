@@ -58,6 +58,7 @@
                               <Component id="retiro" max="32767" attributes="0"/>
                               <Component id="AdminEntregables" max="32767" attributes="0"/>
                               <Component id="listaClientes" max="32767" attributes="0"/>
+                              <Component id="reporte" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -82,7 +83,9 @@
                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="listaClientes" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="264" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="reporte" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="221" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -160,6 +163,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaClientesActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="reporte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reporte de Resumen Contable"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reporteActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

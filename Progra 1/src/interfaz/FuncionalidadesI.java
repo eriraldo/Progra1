@@ -42,6 +42,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
         retiro = new javax.swing.JButton();
         AdminEntregables = new javax.swing.JButton();
         listaClientes = new javax.swing.JButton();
+        reporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -98,6 +99,13 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
+        reporte.setText("Reporte de Resumen Contable");
+        reporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reporteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -115,7 +123,8 @@ public class FuncionalidadesI extends javax.swing.JFrame {
                             .addComponent(recepcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(retiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(AdminEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(listaClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(listaClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(reporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -135,7 +144,9 @@ public class FuncionalidadesI extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(listaClientes)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(reporte)
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,6 +198,12 @@ public class FuncionalidadesI extends javax.swing.JFrame {
         administracionEntregable admin = new administracionEntregable();
         admin.setVisible(true);
     }//GEN-LAST:event_AdminEntregablesActionPerformed
+
+    private void reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteActionPerformed
+        close();
+        reporteContable rep = new reporteContable();
+        rep.setVisible(true);
+    }//GEN-LAST:event_reporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,6 +263,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton listaClientes;
     private javax.swing.JButton recepcion;
+    private javax.swing.JButton reporte;
     private javax.swing.JButton retiro;
     // End of variables declaration//GEN-END:variables
 }
