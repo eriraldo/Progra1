@@ -200,8 +200,8 @@ public class RecibirRevista extends javax.swing.JFrame {
         Funcionalidades.setCounter(count);
         JOptionPane.showMessageDialog(null, "se registro la revista");
         close();
-        RecepcionArticulo re = new RecepcionArticulo();
-        re.setVisible(true);
+        FuncionalidadesI fun = new FuncionalidadesI();
+        fun.setVisible(true);
         
     }//GEN-LAST:event_aceptarActionPerformed
 

@@ -120,6 +120,11 @@ public class modificarCliente extends javax.swing.JFrame {
         });
 
         cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -259,6 +264,13 @@ public class modificarCliente extends javax.swing.JFrame {
         re.setVisible(true);
         
     }//GEN-LAST:event_aceptarActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        close();
+        AdministrarCliente admin = new AdministrarCliente();
+        admin.setVisible(true);
+        
+    }//GEN-LAST:event_cancelarActionPerformed
 
     /**
      * @param args the command line arguments

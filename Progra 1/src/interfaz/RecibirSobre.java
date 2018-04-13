@@ -212,8 +212,8 @@ public class RecibirSobre extends javax.swing.JFrame {
         Funcionalidades.setCounter(count);
         JOptionPane.showMessageDialog(null, "se registro el sobre");
         close();
-        RecepcionArticulo re = new RecepcionArticulo();
-        re.setVisible(true);
+        FuncionalidadesI fun = new FuncionalidadesI();
+        fun.setVisible(true);
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

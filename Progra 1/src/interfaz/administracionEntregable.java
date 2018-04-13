@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author erick
@@ -16,6 +19,10 @@ public class administracionEntregable extends javax.swing.JFrame {
      */
     public administracionEntregable() {
         initComponents();
+    }
+    public void close(){
+        WindowEvent winClosingEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
     }
 
     /**
@@ -29,11 +36,12 @@ public class administracionEntregable extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        estadoCasillero = new javax.swing.JButton();
+        detalleRecibidos = new javax.swing.JButton();
+        detalleEntregados = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -42,15 +50,37 @@ public class administracionEntregable extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Administración de Entregables");
 
-        jButton1.setText("Estado del casillero de un Cliente");
+        estadoCasillero.setText("Estado del casillero de un Cliente");
+        estadoCasillero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estadoCasilleroActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Detalle de artículos recibidos en fecha particular");
+        detalleRecibidos.setText("Detalle de artículos recibidos en fecha particular");
+        detalleRecibidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detalleRecibidosActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Detalle de artículos entregados en fecha particular");
+        detalleEntregados.setText("Detalle de artículos entregados en fecha particular");
+        detalleEntregados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detalleEntregadosActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Detalle de artículos pendientes de retirar");
 
         jButton5.setText("Detalle de artículos pendientes de retirar");
+
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,11 +94,14 @@ public class administracionEntregable extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                            .addComponent(estadoCasillero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(detalleRecibidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(detalleEntregados, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -77,16 +110,18 @@ public class administracionEntregable extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
-                .addComponent(jButton1)
+                .addComponent(estadoCasillero)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(detalleRecibidos)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(detalleEntregados)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,6 +137,30 @@ public class administracionEntregable extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void detalleRecibidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detalleRecibidosActionPerformed
+        close();
+        detalleRecibidosEnFecha recibidos = new detalleRecibidosEnFecha();
+        recibidos.setVisible(true);
+    }//GEN-LAST:event_detalleRecibidosActionPerformed
+
+    private void estadoCasilleroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoCasilleroActionPerformed
+        close();
+        estadoCasilleroCliente estado = new estadoCasilleroCliente();
+        estado.setVisible(true);
+    }//GEN-LAST:event_estadoCasilleroActionPerformed
+
+    private void detalleEntregadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detalleEntregadosActionPerformed
+        close();
+        detalleEntregadosEnFecha Entregados = new detalleEntregadosEnFecha();
+        Entregados.setVisible(true);
+    }//GEN-LAST:event_detalleEntregadosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        close();
+        FuncionalidadesI fun = new FuncionalidadesI();
+        fun.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,9 +198,10 @@ public class administracionEntregable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton detalleEntregados;
+    private javax.swing.JButton detalleRecibidos;
+    private javax.swing.JButton estadoCasillero;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

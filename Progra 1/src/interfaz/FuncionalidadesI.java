@@ -165,7 +165,9 @@ public class FuncionalidadesI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void listaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaClientesActionPerformed
-        // TODO add your handling code here:
+        close();
+        listaClientesConPendientes lista = new listaClientesConPendientes();
+        lista.setVisible(true);
     }//GEN-LAST:event_listaClientesActionPerformed
 
     private void recepcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recepcionActionPerformed
