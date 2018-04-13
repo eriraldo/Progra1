@@ -13,6 +13,11 @@ public class Paquete extends Entregable {
     private String horaRecibido;
     private String fechaEntregado;
     private String horaEntregado;
+    private String impuestoColon;
+    private String descuentoColon;
+    private String impuestoDolar;
+    private String descuentoDolar;
+    
     
     public Paquete(int numReferencia,boolean estadoEntrega,String descripcion,String remitente,String tipoEntrega,boolean fragil,boolean esElectronico,double peso){
         super(numReferencia,estadoEntrega,descripcion,remitente);
@@ -27,6 +32,10 @@ public class Paquete extends Entregable {
         horaRecibido = hour.format(dNow);
         fechaEntregado ="";
         horaEntregado = "";
+        impuestoColon="";
+        descuentoColon="";
+        impuestoDolar="";
+        descuentoDolar="";
     }
 
     public boolean esFragil() {
@@ -46,6 +55,30 @@ public class Paquete extends Entregable {
     }
     public String getFechaRecibido(){
         return fechaRecibido;
+    }
+    public void setImpuestoColon(String dato){
+        impuestoColon = dato;
+    }
+    public String getImpuestoColon(){
+        return impuestoColon;
+    }
+    public void setDescuentoColon(String dato){
+        descuentoColon = dato;
+    }
+    public String getDescuentoColon(){
+        return descuentoColon;
+    }
+    public void setImpuestoDolar(String dato){
+        impuestoDolar = dato;
+    }
+    public String getImpuestoDolar(){
+        return impuestoDolar;
+    }
+    public void setDescuentoDolar(String dato){
+        descuentoDolar = dato;
+    }
+    public String getDescuentoDolar(){
+        return descuentoDolar;
     }
 
     public void setFragil(boolean fragil) {

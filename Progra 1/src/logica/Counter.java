@@ -641,6 +641,10 @@ public class Counter {
                 String impuestoDolar = String.valueOf(calcularImpuestoSobre(s,true));
                 String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoSobre(s,false)));
                 String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoSobre(s,true));
+                s.setImpuestoColon(impuestoColon);
+                s.setDescuentoColon(descuentoColon);
+                s.setImpuestoDolar(impuestoDolar);
+                s.setDescuentoDolar(descuentoDolar);
                 resul+="Impuesto Colones:\t"+impuestoColon+"\n"+"Descuento Colones:\t"+descuentoColon+"\n"+"Impuesto Dolares:\t"+impuestoDolar+"\n"+"Descuento Dolares:\t"+descuentoDolar+"\n";
                 totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
@@ -663,6 +667,10 @@ public class Counter {
                 String impuestoDolar = String.valueOf(calcularImpuestoPaquete(p,true));
                 String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoPaquete(p,false)));
                 String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoPaquete(p,true));
+                p.setImpuestoColon(impuestoColon);
+                p.setDescuentoColon(descuentoColon);
+                p.setImpuestoDolar(impuestoDolar);
+                p.setDescuentoDolar(descuentoDolar);
                 resul+="Impuesto Colones:\t"+impuestoColon+"\n"+"Descuento Colones:\t"+descuentoColon+"\n"+"Impuesto Dolares:\t"+impuestoDolar+"\n"+"Descuento Dolares:\t"+descuentoDolar+"\n"; 
                 totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
@@ -686,6 +694,10 @@ public class Counter {
                 String impuestoDolar = String.valueOf(calcularImpuestoRevista(r,true));
                 String descuentoColon =  String.valueOf(Math.round(descuentoClientePaquete(cedula)*calcularImpuestoRevista(r,false)));
                 String descuentoDolar = String.valueOf(descuentoClientePaquete(cedula)*calcularImpuestoRevista(r,true));
+                r.setImpuestoColon(impuestoColon);
+                r.setDescuentoColon(descuentoColon);
+                r.setImpuestoDolar(impuestoDolar);
+                r.setDescuentoDolar(descuentoDolar);
                 resul+="Impuesto Colones:\t"+impuestoColon+"\n"+"Descuento Colones:\t"+descuentoColon+"\n"+"Impuesto Dolares:\t"+impuestoDolar+"\n"+"Descuento Dolares:\t"+descuentoDolar+"\n"; 
                 totalCol+=(Double.parseDouble(impuestoColon)-Double.parseDouble(descuentoColon));
                 totalDol+=(Double.parseDouble(impuestoDolar)-Double.parseDouble(descuentoDolar));
@@ -889,7 +901,6 @@ public class Counter {
                             resul+="-"+s.getDescripcion()+"\n";
                             index++;
                         }
-                        
                         else{
                             index++;
                         }
@@ -940,6 +951,101 @@ public class Counter {
         }
         return resul;  
     }
+    public String reporteContable(String fecha){
+        double totalImpuestosColones = 0;
+        double totalImpuestosDolares = 0;
+        double totalDescuentosColones = 0;
+        double totalDescuentosDolares = 0;
+        double totalFinalColones =0;
+        double totalFinalDolares=0;
+        String resul ="Reporte contable para el dia "+fecha+"\n---------------------------------------\n";
+        int cont=0;
+        while(listaCasilleros[cont]!=null){
+            Casillero cas = listaCasilleros[cont];
+            Cliente cl = cas.getCliente();
+            int index=0;
+            ArrayList arr = cas.getListaEntregables();
+            while(index<arr.size()){
+                String tipoObjeto =String.valueOf(arr.get(index).getClass());
+                    if(tipoObjeto.equals("class logica.Sobre")){
+                        Sobre s = (Sobre)arr.get(index);
+                        if (s.getFechaEntrega().equals(fecha)){
+                            double impCol = Double.parseDouble(s.getImpuestoColon());
+                            totalImpuestosColones+=impCol;
+                            double desCol= Double.parseDouble(s.getDescuentoColon());
+                            totalDescuentosColones+=desCol;
+                            double impDol = Double.parseDouble(s.getImpuestoDolar());
+                            totalImpuestosDolares+=impDol;
+                            double desDol= Double.parseDouble(s.getDescuentoDolar());
+                            totalDescuentosDolares+=desDol;
+                            double impTotalCol = impCol-desCol;
+                            totalFinalColones+=impTotalCol;
+                            double impTotalDol = impDol-desDol;
+                            totalFinalDolares+=impTotalDol;
+                            totalFinalColones+=impCol;
+                            totalFinalDolares+=impDol;
+                            index++;
+                        }
+                        else{
+                            index++;
+                        }
+                    }
+                    if(tipoObjeto.equals("class logica.Paquete")){
+                        Paquete p = (Paquete)arr.get(index);
+                        if (p.getFechaEntrega().equals(fecha)){
+                            double impCol = Double.parseDouble(p.getImpuestoColon());
+                            totalImpuestosColones+=impCol;
+                            double desCol= Double.parseDouble(p.getDescuentoColon());
+                            totalDescuentosColones+=desCol;
+                            double impDol = Double.parseDouble(p.getImpuestoDolar());
+                            totalImpuestosDolares+=impDol;
+                            double desDol= Double.parseDouble(p.getDescuentoDolar());
+                            totalDescuentosDolares+=desDol;
+                            double impTotalCol = impCol-desCol;
+                            totalFinalColones+=impTotalCol;
+                            double impTotalDol = impDol-desDol;
+                            totalFinalDolares+=impTotalDol;
+                            totalFinalColones+=impCol;
+                            totalFinalDolares+=impDol;
+                            index++;
+                        }
+                        else{
+                            index++;
+                        }
+                    }
+                    if(tipoObjeto.equals("class logica.Revista")){
+                        Revista r = (Revista)arr.get(index);
+                        if (r.getFechaEntrega().equals(fecha)){
+                            double impCol = Double.parseDouble(r.getImpuestoColon());
+                            totalImpuestosColones+=impCol;
+                            double desCol= Double.parseDouble(r.getDescuentoColon());
+                            totalDescuentosColones+=desCol;
+                            double impDol = Double.parseDouble(r.getImpuestoDolar());
+                            totalImpuestosDolares+=impDol;
+                            double desDol= Double.parseDouble(r.getDescuentoDolar());
+                            totalDescuentosDolares+=desDol;
+                            double impTotalCol = impCol-desCol;
+                            totalFinalColones+=impTotalCol;
+                            double impTotalDol = impDol-desDol;
+                            totalFinalDolares+=impTotalDol;
+                            totalFinalColones+=impCol;
+                            totalFinalDolares+=impDol;
+                            index++;
+                        }
+                        else{
+                            index++;
+                        }
+                    }
+            }
+            cont++;
+        }
+        resul+="\nImpuestos recaudados:\n-Colones:"+totalImpuestosColones+"\n-Dolares:"+totalImpuestosDolares;
+        resul+="\n\nDescuentos Aplicados:\n-Colones:"+totalDescuentosColones+"\n-Dolares:"+totalDescuentosDolares;
+        resul+="\n\nTotal Final:\n-Colones:"+totalFinalColones+"\n-Dolares:"+totalFinalDolares+"\n*****************************************\n";
+        resul+="Nota: Los montos en dolares son la conversion del monto en colones y no una cantidad aparte";
+        return resul;
+    }
+    
     
         
         
