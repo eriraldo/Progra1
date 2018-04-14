@@ -17,7 +17,8 @@ public class Counter {
     private String direccion ;
     private int numCasilleros;
     private int rangoAscenso;        //Paquetes que debe recibir cliente para ascender de rango
-    
+    private String informesDeRetiros;
+    private int cantInformesDeRetiro;
     
     public static Casillero[] listaCasilleros;
     
@@ -26,6 +27,8 @@ public class Counter {
 
     public Counter(){
         rangoAscenso = 10;
+        informesDeRetiros = "";
+        cantInformesDeRetiro = 0;
     }
 
     public Counter(String nombre, String identificacion, String direccion, int numCasilleros) {
@@ -35,6 +38,8 @@ public class Counter {
         this.numCasilleros = numCasilleros;
         listaCasilleros= new Casillero[numCasilleros];
         rangoAscenso = 10;
+        informesDeRetiros = "";
+        cantInformesDeRetiro = 0;
     }
     
     public boolean crearCounter(String nombre, String identificacion,String direccion,int numCasilleros){
@@ -44,7 +49,6 @@ public class Counter {
         
         
     }
-    
     public int getNumCasilleros(){
         return numCasilleros;
     }
@@ -161,8 +165,7 @@ public class Counter {
         }
         listaCasilleros[i].setCliente(temp);
         
-        return true;
-        
+        return true;    
     }
     
     public String consultarCliente(String cedula){
@@ -717,7 +720,9 @@ public class Counter {
             
         }
         resul+="*************************************************\n";
-        resul+="\nTotal Final Colones:\t¢"+String.valueOf(totalCol)+"\nTotal Final Dolares:\t$"+String.valueOf(totalDol);
+        resul+="\nTotal Final Colones:\t¢"+String.valueOf(totalCol)+"\nTotal Final Dolares:\t$"+String.valueOf(totalDol)+"\n";
+        cantInformesDeRetiro++;
+        informesDeRetiros+="\nInforme de retiro "+String.valueOf(cantInformesDeRetiro)+"\n"+resul;
         return resul;
         
     }
@@ -1046,8 +1051,41 @@ public class Counter {
         return resul;
     }
     
-    
+    public String listarPendientesTotales(){
+        int cont =0;
+        String resul = "";
+        while (listaCasilleros[cont]!=null){
+            Casillero cas = listaCasilleros[cont];
+            String cedula = cas.getCliente().getIdentificador();
+            resul+="\n******************************************\n"+listaEntregablesPendientes(cedula);
+            cont++;
+            
+        }
+        return resul;
+       
+    }
+    public void enviarCorreoAPendientes(){
+        int cont =0;
+        while(listaCasilleros[cont]!=null){
+            Casillero cas = listaCasilleros[cont];
+            if(cas.getCantidadPendientes()!=0){
+                String destino = cas.getCliente().getCorreo();
+                String descripcion = cas.listarPendientes();
+                Correo mail = new Correo();                       
+                mail.sendMail(destino, descripcion);
+                cont++;       
+            }
+            else{
+                cont++;
+                
+            }
+        }
+    }
         
+    public String detalleDeRetiros(){
+        
+        return informesDeRetiros;
+    }
         
         
         

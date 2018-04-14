@@ -147,7 +147,6 @@ public class Casillero {
                 String str = rev.getTitulo();
                 resul+="-"+str;
                 cont++;
-            
             }
         }
         resul+="\n\n";
@@ -159,7 +158,6 @@ public class Casillero {
                 String str = paq.getDescripcion();
                 resul+="-"+str;
                 cont++;
-            
             }
         }
         resul+="\n\n";
@@ -180,7 +178,58 @@ public class Casillero {
     public ArrayList getListaEntregables(){
         return listaEntregables;
     }
-
+    public String listarPendientes(){
+        String resul = "";
+        int cont = 0;
+        if (listaRevistas[cont]!=null){
+            resul+="Revistas:"+"\n";
+            while(listaRevistas[cont]!=null){
+                Revista rev = listaRevistas[cont];
+                if (rev.getEstadoEntrega()== false){
+                    String str = rev.getTitulo();
+                    resul+="-"+str;
+                    cont++;
+                }
+                else{
+                    cont++;
+                }
+            }
+        }
+        resul+="\n\n";
+        cont = 0;
+        if (listaPaquetes[cont]!=null){
+            resul+="Paquetes:"+"\n";
+            while(listaPaquetes[cont]!=null){
+                Paquete paq = listaPaquetes[cont];
+                if(paq.getEstadoEntrega()==false){
+                    String str = paq.getDescripcion();
+                    resul+="-"+str;
+                    cont++;
+                }
+                else{
+                    cont++;
+                }
+            }
+        }
+        resul+="\n\n";
+        cont = 0;
+        if (listaSobres[cont]!=null){
+            resul+="Sobres:"+"\n";
+            while(listaSobres[cont]!=null){
+                Sobre sob = listaSobres[cont];
+                if (sob.getEstadoEntrega()==false){
+                    String str = sob.getDescripcion();
+                    resul+="-"+str;
+                    cont++;
+                }
+                else{
+                    cont++;
+                }
+            }
+        }
+        return resul;
+        
+    }
 }
 
 
