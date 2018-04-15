@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class Counter {
     
-    private String nombre ;
+    private String nombre ; 
     private String identificacion ;
     private String direccion ;
     private int numCasilleros;
@@ -96,6 +96,8 @@ public class Counter {
         return listaCasilleros;
     }
     
+    
+    
     public void addCliente(String name,String id,String mail,String gender,String cellphone,String location,String nacimiento,String rango){
         int largo = listaCasilleros.length;
         Cliente nuevo = new Cliente(name,id,mail,gender,cellphone,location,nacimiento,rango);
@@ -112,6 +114,22 @@ public class Counter {
                 cont++;
                     
         }        
+    }
+    public boolean verificarAddCliente(String ced){
+        boolean flag = false;       //verificador por si encuentra una cedula ya ingresada
+        int cont =0;
+        while(listaCasilleros[cont]!=null){
+            if(listaCasilleros[cont].getCliente().getIdentificador().equals(ced)){  //recorre la lista de casilleros
+                flag = true;
+                break;
+            }
+            else{
+                cont++;
+            }
+        }
+        return flag;    //retorna el resultado
+        
+        
     }
     public boolean modificarCliente(String cedula,String datoNuevo,int tipoDato){      
         Cliente temp = new Cliente();
@@ -147,8 +165,7 @@ public class Counter {
             }
             case 5:{
                 temp.setTelefono(datoNuevo);    //#5 telefono
-                break;
-                
+                break; 
             }
             case 6:{
                 temp.setDireccion(datoNuevo);   //#6 direccion
@@ -254,6 +271,22 @@ public class Counter {
         return lista;
                 
     }
+    public boolean detectarCambioDeNivel(String cedula){
+        int i=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();    //Busca el casillero asociado
+            if (ced.equals(cedula)){
+                break; 
+            }
+            else
+                i++;
+        }
+        if (listaCasilleros[i].getCambioDeNivel()==true)    //Detecta si cambio de nivel al agregar el paquete
+            return true;
+        else
+            return false;
+        
+    }
     
     public boolean registrarPaquete(String cedula,Paquete paquete){
         Casillero temp = new Casillero();
@@ -262,19 +295,17 @@ public class Counter {
             String ced = listaCasilleros[i].getCliente().getIdentificador();
             if (ced.equals(cedula)){
                 temp = listaCasilleros[i];
-                break;
-                
+                break;    
             }
             else
                 i++;
-        }
-        
+        } 
         temp.setListaPaquetes(paquete);
         listaCasilleros[i] = temp;
-        
         temp.setCantidadPaquetes(temp.getCantidadPaquetes()+1);
         int cant = temp.getCantidadPaquetes();
         if(cant % rangoAscenso == 0 ){     //Cuando los paquetes recibidos es multiplo del rango de ascenso, se sube de nivel
+            temp.setCambioDeNivel(true);   //Para poder mostrar en interfaz el mensaje de cambio de nivel
             String rango = temp.getCliente().getTipoCliente();
             if(rango.equals("Normal")||rango.equals("normal")){
                 temp.getCliente().setTipoCliente("Plata");
@@ -284,9 +315,11 @@ public class Counter {
             }
             if(rango.equals("Oro")||rango.equals("oro")){       //Si es oro y detecta un ascenso, se mantiene en oro
                 temp.getCliente().setTipoCliente("Oro");
-            }
-            
+            }  
         }
+        else
+            temp.setCambioDeNivel(false);   //aqui no cambia de nivel aun
+        
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
         temp.setCantidadPendientes(1);
@@ -314,6 +347,7 @@ public class Counter {
         listaCasilleros[i] = temp;
         temp.setCantidadPaquetes(temp.getCantidadPaquetes()+1);
         if(temp.getCantidadPaquetes()% rangoAscenso == 0 ){     //Cuando los paquetes recibidos es multiplo del rango de ascenso, se sube de nivel
+            temp.setCambioDeNivel(true);   //Para poder mostrar en interfaz el mensaje de cambio de nivel
             String rango = temp.getCliente().getTipoCliente();
             if(rango.equals("Normal")||rango.equals("normal")){
                 temp.getCliente().setTipoCliente("Plata");
@@ -326,6 +360,8 @@ public class Counter {
             }
             
         }
+        else
+            temp.setCambioDeNivel(false);
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
         temp.setCantidadPendientes(1);
@@ -353,6 +389,7 @@ public class Counter {
         listaCasilleros[i] = temp;
         temp.setCantidadPaquetes(temp.getCantidadPaquetes()+1);
         if(temp.getCantidadPaquetes()% rangoAscenso == 0 ){     //Cuando los paquetes recibidos es multiplo del rango de ascenso, se sube de nivel
+            temp.setCambioDeNivel(true);   //Para poder mostrar en interfaz el mensaje de cambio de nivel
             String rango = temp.getCliente().getTipoCliente();
             if(rango.equals("Normal")||rango.equals("normal")){
                 temp.getCliente().setTipoCliente("Plata");
@@ -365,6 +402,8 @@ public class Counter {
             }
             
         }
+        else
+            temp.setCambioDeNivel(false);
         String destino = temp.getCliente().getCorreo();
         String descripcion = temp.listarEntregables();
         temp.setCantidadPendientes(1);
@@ -1082,8 +1121,7 @@ public class Counter {
         }
     }
         
-    public String detalleDeRetiros(){
-        
+    public String detalleDeRetiros(){  
         return informesDeRetiros;
     }
         

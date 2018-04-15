@@ -9,6 +9,7 @@ public class Casillero {
     private Cliente cliente;//cada casillero debe de tener unicamente un cliente
     private int cantPaquetes;
     private int cantPendientes;
+    private boolean cambioDeNivel;
     
     private ArrayList listaEntregables;
     private String informeEstadoCasillero;
@@ -33,6 +34,7 @@ public class Casillero {
             listaEntregables = new ArrayList(20);
             informeEstadoCasillero = "";
             cantPendientes= 0;
+            cambioDeNivel = false;
             
         }
         else{
@@ -63,7 +65,12 @@ public class Casillero {
     public void resetListaEntregables(){
         listaEntregables.clear();
     }
-    
+    public boolean getCambioDeNivel(){
+        return cambioDeNivel;
+    }
+    public void setCambioDeNivel(boolean b){
+        cambioDeNivel = b;
+    }
     public boolean isEstado() {
         return estado;
     }

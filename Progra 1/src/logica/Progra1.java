@@ -32,10 +32,9 @@ public class Progra1 {
         String ent = "83823,92345";
         ArrayList arr = f.obtenerEntregablesDeString(ent, "604490595");
         f.retirarPaquetes(arr, "604490595");
-        String ent2 = "23734";
-        ArrayList arr2 = f.obtenerEntregablesDeString(ent2, "110630719");
-        f.retirarPaquetes(arr2, "110630719");
-        System.out.println(f.detalleDeRetiros());
+        System.out.println(f.estadoCasillero("604490595"));
+        
+        //System.out.println(f.detalleDeRetiros());
         //System.out.println(f.reporteContable("13.04.2018"));
         //System.out.println(f.listarPendientesTotales());
         //f.enviarCorreoAPendientes();
