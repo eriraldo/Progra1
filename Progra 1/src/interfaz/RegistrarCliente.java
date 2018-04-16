@@ -221,7 +221,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
                 fun.setVisible(true);
             }
             else{
-                JOptionPane.showMessageDialog(null,"el cliente que desea agreagar ya esta en la Base de Datos del Counter");
+                JOptionPane.showMessageDialog(null,"El cliente que desea agreagar ya esta en la Base de Datos del Counter");
             }
             }
             else{
