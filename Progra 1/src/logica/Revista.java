@@ -7,6 +7,7 @@ import java.util.Date;
 /**
  *
  * @author erick
+ * @author dereck
  */
 public class Revista extends Entregable{
     
@@ -23,7 +24,7 @@ public class Revista extends Entregable{
     private String descuentoDolar;
     
     /**
-     *
+     *constructor para crear una revista con sus diferentes atributos
      * @param numReferencia
      * @param estado
      * @param descripcion
@@ -52,7 +53,7 @@ public class Revista extends Entregable{
     
     /**
      *
-     * @return
+     * @return titulo
      */
     public String getTitulo(){
         return titulo;
@@ -68,7 +69,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return fechaEntregado
      */
     public String getFechaEntrega(){
         return fechaEntregado;
@@ -84,7 +85,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return horaEntregado
      */
     public String getHoraEntrega(){
         return horaEntregado;
@@ -92,7 +93,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return fechaRecibido
      */
     public String getFechaRecibido(){
         return fechaRecibido;
@@ -108,7 +109,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return impuestoColon
      */
     public String getImpuestoColon(){
         return impuestoColon;
@@ -124,7 +125,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return descuentoColon
      */
     public String getDescuentoColon(){
         return descuentoColon;
@@ -140,7 +141,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return impuestoDolar
      */
     public String getImpuestoDolar(){
         return impuestoDolar;
@@ -156,7 +157,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return descuentoDolar
      */
     public String getDescuentoDolar(){
         return descuentoDolar;
@@ -171,7 +172,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return esCatalogo
      */
     public boolean esCatalogo() {
         return esCatalogo;
@@ -187,7 +188,7 @@ public class Revista extends Entregable{
 
     /**
      *
-     * @return
+     * @return tema
      */
     public String getTema() {
         return tema;

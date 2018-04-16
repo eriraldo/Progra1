@@ -5,6 +5,7 @@ import java.util.*;
 /**
  *
  * @author erick
+ * @author dereck
  */
 public class Progra1 {
 

@@ -1335,8 +1335,80 @@ public class Counter {
     public String detalleDeRetiros(){  
         return informesDeRetiros;
     }
+    
+    /**
+     * obtiene el numero de un casillero
+     * @param cedula
+     * @return numero
+     */
         
+    public String numeroDeCasillero(String cedula){
+        int i=0;
+        while(listaCasilleros[i]!= null){
+            String ced = listaCasilleros[i].getCliente().getIdentificador();
+            if (ced.equals(cedula)){
+                break;  
+            }
+            else
+                i++;
+        }
+        Casillero cas = listaCasilleros[i];
+        String numero = String.valueOf(cas.getNumero());
+        return numero;
         
+    }
+    
+    /**
+     * valida el correo electronico de un cliente
+     * @param mail
+     * @return true o false
+     */
+    public boolean validarCorreo(String mail){
+        boolean contains = false;
+        char[] arrayInvalidos = new char[]{'(',')','<','>',',',';',':','[',']','%','&',' '};
+        int indexA =0;
+        int indexCh=0;
+        while(indexCh<mail.length()){
+            char comp = mail.charAt(indexCh);
+            while(indexA<arrayInvalidos.length){
+                if (arrayInvalidos[indexA]==comp){
+                    contains = true;
+                    break;
+                    
+                }
+                else
+                    indexA++;
+            }
+            indexCh++;
+        }
+        
+        if (contains==true ||contadorApariciones(mail,'@')==1){
+            return true;
+            
+        }
+        else
+            return false;
+    }
+    /**
+     * cuenta las apariciones
+     * @param str
+     * @param c
+     * @return aparaciones
+     */
+    public int contadorApariciones(String str,char c){
+        int apariciones = 0;
+        int ind = 0;
+        while(ind<str.length()){
+            char c2 = str.charAt(ind);
+            if (c == c2){
+                apariciones++;
+                ind++;
+            }
+            else
+                ind++;
+        }
+        return apariciones;
+    }    
         
         
      

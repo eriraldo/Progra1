@@ -4,6 +4,7 @@ package logica;
 /**
  *
  * @author erick
+ * @author dereck
  */
 public class Cliente {
     private String identificador = "";
@@ -17,14 +18,14 @@ public class Cliente {
     private Casillero casillero;//Para poder confirmar que solo tiene un casillero, se verifica este casillero con el atributo cliente de la clase casillero
     
     /**
-     *
+     *Constructor default
      */
     public Cliente(){
         
     }
     
     /**
-     *
+     *Constructor con los parametros necesarios para crear un nuevo cliente
      * @param name
      * @param id
      * @param mail
@@ -47,7 +48,7 @@ public class Cliente {
 
     /**
      *
-     * @return
+     * @return identificador
      */
     public String getIdentificador() {
         return identificador;
@@ -63,7 +64,7 @@ public class Cliente {
 
     /**
      *
-     * @return
+     * @return nombre
      */
     public String getNombre() {
         return nombre;
@@ -79,7 +80,7 @@ public class Cliente {
 
     /**
      *
-     * @return
+     * @return correo
      */
     public String getCorreo() {
         return correo;
@@ -95,7 +96,7 @@ public class Cliente {
 
     /**
      *
-     * @return
+     * @return telefono
      */
     public String getTelefono() {
         return telefono;
@@ -111,7 +112,7 @@ public class Cliente {
 
     /**
      *
-     * @return
+     * @return direccion
      */
     public String getDireccion() {
         return direccion;
@@ -127,7 +128,7 @@ public class Cliente {
 
     /**
      *
-     * @return
+     * @return sexo
      */
     public String getSexo() {
         return sexo;
@@ -143,7 +144,7 @@ public class Cliente {
 
     /**
      *
-     * @return
+     * @return fechaNacimiento
      */
     public String getFechaNacimiento() {
         return fechaNacimiento;
@@ -159,7 +160,7 @@ public class Cliente {
 
     /**
      *
-     * @return
+     * @return tipoCliente
      */
     public String getTipoCliente() {
         return tipoCliente;

@@ -4,6 +4,7 @@ package logica;
 /**
  *
  * @author erick
+ * @author dereck
  */
 public class Entregable {
     private int numReferencia ;
@@ -12,7 +13,7 @@ public class Entregable {
     private String remitente ;
    
     /**
-     *
+     *constructor default
      */
     public Entregable(){
    
@@ -20,7 +21,7 @@ public class Entregable {
     }
     
     /**
-     *
+     *constructor con todo lo necesario para crear un entregable
      * @param numReferencia
      * @param estado
      * @param descripcion
@@ -37,7 +38,7 @@ public class Entregable {
 
     /**
      *
-     * @return
+     * @return numReferencia
      */
     public int getNumReferencia() {
         return numReferencia;
@@ -53,7 +54,7 @@ public class Entregable {
 
     /**
      *
-     * @return
+     * @return estadoEntrega
      */
     public boolean getEstadoEntrega() {
         return estadoEntrega;
@@ -69,7 +70,7 @@ public class Entregable {
 
     /**
      *
-     * @return
+     * @return descripcion
      */
     public String getDescripcion() {
         return descripcion;
@@ -85,7 +86,7 @@ public class Entregable {
 
     /**
      *
-     * @return
+     * @return remitente
      */
     public String getRemitente() {
         return remitente;

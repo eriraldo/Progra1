@@ -6,6 +6,7 @@ import java.text.*;
 /**
  *
  * @author erick
+ * @author dereck
  */
 public class Paquete extends Entregable {
     
@@ -23,7 +24,7 @@ public class Paquete extends Entregable {
     private String descuentoDolar;
     
     /**
-     *
+     *constructor con todo lo necesario para crear un paquete
      * @param numReferencia
      * @param estadoEntrega
      * @param descripcion
@@ -54,7 +55,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return fragil
      */
     public boolean esFragil() {
         return fragil;
@@ -70,7 +71,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return fechaEntregado
      */
     public String getFechaEntrega(){
         return fechaEntregado;
@@ -86,7 +87,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return horaEntregado
      */
     public String getHoraEntrega(){
         return horaEntregado;
@@ -94,7 +95,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return rechaRecibido
      */
     public String getFechaRecibido(){
         return fechaRecibido;
@@ -110,7 +111,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return impuestoColon
      */
     public String getImpuestoColon(){
         return impuestoColon;
@@ -126,7 +127,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return descuentoColon
      */
     public String getDescuentoColon(){
         return descuentoColon;
@@ -142,7 +143,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return impuestoDolar
      */
     public String getImpuestoDolar(){
         return impuestoDolar;
@@ -158,7 +159,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return descuentoDolar
      */
     public String getDescuentoDolar(){
         return descuentoDolar;
@@ -174,7 +175,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return esElectronico
      */
     public boolean esElectronico() {
         return esElectronico;
@@ -190,7 +191,7 @@ public class Paquete extends Entregable {
 
     /**
      *
-     * @return
+     * @return peso
      */
     public double getPeso() {
         return peso;
@@ -214,7 +215,7 @@ public class Paquete extends Entregable {
     
     /**
      *
-     * @return
+     * @return tipoEntrega
      */
     public String getTipoEntrega(){
         return tipoEntrega;

@@ -7,6 +7,7 @@ import java.util.Date;
 /**
  *
  * @author erick
+ * @author dereck
  */
 public class Sobre extends Entregable {
     
@@ -23,7 +24,7 @@ public class Sobre extends Entregable {
     private String descuentoDolar;
     
     /**
-     *
+     *constructor con todo lo necesario para crear un sobre
      * @param numReferencia
      * @param estado
      * @param descripcion
@@ -53,7 +54,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return contenido
      */
     public String getContenido() {
         return contenido;
@@ -69,7 +70,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return fechaEntregado
      */
     public String getFechaEntrega(){
         return fechaEntregado;
@@ -85,7 +86,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return horaEntregado
      */
     public String getHoraEntrega(){
         return horaEntregado;
@@ -93,7 +94,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return fechaRecibido
      */
     public String getFechaRecibido(){
         return fechaRecibido;
@@ -109,7 +110,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return impuestoColon
      */
     public String getImpuestoColon(){
         return impuestoColon;
@@ -125,7 +126,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return descuentoColon
      */
     public String getDescuentoColon(){
         return descuentoColon;
@@ -141,7 +142,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return impuestoDolar
      */
     public String getImpuestoDolar(){
         return impuestoDolar;
@@ -157,7 +158,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return descuentoDolar
      */
     public String getDescuentoDolar(){
         return descuentoDolar;
@@ -173,7 +174,7 @@ public class Sobre extends Entregable {
 
     /**
      *
-     * @return
+     * @return peso
      */
     public double getPeso() {
         return peso;
@@ -197,7 +198,7 @@ public class Sobre extends Entregable {
     
     /**
      *
-     * @return
+     * @return tipoSobre
      */
     public String getTipoSobre(){
         return tipoSobre;

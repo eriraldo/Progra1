@@ -4,25 +4,26 @@ package logica;
 import java.util.ArrayList;
 
 /**
- *
+ *clase que sirve para comunicar la interfaz con la logica
  * @author erick
+ * @author dereck
  */
 public class Funcionalidades {
     
     /**
-     *
+     *se crea un counter para trabajar sobre el
      */
     public static Counter counter;
     
     /**
-     *
+     *constructor default
      */
     public Funcionalidades(){
         
     }
     
     /**
-     *
+     *crea un counter nuevo
      * @param nombre
      * @param identificacion
      * @param direccion
@@ -40,7 +41,7 @@ public class Funcionalidades {
 
     /**
      *
-     * @return
+     * @return counter
      */
     public static Counter getCounter() {
         return counter;
@@ -55,7 +56,7 @@ public class Funcionalidades {
     }
     
     /**
-     *
+     *Sirve para agregar un cliente
      * @param name
      * @param id
      * @param mail
@@ -74,7 +75,7 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     *modifica un cliente
      * @param cedula
      * @param dato
      * @param tipo
@@ -87,16 +88,16 @@ public class Funcionalidades {
     
     /**
      *
-     * @return
+     * @return listaCasilleros
      */
     public static Casillero[] demeLista(){
         return counter.getLista();
     }
     
     /**
-     *
+     *consulta un cliente
      * @param cedula
-     * @return
+     * @return temp
      */
     public static String consultarCliente(String cedula){
         String temp = counter.consultarCliente(cedula);
@@ -105,9 +106,9 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     * elimina un cliente del counter
      * @param cedula
-     * @return
+     * @return true
      */
     public static boolean eliminarCliente(String cedula){
         counter.eliminarCliente(cedula);
@@ -116,8 +117,8 @@ public class Funcionalidades {
     }
     
     /**
-     *
-     * @return
+     *lista todos los clientes
+     * @return lista
      */
     public static String listarClientes(){
         String lista;
@@ -126,10 +127,10 @@ public class Funcionalidades {
     }
     
     /**
-     *
+     *registra un sobre
      * @param cedula
      * @param sobre
-     * @return
+     * @return true
      */
     public static boolean registrarSobre(String cedula,Sobre sobre){
         counter.registrarSobre(cedula, sobre);
@@ -137,10 +138,10 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     *registra una revista
      * @param cedula
      * @param revista
-     * @return
+     * @return true
      */
     public static boolean registrarRevista(String cedula,Revista revista){
         counter.registrarRevista(cedula, revista);
@@ -151,7 +152,7 @@ public class Funcionalidades {
      *
      * @param cedula
      * @param paquete
-     * @return
+     * @return true
      */
     public static boolean registrarPaquete(String cedula,Paquete paquete){
         counter.registrarPaquete(cedula, paquete);
@@ -160,48 +161,48 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     *calcular el impuesto de un sobre
      * @param sobre
      * @param moneda
-     * @return
+     * @return impuesto
      */
     public static double calcularImpuestoSobre(Sobre sobre,boolean moneda){
         return counter.calcularImpuestoSobre(sobre, moneda);
     }
 
     /**
-     *
+     *calcular el impuesto de una revista
      * @param rev
      * @param moneda
-     * @return
+     * @return impuesto
      */
     public static double calcularImpuestoRevista(Revista rev,boolean moneda){
         return counter.calcularImpuestoRevista(rev, moneda);
     }
 
     /**
-     *
+     *calcular el impuesto de un paquete
      * @param paquete
      * @param moneda
-     * @return
+     * @return impuesto
      */
     public static double calcularImpuestoPaquete(Paquete paquete,boolean moneda){
         return counter.calcularImpuestoPaquete(paquete, moneda);
     }
     
     /**
-     *
+     *calcula el descuento que tiene un cliente segun su rango
      * @param cedula
-     * @return
+     * @return descuento
      */
     public static double calcularDescuentoCliente(String cedula){
         return counter.descuentoClientePaquete(cedula);
     }
 
     /**
-     *
+     *modifica la cantidad de paquetes que debe recibir un cliente para subir de rango
      * @param valor
-     * @return
+     * @return true
      */
     public static boolean modificarAscensoDeRango(int valor){
         counter.modificarAscensoDeRango(valor);
@@ -209,10 +210,10 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     *retira un entregable
      * @param arr
      * @param cedula
-     * @return
+     * @return res
      */
     public static String retirarEntregable(ArrayList arr,String cedula){
         String res = counter.retirarPaquetes(arr, cedula);
@@ -221,9 +222,9 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     *lista los entregables pendientes
      * @param cedula
-     * @return
+     * @return res
      */
     public static String listarEntregablesPendientes(String cedula){
         String res = counter.listaEntregablesPendientes(cedula);
@@ -231,10 +232,10 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     * lista los entregables de un string
      * @param tiraRegistros
      * @param cedula
-     * @return
+     * @return arr
      */
     public static ArrayList obtenerEntregablesDeString(String tiraRegistros,String cedula){
         ArrayList arr = counter.obtenerEntregablesDeString(tiraRegistros, cedula);
@@ -243,10 +244,10 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     *retira los entregables
      * @param arr
      * @param cedula
-     * @return
+     * @return res
      */
     public static String retirarEntregables(ArrayList arr,String cedula){
         String res = counter.retirarPaquetes(arr, cedula);
@@ -254,9 +255,9 @@ public class Funcionalidades {
     }
     
     /**
-     *
+     *muestra el estado de un casillero
      * @param s
-     * @return
+     * @return res
      */
     public static String estadoCasillero(String s){
         String res = counter.estadoCasillero(s);
@@ -264,9 +265,9 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     *lista los articulos recibidos en una fecha
      * @param fecha
-     * @return
+     * @return res
      */
     public static String detalleRecibidosPorFecha(String fecha){
         String res = counter.detalleRecibidosPorFecha(fecha);
@@ -274,9 +275,9 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     *lista los articulos entregados en una fecha
      * @param fecha
-     * @return
+     * @return res
      */
     public static String detalleEntregadosPorFecha(String fecha){
         String res = counter.detalleEntregadosPorFecha(fecha);
@@ -284,7 +285,7 @@ public class Funcionalidades {
     }
 
     /**
-     *
+     * lista los clientes que tienen articulos con pendientes
      * @return
      */
     public static String listaClientesConPendientes(){

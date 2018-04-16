@@ -6,6 +6,7 @@ import java.util.ArrayList;
 /**
  *
  * @author erick
+ * @author dereck
  */
 public class Casillero {
     private int numero = 1000;
@@ -23,14 +24,14 @@ public class Casillero {
     private Revista[] listaRevistas;
 
     /**
-     *
+     *constructor default
      */
     public Casillero(){
         
     }
     
     /**
-     *
+     *constructor con los parametros:
      * @param number
      * @param state
      * @param cliente
@@ -59,7 +60,7 @@ public class Casillero {
 
     /**
      *
-     * @return
+     * @return numero
      */
     public int getNumero() {
         return numero;
@@ -75,7 +76,7 @@ public class Casillero {
 
     /**
      *
-     * @return
+     * @return informeEstadoCasillero
      */
     public String getInformeEstado() {
         return informeEstadoCasillero;
@@ -90,7 +91,7 @@ public class Casillero {
     }
     
     /**
-     *
+     *pone el informe de estado en vacio
      */
     public void resetInformeEstado(){
         informeEstadoCasillero ="";
@@ -98,7 +99,7 @@ public class Casillero {
     }
 
     /**
-     *
+     *pone la lista de entregables en limpio
      */
     public void resetListaEntregables(){
         listaEntregables.clear();
@@ -106,7 +107,7 @@ public class Casillero {
 
     /**
      *
-     * @return
+     * @return cambioDeNivel
      */
     public boolean getCambioDeNivel(){
         return cambioDeNivel;
@@ -121,8 +122,8 @@ public class Casillero {
     }
 
     /**
-     *
-     * @return
+     *verifica si es verdadero o falso
+     * @return estado
      */
     public boolean isEstado() {
         return estado;
@@ -137,8 +138,8 @@ public class Casillero {
     }
 
     /**
-     *
-     * @return
+     *obtiene la cantidad de articulos pendientes
+     * @return cantPendientes
      */
     public int getCantidadPendientes(){
         return cantPendientes;
@@ -154,7 +155,7 @@ public class Casillero {
     
     /**
      *
-     * @return
+     * @return cliente
      */
     public Cliente getCliente(){
         return this.cliente;
@@ -177,16 +178,16 @@ public class Casillero {
     }
 
     /**
-     *
-     * @return
+     *retorna la cantidad de paquetes
+     * @return cantPaquetes
      */
     public int getCantidadPaquetes(){
         return cantPaquetes;
     }
 
     /**
-     *
-     * @return
+     *retorna el largo de la lista de paquetes
+     * @return cont
      */
     public int largoListaPaquetes(){
         int cont =0;
@@ -196,8 +197,8 @@ public class Casillero {
     }
 
     /**
-     *
-     * @return
+     *retorna el largo de la lista de sobres
+     * @return cont
      */
     public int largoListaSobres(){
         int cont =0;
@@ -207,8 +208,8 @@ public class Casillero {
     }
 
     /**
-     *
-     * @return
+     *retorna el largo de la lista de revistas
+     * @return cont
      */
     public int largoListaRevistas(){
         int cont =0;
@@ -219,7 +220,7 @@ public class Casillero {
     
     /**
      *
-     * @return
+     * @return listaPaquetes
      */
     public Paquete[] getListaPaquetes(){
         return this.listaPaquetes;
@@ -237,7 +238,7 @@ public class Casillero {
 
     /**
      *
-     * @return
+     * @return listaSobres
      */
     public Sobre[] getListaSobres(){
         return this.listaSobres;
@@ -255,7 +256,7 @@ public class Casillero {
 
     /**
      *
-     * @return
+     * @return listaRevistas
      */
     public Revista[] getListaRevistas(){
         return this.listaRevistas;
@@ -273,7 +274,7 @@ public class Casillero {
 
     /**
      *
-     * @return
+     * @return listaEntregables
      */
     public String listarEntregables(){
         String resul = "";
@@ -316,7 +317,7 @@ public class Casillero {
 
     /**
      *
-     * @return
+     * @return listaEntregables
      */
     public ArrayList getListaEntregables(){
         return listaEntregables;

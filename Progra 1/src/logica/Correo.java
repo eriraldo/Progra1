@@ -10,6 +10,7 @@ import javax.mail.internet.MimeMessage;
 /**
  *
  * @author erick
+ * @author dereck
  */
 public class Correo {
 
@@ -21,7 +22,7 @@ public class Correo {
     }
 
     /**
-     *
+     *recibe el destinatario y el cuerpo del email para ser enviado
      * @param destinatario
      * @param descripcion
      */
