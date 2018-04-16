@@ -7,7 +7,7 @@ package interfaz;
 
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
-
+import logica.Counter;
 /**
  *
  * @author erick
@@ -43,6 +43,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
         AdminEntregables = new javax.swing.JButton();
         listaClientes = new javax.swing.JButton();
         reporte = new javax.swing.JButton();
+        cambiarRango = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,10 +100,19 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
+        reporte.setBackground(new java.awt.Color(51, 51, 51));
         reporte.setText("Reporte de Resumen Contable");
         reporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reporteActionPerformed(evt);
+            }
+        });
+
+        cambiarRango.setBackground(new java.awt.Color(51, 51, 51));
+        cambiarRango.setText("Cambiar rango de Ascenso");
+        cambiarRango.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarRangoActionPerformed(evt);
             }
         });
 
@@ -124,7 +134,8 @@ public class FuncionalidadesI extends javax.swing.JFrame {
                             .addComponent(retiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(AdminEntregables, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(listaClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(reporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cambiarRango, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(143, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,7 +157,9 @@ public class FuncionalidadesI extends javax.swing.JFrame {
                 .addComponent(listaClientes)
                 .addGap(18, 18, 18)
                 .addComponent(reporte)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(cambiarRango)
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,6 +218,13 @@ public class FuncionalidadesI extends javax.swing.JFrame {
         rep.setVisible(true);
     }//GEN-LAST:event_reporteActionPerformed
 
+    private void cambiarRangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarRangoActionPerformed
+        close();
+        cambiarRango cam = new cambiarRango();
+        cam.setVisible(true);
+        
+    }//GEN-LAST:event_cambiarRangoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -258,6 +278,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AdminEntregables;
     private javax.swing.JButton administrarCliente;
+    private javax.swing.JButton cambiarRango;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

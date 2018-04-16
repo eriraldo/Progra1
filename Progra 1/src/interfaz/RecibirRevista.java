@@ -199,6 +199,9 @@ public class RecibirRevista extends javax.swing.JFrame {
         count.registrarRevista(ced, nuevo);
         Funcionalidades.setCounter(count);
         JOptionPane.showMessageDialog(null, "se registro la revista");
+        if(count.detectarCambioDeNivel(ced)){
+            JOptionPane.showMessageDialog(null, "Subio de rango!");
+        }
         close();
         FuncionalidadesI fun = new FuncionalidadesI();
         fun.setVisible(true);

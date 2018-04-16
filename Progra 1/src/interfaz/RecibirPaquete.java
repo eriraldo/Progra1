@@ -238,6 +238,9 @@ public class RecibirPaquete extends javax.swing.JFrame {
         count.registrarPaquete(ced, paq);
         Funcionalidades.setCounter(count);
         JOptionPane.showMessageDialog(null, "se registro el paquete");
+        if(count.detectarCambioDeNivel(ced)){
+            JOptionPane.showMessageDialog(null, "Subio de rango!");
+        }
         close();
         FuncionalidadesI fun = new FuncionalidadesI();
         fun.setVisible(true);

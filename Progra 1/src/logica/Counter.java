@@ -542,6 +542,7 @@ public class Counter {
     
     public void modificarAscensoDeRango(int valor){     //Por default, se asciende cada 10 paquetes
         rangoAscenso = valor;
+        System.out.println("El nuevo valor es:" + valor);
        
     }
     

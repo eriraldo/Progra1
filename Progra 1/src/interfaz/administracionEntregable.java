@@ -72,8 +72,18 @@ public class administracionEntregable extends javax.swing.JFrame {
         });
 
         jButton4.setText("Detalle de artículos pendientes de retirar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Detalle de artículos pendientes de retirar");
+        jButton5.setText("Detalle de un retiro de artículos");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +171,18 @@ public class administracionEntregable extends javax.swing.JFrame {
         FuncionalidadesI fun = new FuncionalidadesI();
         fun.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        close();
+        listarPendientesTotales lista = new listarPendientesTotales();
+        lista.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        close();
+        DetalleRetiroArticulo retA = new DetalleRetiroArticulo();
+        retA.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

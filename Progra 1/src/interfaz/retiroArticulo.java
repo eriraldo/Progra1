@@ -49,6 +49,8 @@ public class retiroArticulo extends javax.swing.JFrame {
         retirar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
         tipoCambio = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        cuadro = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -93,6 +95,10 @@ public class retiroArticulo extends javax.swing.JFrame {
             }
         });
 
+        cuadro.setColumns(20);
+        cuadro.setRows(5);
+        jScrollPane2.setViewportView(cuadro);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,6 +113,7 @@ public class retiroArticulo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -143,7 +150,9 @@ public class retiroArticulo extends javax.swing.JFrame {
                 .addComponent(stringDeNumRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(tipoCambio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(retirar)
                     .addComponent(cancelar))
@@ -176,9 +185,9 @@ public class retiroArticulo extends javax.swing.JFrame {
         String ced = cedulaCliente.getText();
         ArrayList arr = Funcionalidades.obtenerEntregablesDeString(numsRef, ced);
         Counter count = Funcionalidades.getCounter();
-        count.retirarPaquetes(arr, ced);
+        cuadro.setText(count.retirarPaquetes(arr, ced));
         Funcionalidades.setCounter(count);
-        close();
+        //close();
         tipoTarjeta tipo = new tipoTarjeta();
         tipo.setVisible(true);
     }//GEN-LAST:event_retirarActionPerformed
@@ -235,11 +244,13 @@ public class retiroArticulo extends javax.swing.JFrame {
     private javax.swing.JTextArea areaTexto;
     private javax.swing.JButton cancelar;
     private javax.swing.JTextField cedulaCliente;
+    private javax.swing.JTextArea cuadro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton mostrarPendientes;
     private javax.swing.JButton retirar;
     private javax.swing.JTextField stringDeNumRef;
