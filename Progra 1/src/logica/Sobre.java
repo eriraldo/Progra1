@@ -4,7 +4,10 @@ package logica;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
+/**
+ *
+ * @author erick
+ */
 public class Sobre extends Entregable {
     
     private String contenido;
@@ -19,7 +22,16 @@ public class Sobre extends Entregable {
     private String impuestoDolar;
     private String descuentoDolar;
     
-    
+    /**
+     *
+     * @param numReferencia
+     * @param estado
+     * @param descripcion
+     * @param remitente
+     * @param tipoSobre
+     * @param contenido
+     * @param peso
+     */
     public Sobre(int numReferencia,boolean estado,String descripcion,String remitente,String tipoSobre,String contenido,double peso){
         super(numReferencia,estado,descripcion,remitente);
         this.contenido = contenido;
@@ -39,64 +51,154 @@ public class Sobre extends Entregable {
         
     }
 
+    /**
+     *
+     * @return
+     */
     public String getContenido() {
         return contenido;
     }
+
+    /**
+     *
+     * @param s
+     */
     public void setFechaEntrega(String s){
         fechaEntregado = s;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getFechaEntrega(){
         return fechaEntregado;
     }
+
+    /**
+     *
+     * @param s
+     */
     public void setHoraEntrega(String s){
         horaEntregado = s;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getHoraEntrega(){
         return horaEntregado;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getFechaRecibido(){
         return fechaRecibido;
     }
+
+    /**
+     *
+     * @param dato
+     */
     public void setImpuestoColon(String dato){
         impuestoColon = dato;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getImpuestoColon(){
         return impuestoColon;
     }
+
+    /**
+     *
+     * @param dato
+     */
     public void setDescuentoColon(String dato){
         descuentoColon = dato;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getDescuentoColon(){
         return descuentoColon;
     }
+
+    /**
+     *
+     * @param dato
+     */
     public void setImpuestoDolar(String dato){
         impuestoDolar = dato;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getImpuestoDolar(){
         return impuestoDolar;
     }
+
+    /**
+     *
+     * @param dato
+     */
     public void setDescuentoDolar(String dato){
         descuentoDolar = dato;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getDescuentoDolar(){
         return descuentoDolar;
     }
 
+    /**
+     *
+     * @param contenido
+     */
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getPeso() {
         return peso;
     }
 
+    /**
+     *
+     * @param peso
+     */
     public void setPeso(double peso) {
         this.peso = peso;
     }
+
+    /**
+     *
+     * @param tipo
+     */
     public void setTipoSobre(String tipo){
         this.tipoSobre = tipo;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getTipoSobre(){
         return tipoSobre;
     }

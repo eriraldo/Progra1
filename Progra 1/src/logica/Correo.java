@@ -6,11 +6,25 @@ import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.mail.internet.MimeMessage;
+
+/**
+ *
+ * @author erick
+ */
 public class Correo {
+
+    /**
+     * envia el correo electronico
+     */
     public Correo(){
         
     }
 
+    /**
+     *
+     * @param destinatario
+     * @param descripcion
+     */
     public void sendMail(String destinatario,String descripcion)
     {
         try

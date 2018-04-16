@@ -2,11 +2,16 @@
 package logica;
 import java.util.*;
 
-
-
+/**
+ *
+ * @author erick
+ */
 public class Progra1 {
 
-    
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         
         Counter f = new Counter();

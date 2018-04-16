@@ -9,7 +9,10 @@ import java.lang.Math;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
+/**
+ *
+ * @author erick
+ */
 public class Counter {
     
     private String nombre ; 
@@ -20,17 +23,32 @@ public class Counter {
     private String informesDeRetiros;
     private int cantInformesDeRetiro;
     
+    /**
+     *
+     */
     public static Casillero[] listaCasilleros;
     
+    /**
+     *
+     */
     public static int casilleroAsignado = 1000;
 
-
+    /**
+     *
+     */
     public Counter(){
         rangoAscenso = 10;
         informesDeRetiros = "";
         cantInformesDeRetiro = 0;
     }
 
+    /**
+     *
+     * @param nombre
+     * @param identificacion
+     * @param direccion
+     * @param numCasilleros
+     */
     public Counter(String nombre, String identificacion, String direccion, int numCasilleros) {
         this.nombre = nombre;
         this.identificacion = identificacion;
@@ -42,6 +60,14 @@ public class Counter {
         cantInformesDeRetiro = 0;
     }
     
+    /**
+     *
+     * @param nombre
+     * @param identificacion
+     * @param direccion
+     * @param numCasilleros
+     * @return
+     */
     public boolean crearCounter(String nombre, String identificacion,String direccion,int numCasilleros){
         Counter nuevo = new Counter(nombre,identificacion,direccion,numCasilleros);
         
@@ -49,34 +75,67 @@ public class Counter {
         
         
     }
+
+    /**
+     *
+     * @return
+     */
     public int getNumCasilleros(){
         return numCasilleros;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getIdentificacion() {
         return identificacion;
     }
 
+    /**
+     *
+     * @param identificacion
+     */
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDireccion() {
         return direccion;
     }
 
+    /**
+     *
+     * @param direccion
+     */
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getSize(){
         int acu = 0;
         int i = 0;
@@ -92,12 +151,25 @@ public class Counter {
         return acu;
     }
     
+    /**
+     *
+     * @return
+     */
     public static Casillero[] getLista(){
         return listaCasilleros;
     }
     
-    
-    
+    /**
+     *
+     * @param name
+     * @param id
+     * @param mail
+     * @param gender
+     * @param cellphone
+     * @param location
+     * @param nacimiento
+     * @param rango
+     */
     public void addCliente(String name,String id,String mail,String gender,String cellphone,String location,String nacimiento,String rango){
         int largo = listaCasilleros.length;
         Cliente nuevo = new Cliente(name,id,mail,gender,cellphone,location,nacimiento,rango);
@@ -115,6 +187,12 @@ public class Counter {
                     
         }        
     }
+
+    /**
+     *
+     * @param ced
+     * @return
+     */
     public boolean verificarAddCliente(String ced){
         boolean flag = false;       //verificador por si encuentra una cedula ya ingresada
         int cont =0;
@@ -131,6 +209,14 @@ public class Counter {
         
         
     }
+
+    /**
+     *
+     * @param cedula
+     * @param datoNuevo
+     * @param tipoDato
+     * @return
+     */
     public boolean modificarCliente(String cedula,String datoNuevo,int tipoDato){      
         Cliente temp = new Cliente();
         int i=0;
@@ -185,6 +271,11 @@ public class Counter {
         return true;    
     }
     
+    /**
+     *
+     * @param cedula
+     * @return
+     */
     public String consultarCliente(String cedula){
         Cliente temp = new Cliente();
         int i=0;
@@ -222,6 +313,11 @@ public class Counter {
         
     }
     
+    /**
+     *
+     * @param cedula
+     * @return
+     */
     public boolean eliminarCliente(String cedula){
         Casillero[] listaAux = new Casillero[listaCasilleros.length];
         int i=0;
@@ -254,6 +350,10 @@ public class Counter {
         
     }
     
+    /**
+     *
+     * @return
+     */
     public String listarClientes(){
         Counter c = new Counter();
         int size = c.getSize();
@@ -271,6 +371,12 @@ public class Counter {
         return lista;
                 
     }
+
+    /**
+     *
+     * @param cedula
+     * @return
+     */
     public boolean detectarCambioDeNivel(String cedula){
         int i=0;
         while(listaCasilleros[i]!= null){
@@ -288,6 +394,12 @@ public class Counter {
         
     }
     
+    /**
+     *
+     * @param cedula
+     * @param paquete
+     * @return
+     */
     public boolean registrarPaquete(String cedula,Paquete paquete){
         Casillero temp = new Casillero();
         int i=0;
@@ -329,6 +441,13 @@ public class Counter {
         return true;
         
     }
+
+    /**
+     *
+     * @param cedula
+     * @param sobre
+     * @return
+     */
     public boolean registrarSobre(String cedula,Sobre sobre){
         Casillero temp = new Casillero();
         int i=0;
@@ -371,6 +490,13 @@ public class Counter {
         
         
     }
+
+    /**
+     *
+     * @param cedula
+     * @param revista
+     * @return
+     */
     public boolean registrarRevista(String cedula,Revista revista){
         Casillero temp = new Casillero();
         int i=0;
@@ -412,6 +538,13 @@ public class Counter {
         //System.out.println("Revista agregada al casillero!");
         return true;
     }
+
+    /**
+     *
+     * @param sobre
+     * @param moneda
+     * @return
+     */
     public double calcularImpuestoSobre(Sobre sobre,boolean moneda){         //moneda: false si es colones y true si es dolares
         TipoCambio t = new TipoCambio();
         double tipoCambio = t.getCompra();
@@ -456,6 +589,13 @@ public class Counter {
         
         
     }
+
+    /**
+     *
+     * @param paquete
+     * @param moneda
+     * @return
+     */
     public double calcularImpuestoPaquete(Paquete paquete,boolean moneda){
         TipoCambio t = new TipoCambio();
         double tipoCambio = t.getCompra();      //tipo de cambio en tiempo real
@@ -489,6 +629,12 @@ public class Counter {
         
     }
     
+    /**
+     *
+     * @param revista
+     * @param moneda
+     * @return
+     */
     public double calcularImpuestoRevista(Revista revista,boolean moneda){
         TipoCambio t = new TipoCambio();
         double tipoCambio = t.getCompra();
@@ -508,6 +654,11 @@ public class Counter {
                
     }
     
+    /**
+     *
+     * @param cedula
+     * @return
+     */
     public double descuentoClientePaquete(String cedula){        
         Casillero temp = new Casillero();
         Cliente c = new Cliente();
@@ -540,12 +691,22 @@ public class Counter {
         
     }
     
+    /**
+     *
+     * @param valor
+     */
     public void modificarAscensoDeRango(int valor){     //Por default, se asciende cada 10 paquetes
         rangoAscenso = valor;
         System.out.println("El nuevo valor es:" + valor);
        
     }
     
+    /**
+     *
+     * @param str
+     * @param cedula
+     * @return
+     */
     public ArrayList obtenerEntregablesDeString(String str,String cedula){
         Casillero temp = new Casillero();
         int i=0;
@@ -655,6 +816,12 @@ public class Counter {
         return arr;   
     }
     
+    /**
+     *
+     * @param arr
+     * @param cedula
+     * @return
+     */
     public String retirarPaquetes(ArrayList arr,String cedula){
         int largo = arr.size();
         String resul ="" ;
@@ -767,6 +934,11 @@ public class Counter {
         
     }
     
+    /**
+     *
+     * @param cedula
+     * @return
+     */
     public String listaEntregablesPendientes(String cedula){
         Cliente temp = new Cliente();
         int i=0;
@@ -833,6 +1005,11 @@ public class Counter {
         return resul;
     }
     
+    /**
+     *
+     * @param num
+     * @return
+     */
     public String estadoCasillero(String num){       //Puede consultarse por cedula o numCasillero
         int cont = 0;
         String resul="";
@@ -873,6 +1050,11 @@ public class Counter {
         return resul;
     }
     
+    /**
+     *
+     * @param fecha
+     * @return
+     */
     public String detalleRecibidosPorFecha(String fecha){
         String resul = "Articulos recibidos el "+fecha+"\n";
         if(fecha.length() != 10 ){
@@ -925,6 +1107,12 @@ public class Counter {
             return resul;
         }
     }
+
+    /**
+     *
+     * @param fecha
+     * @return
+     */
     public String detalleEntregadosPorFecha(String fecha){
         String resul = "Articulos entregados el "+fecha+"\n";
         if(fecha.length() != 10 ){
@@ -980,6 +1168,10 @@ public class Counter {
         
     }
     
+    /**
+     *
+     * @return
+     */
     public String  listaClientesConPendientes(){
         String resul="Clientes con articulos pendientes"+"\n\n";
         int cont = 0;
@@ -996,6 +1188,12 @@ public class Counter {
         }
         return resul;  
     }
+
+    /**
+     *
+     * @param fecha
+     * @return
+     */
     public String reporteContable(String fecha){
         double totalImpuestosColones = 0;
         double totalImpuestosDolares = 0;
@@ -1091,6 +1289,10 @@ public class Counter {
         return resul;
     }
     
+    /**
+     *
+     * @return
+     */
     public String listarPendientesTotales(){
         int cont =0;
         String resul = "";
@@ -1104,6 +1306,10 @@ public class Counter {
         return resul;
        
     }
+
+    /**
+     *  enviar el correo a los clientes que tienen articulos pendientes
+     */
     public void enviarCorreoAPendientes(){
         int cont =0;
         while(listaCasilleros[cont]!=null){
@@ -1122,6 +1328,10 @@ public class Counter {
         }
     }
         
+    /**
+     *
+     * @return el detalle de los retiros
+     */
     public String detalleDeRetiros(){  
         return informesDeRetiros;
     }
