@@ -216,6 +216,7 @@ public class RecibirPaquete extends javax.swing.JFrame {
     }//GEN-LAST:event_electronicoActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        try{
         String ced = cedula.getText();
         String pes = peso.getText();
         double Dpes = Double.parseDouble(pes);
@@ -244,6 +245,11 @@ public class RecibirPaquete extends javax.swing.JFrame {
         close();
         FuncionalidadesI fun = new FuncionalidadesI();
         fun.setVisible(true);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
         
     }//GEN-LAST:event_aceptarActionPerformed
 

@@ -115,6 +115,7 @@ public class cambiarRango extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        try{
         Counter nuevo = Funcionalidades.getCounter();
         String value = valor.getText();
         int valorI = Integer.parseInt(value);
@@ -124,6 +125,11 @@ public class cambiarRango extends javax.swing.JFrame {
         close();
         FuncionalidadesI fun = new FuncionalidadesI();
         fun.setVisible(true);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

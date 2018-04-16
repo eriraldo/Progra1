@@ -6,6 +6,7 @@
 package interfaz;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import logica.Funcionalidades;
 import logica.Counter;
 /**
@@ -128,11 +129,17 @@ public class ConsultarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void consultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarClienteActionPerformed
+        try{
         String cedula = cedulaCliente.getText();
         Counter nuevo;
         nuevo = Funcionalidades.getCounter();
         String r = nuevo.consultarCliente(cedula);
         cuadroInfoCliente.setText(r);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
     }//GEN-LAST:event_consultarClienteActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed

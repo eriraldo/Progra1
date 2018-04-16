@@ -227,6 +227,7 @@ public class modificarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cedulaCActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        try{
         String ced = cedulaC.getText();
         String data = DatoNuevo.getText();
         int opcion = 0;
@@ -262,7 +263,11 @@ public class modificarCliente extends javax.swing.JFrame {
         close();
         AdministrarCliente re = new AdministrarCliente();
         re.setVisible(true);
-        
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

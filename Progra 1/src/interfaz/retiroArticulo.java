@@ -174,13 +174,20 @@ public class retiroArticulo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mostrarPendientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarPendientesActionPerformed
+        try{
         String ced = cedulaCliente.getText();
         Counter count = Funcionalidades.getCounter();
         areaTexto.setText(count.listaEntregablesPendientes(ced));
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
         
     }//GEN-LAST:event_mostrarPendientesActionPerformed
 
     private void retirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarActionPerformed
+        try{
         String numsRef = stringDeNumRef.getText();
         String ced = cedulaCliente.getText();
         ArrayList arr = Funcionalidades.obtenerEntregablesDeString(numsRef, ced);
@@ -190,6 +197,11 @@ public class retiroArticulo extends javax.swing.JFrame {
         //close();
         tipoTarjeta tipo = new tipoTarjeta();
         tipo.setVisible(true);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
     }//GEN-LAST:event_retirarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

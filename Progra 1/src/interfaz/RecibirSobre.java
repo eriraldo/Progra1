@@ -206,6 +206,7 @@ public class RecibirSobre extends javax.swing.JFrame {
     }//GEN-LAST:event_tipoSobreActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+        try{
         String cont = contenido.getText();
         String tipo = tipoSobre.getText();
         String ced = cedulaCliente.getText();
@@ -226,6 +227,11 @@ public class RecibirSobre extends javax.swing.JFrame {
         close();
         FuncionalidadesI fun = new FuncionalidadesI();
         fun.setVisible(true);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

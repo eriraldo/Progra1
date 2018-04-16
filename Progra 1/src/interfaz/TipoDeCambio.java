@@ -4,6 +4,7 @@ package interfaz;
 import indicadoresEconomicosBCCR.TipoCambio;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 /**
  *
  * @author erick
@@ -129,6 +130,7 @@ public class TipoDeCambio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
         TipoCambio servicioTipoCambio = new TipoCambio();
         double compra = servicioTipoCambio.getCompra();
         String compraS = String.valueOf(compra);
@@ -136,6 +138,11 @@ public class TipoDeCambio extends javax.swing.JFrame {
         double venta = servicioTipoCambio.getVenta();
         String ventaS = String.valueOf(venta);
         ventaLabel.setText(ventaS);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor intentar denuevo");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed

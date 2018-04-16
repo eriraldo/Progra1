@@ -7,6 +7,7 @@ package interfaz;
 
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import logica.Counter;
 import logica.Funcionalidades;
 
@@ -132,9 +133,15 @@ public class detalleEntregadosEnFecha extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
         String fecha = fechaDetalle.getText();
         Counter count = Funcionalidades.getCounter();
         cuadro.setText(count.detalleEntregadosPorFecha(fecha));
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

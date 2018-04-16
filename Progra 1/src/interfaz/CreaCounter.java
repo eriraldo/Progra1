@@ -161,6 +161,7 @@ public class CreaCounter extends javax.swing.JFrame {
     }//GEN-LAST:event_nombreCounterActionPerformed
 
     private void crearCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCActionPerformed
+        try{
         String nombre = nombreCounter.getText();
         String id = idCounter.getText();
         String direccion = direccionCounter.getText();
@@ -173,7 +174,11 @@ public class CreaCounter extends javax.swing.JFrame {
         close();
         FuncionalidadesI funcion = new FuncionalidadesI();
         funcion.setVisible(true);
-        
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
     }//GEN-LAST:event_crearCActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

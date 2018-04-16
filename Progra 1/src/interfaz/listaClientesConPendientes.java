@@ -6,6 +6,7 @@
 package interfaz;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import logica.Counter;
 import logica.Funcionalidades;
 /**
@@ -115,9 +116,14 @@ public class listaClientesConPendientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
         Counter count = Funcionalidades.getCounter();
         cuadro.setText(count.listaClientesConPendientes());
-        
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor intentar denuevo");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed

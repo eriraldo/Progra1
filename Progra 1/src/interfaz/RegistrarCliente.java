@@ -192,7 +192,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        
+        try{
         String nombre = nombreCliente.getText();
         String id = cedulaCliente.getText();
         String email = correoCliente.getText();
@@ -202,13 +202,13 @@ public class RegistrarCliente extends javax.swing.JFrame {
         String nacimiento = nacimientoCliente.getText();
         String rang = rangoCliente.getText();
         
-        //Funcionalidades.f.agregarCliente(rang, id, email, gen, tel, email, nacimiento, rang);
         if(Funcionalidades.demeLista() == null){
             JOptionPane.showMessageDialog(null,"No se ha creado ningun counter");
             close();
         }
         else{
-            Counter nuevo = new Counter();
+            if (id.length() == 8){
+                Counter nuevo = new Counter();
             if(nuevo.verificarAddCliente( id) == false){
                 nuevo.addCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
                 Funcionalidades.setCounter(nuevo);
@@ -222,12 +222,15 @@ public class RegistrarCliente extends javax.swing.JFrame {
             else{
                 JOptionPane.showMessageDialog(null,"el cliente que desea agreagar ya esta en la Base de Datos del Counter");
             }
+            }
+            
         }
-        
-            
-        
-            
-        
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
+           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

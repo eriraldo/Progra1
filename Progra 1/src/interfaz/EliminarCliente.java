@@ -116,6 +116,7 @@ public class EliminarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
         if(Funcionalidades.demeLista()== null){
             close();
             JOptionPane.showMessageDialog(null,"No hay ningun cliente registrado ");
@@ -130,6 +131,11 @@ public class EliminarCliente extends javax.swing.JFrame {
             close();
             AdministrarCliente admin = new AdministrarCliente();
             admin.setVisible(true);
+        }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

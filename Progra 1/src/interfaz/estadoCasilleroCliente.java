@@ -7,6 +7,7 @@ package interfaz;
 
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import logica.Counter;
 import logica.Funcionalidades;
 
@@ -139,9 +140,15 @@ public class estadoCasilleroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
+        try{
         String value = valor.getText();
         Counter count = Funcionalidades.getCounter();
         cuadro.setText(count.estadoCasillero(value));
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,"Surgió un error, favor revisar la información ingresada");
+        }
     }//GEN-LAST:event_consultarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
