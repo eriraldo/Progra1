@@ -1221,8 +1221,12 @@ public class Counter {
                             totalImpuestosDolares+=impDol;
                             double desDol= Double.parseDouble(s.getDescuentoDolar());
                             totalDescuentosDolares+=desDol;
-                            totalFinalColones+=(impCol-desCol);
-                            totalFinalDolares+=(impDol-desDol);
+                            double impTotalCol = impCol-desCol;
+                            totalFinalColones+=impTotalCol;
+                            double impTotalDol = impDol-desDol;
+                            totalFinalDolares+=impTotalDol;
+                            totalFinalColones+=impCol;
+                            totalFinalDolares+=impDol;
                             index++;
                         }
                         else{
@@ -1240,8 +1244,12 @@ public class Counter {
                             totalImpuestosDolares+=impDol;
                             double desDol= Double.parseDouble(p.getDescuentoDolar());
                             totalDescuentosDolares+=desDol;
-                            totalFinalColones+=(impCol-desCol);
-                            totalFinalDolares+=(impDol-desDol);
+                            double impTotalCol = impCol-desCol;
+                            totalFinalColones+=impTotalCol;
+                            double impTotalDol = impDol-desDol;
+                            totalFinalDolares+=impTotalDol;
+                            totalFinalColones+=impCol;
+                            totalFinalDolares+=impDol;
                             index++;
                         }
                         else{
@@ -1259,8 +1267,12 @@ public class Counter {
                             totalImpuestosDolares+=impDol;
                             double desDol= Double.parseDouble(r.getDescuentoDolar());
                             totalDescuentosDolares+=desDol;
-                            totalFinalColones+=(impCol-desCol);
-                            totalFinalDolares+=(impDol-desDol);
+                            double impTotalCol = impCol-desCol;
+                            totalFinalColones+=impTotalCol;
+                            double impTotalDol = impDol-desDol;
+                            totalFinalDolares+=impTotalDol;
+                            totalFinalColones+=impCol;
+                            totalFinalDolares+=impDol;
                             index++;
                         }
                         else{
@@ -1322,62 +1334,6 @@ public class Counter {
      */
     public String detalleDeRetiros(){  
         return informesDeRetiros;
-    }
-    
-    public String numeroDeCasillero(String cedula){
-        int i=0;
-        while(listaCasilleros[i]!= null){
-            String ced = listaCasilleros[i].getCliente().getIdentificador();
-            if (ced.equals(cedula)){
-                break;  
-            }
-            else
-                i++;
-        }
-        Casillero cas = listaCasilleros[i];
-        String numero = String.valueOf(cas.getNumero());
-        return numero;
-        
-    }
-    public boolean validarCorreo(String mail){
-        boolean contains = false;
-        char[] arrayInvalidos = new char[]{'(',')','<','>',',',';',':','[',']','%','&',' '};
-        int indexA =0;
-        int indexCh=0;
-        while(indexCh<mail.length()){
-            char comp = mail.charAt(indexCh);
-            while(indexA<arrayInvalidos.length){
-                if (arrayInvalidos[indexA]==comp){
-                    contains = true;
-                    break;
-                    
-                }
-                else
-                    indexA++;
-            }
-            indexCh++;
-        }
-        
-        if (contains==true ||contadorApariciones(mail,'@')==1){
-            return true;
-            
-        }
-        else
-            return false;
-    }
-    public int contadorApariciones(String str,char c){
-        int apariciones = 0;
-        int ind = 0;
-        while(ind<str.length()){
-            char c2 = str.charAt(ind);
-            if (c == c2){
-                apariciones++;
-                ind++;
-            }
-            else
-                ind++;
-        }
-        return apariciones;
     }
         
         
