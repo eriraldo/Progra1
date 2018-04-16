@@ -54,7 +54,7 @@ public class listarPendientesTotales extends javax.swing.JFrame {
         jScrollPane1.setViewportView(cuadro);
 
         aceptar.setBackground(new java.awt.Color(51, 51, 51));
-        aceptar.setText("Aceptar");
+        aceptar.setText("Listar");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aceptarActionPerformed(evt);
