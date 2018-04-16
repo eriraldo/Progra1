@@ -132,8 +132,8 @@ public class listarPendientesTotales extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        
-        cuadro.setText(Funcionalidades.listaClientesConPendientes());
+        Counter count = Funcionalidades.getCounter();
+        cuadro.setText(count.listarPendientesTotales());
     }//GEN-LAST:event_aceptarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

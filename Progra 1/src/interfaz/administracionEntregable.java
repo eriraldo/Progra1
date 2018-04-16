@@ -39,7 +39,7 @@ public class administracionEntregable extends javax.swing.JFrame {
         estadoCasillero = new javax.swing.JButton();
         detalleRecibidos = new javax.swing.JButton();
         detalleEntregados = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        detalleArtPendRetirar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -71,10 +71,10 @@ public class administracionEntregable extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Detalle de artículos pendientes de retirar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        detalleArtPendRetirar.setText("Detalle de artículos pendientes de retirar");
+        detalleArtPendRetirar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                detalleArtPendRetirarActionPerformed(evt);
             }
         });
 
@@ -107,7 +107,7 @@ public class administracionEntregable extends javax.swing.JFrame {
                             .addComponent(estadoCasillero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(detalleRecibidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(detalleEntregados, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(detalleArtPendRetirar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -126,7 +126,7 @@ public class administracionEntregable extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(detalleEntregados)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(detalleArtPendRetirar)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
@@ -172,11 +172,11 @@ public class administracionEntregable extends javax.swing.JFrame {
         fun.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void detalleArtPendRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detalleArtPendRetirarActionPerformed
         close();
         listarPendientesTotales lista = new listarPendientesTotales();
         lista.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_detalleArtPendRetirarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         close();
@@ -220,11 +220,11 @@ public class administracionEntregable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton detalleArtPendRetirar;
     private javax.swing.JButton detalleEntregados;
     private javax.swing.JButton detalleRecibidos;
     private javax.swing.JButton estadoCasillero;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
