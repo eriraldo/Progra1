@@ -65,7 +65,7 @@ public class RecibirSobre extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese el peso en (kg):");
 
-        jLabel3.setText("Especifique el contenido:");
+        jLabel3.setText("Especifique el contenido:           (articulo o documento)");
 
         jLabel4.setText("Ingrese el tipo de sobre que es:");
 
