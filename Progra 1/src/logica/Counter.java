@@ -214,7 +214,7 @@ public class Counter {
         info += "nacimiento: " + nacimiento + "\n";
         info += "residencia: " + residencia + "\n";
         info += "tipoCliente: " + tipoCliente + "\n";
-        System.out.println(info);
+        //System.out.println(info);
         return info;
 
         
