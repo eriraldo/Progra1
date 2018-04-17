@@ -1365,7 +1365,7 @@ public class Counter {
      */
     public boolean validarCorreo(String mail){
         boolean contains = false;
-        char[] arrayInvalidos = new char[]{'(',')','<','>',',',';',':','[',']','%','&',' ','"','$','#'};
+        char[] arrayInvalidos = new char[]{'(',')','<','>',',',';',':','[',']','%','&',' ','"','$','#','!','*','=','{','}','?','/'};
         int indexA =0;
         int indexCh=0;
         while(indexCh<mail.length()){
@@ -1380,9 +1380,10 @@ public class Counter {
                     indexA++;
             }
             indexCh++;
+            indexA = 0;
         }
         
-        if (contains == false || contadorApariciones(mail,'@')==1){
+        if (contains == false && contadorApariciones(mail,'@')==1){
             return true;
             
         }
@@ -1390,10 +1391,10 @@ public class Counter {
             return false;
     }
     /**
-     * cuenta las apariciones
+     * cuenta las apariciones de un caracter en un string
      * @param str
      * @param c
-     * @return aparaciones
+     * @return apariciones
      */
     public int contadorApariciones(String str,char c){
         int apariciones = 0;
