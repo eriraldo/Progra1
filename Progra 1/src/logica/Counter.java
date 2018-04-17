@@ -176,7 +176,7 @@ public class Counter {
         Casillero cas = new Casillero (casilleroAsignado,true,nuevo);
         casilleroAsignado++;
         int cont =0;
-        while(cont<largo-1){
+        while(cont<largo){
             if (listaCasilleros[cont]== null){
                 listaCasilleros[cont] = cas;
                 break;
