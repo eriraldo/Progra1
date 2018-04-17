@@ -221,21 +221,28 @@ public class RegistrarCliente extends javax.swing.JFrame {
         }
         else{
             System.out.println(tel.length());
+            Counter nuevo = new Counter();
             if (tel.length() == 8){
-                Counter nuevo = new Counter();
-            if(nuevo.verificarAddCliente( id) == false){
-                nuevo.addCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
-                Funcionalidades.setCounter(nuevo);
-                //Funcionalidades.counter.consultarCliente(id);
-                //funcion.consultarCliente(id);
-                JOptionPane.showMessageDialog(null,"Cliente añadido a la Base de Datos del Counter");
-                close();
-                AdministrarCliente fun = new AdministrarCliente();
-                fun.setVisible(true);
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"el cliente que desea agreagar ya esta en la Base de Datos del Counter");
-            }
+                if(nuevo.validarCorreo(email)){
+                
+                    if(nuevo.verificarAddCliente( id) == false){
+                        nuevo.addCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
+                        Funcionalidades.setCounter(nuevo);
+                        //Funcionalidades.counter.consultarCliente(id);
+                        //funcion.consultarCliente(id);
+                        String numCasillero = nuevo.numeroDeCasillero(id);
+                        JOptionPane.showMessageDialog(null,"Cliente añadido a la Base de Datos del Counter, su numero de casillero es: " + numCasillero);
+                        close();
+                        AdministrarCliente fun = new AdministrarCliente();
+                        fun.setVisible(true);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"el cliente que desea agreagar ya esta en la Base de Datos del Counter");
+                    }
+                    }
+                else{
+                    JOptionPane.showMessageDialog(null,"revise que su correo electronico este bien escrito");
+                }
             }
             else{
                 JOptionPane.showMessageDialog(null,"revise que su numero telefonico este bien digitado");
