@@ -70,8 +70,13 @@ public class Counter {
      * @return boolean
      */
     public boolean crearCounter(String nombre, String identificacion,String direccion,int numCasilleros){
-        Counter nuevo = new Counter(nombre,identificacion,direccion,numCasilleros); //crea el counter 
-        return true;
+        if (numCasilleros>0){
+            Counter nuevo = new Counter(nombre,identificacion,direccion,numCasilleros); //crea el counter 
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
