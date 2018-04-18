@@ -168,12 +168,16 @@ public class CreaCounter extends javax.swing.JFrame {
         String cantCas = cantCasilleros.getText();
         int cantCasInt = Integer.parseInt(cantCas);
         Counter nuevo = new Counter();
-        nuevo.crearCounter(nombre, id, direccion, cantCasInt);
-        Funcionalidades.setCounter(nuevo);
-        JOptionPane.showMessageDialog(null,"se creo el nuevo counter");
-        close();
-        FuncionalidadesI funcion = new FuncionalidadesI();
-        funcion.setVisible(true);
+        if (nuevo.crearCounter(nombre, id, direccion, cantCasInt)){
+            Funcionalidades.setCounter(nuevo);
+            JOptionPane.showMessageDialog(null,"se creo el nuevo counter");
+            close();
+            FuncionalidadesI funcion = new FuncionalidadesI();
+            funcion.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"El counter solo puede tener numeros positivos de casillero");
+        }
         }
         catch(Exception ex){
             System.out.println(ex);
