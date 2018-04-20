@@ -69,6 +69,7 @@ public class CreaCounter extends javax.swing.JFrame {
             }
         });
 
+        crearC.setBackground(new java.awt.Color(102, 102, 102));
         crearC.setText("Crear");
         crearC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +77,7 @@ public class CreaCounter extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setBackground(new java.awt.Color(102, 102, 102));
         cancelar.setText("Cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

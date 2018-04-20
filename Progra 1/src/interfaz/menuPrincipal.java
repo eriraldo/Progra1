@@ -58,7 +58,7 @@ public class menuPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Sistema de Envío de Artículos");
 
-        crearCounter.setBackground(new java.awt.Color(51, 51, 51));
+        crearCounter.setBackground(new java.awt.Color(102, 102, 102));
         crearCounter.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         crearCounter.setText("Crear nuevo Counter");
         crearCounter.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class menuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        exit.setBackground(new java.awt.Color(51, 51, 51));
+        exit.setBackground(new java.awt.Color(102, 102, 102));
         exit.setText("Salir del Sistema");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

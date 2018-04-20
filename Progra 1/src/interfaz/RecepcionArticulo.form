@@ -96,6 +96,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="paquete">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Paquete"/>
           </Properties>
           <Events>
@@ -104,6 +107,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="revista">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Revista"/>
           </Properties>
           <Events>
@@ -112,6 +118,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="sobre">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sobre"/>
           </Properties>
           <Events>
@@ -120,6 +129,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="regresar">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
           <Events>

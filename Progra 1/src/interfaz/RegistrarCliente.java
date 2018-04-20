@@ -81,6 +81,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
 
         jLabel9.setText("Ingrese el rango:");
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +89,7 @@ public class RegistrarCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

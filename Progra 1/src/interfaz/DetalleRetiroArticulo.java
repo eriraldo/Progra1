@@ -51,6 +51,7 @@ public class DetalleRetiroArticulo extends javax.swing.JFrame {
         cuadro.setRows(5);
         jScrollPane1.setViewportView(cuadro);
 
+        aceptar.setBackground(new java.awt.Color(102, 102, 102));
         aceptar.setText("Aceptar");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,6 +59,7 @@ public class DetalleRetiroArticulo extends javax.swing.JFrame {
             }
         });
 
+        regresar.setBackground(new java.awt.Color(102, 102, 102));
         regresar.setText("Regresar");
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

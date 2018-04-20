@@ -101,6 +101,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="estadoCasillero">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Estado del casillero de un Cliente"/>
           </Properties>
           <Events>
@@ -109,6 +112,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="detalleRecibidos">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Detalle de art&#xed;culos recibidos en fecha particular"/>
           </Properties>
           <Events>
@@ -117,6 +123,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="detalleEntregados">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Detalle de art&#xed;culos entregados en fecha particular"/>
           </Properties>
           <Events>
@@ -125,6 +134,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="detalleArtPendRetirar">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Detalle de art&#xed;culos pendientes de retirar"/>
           </Properties>
           <Events>
@@ -133,6 +145,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Detalle de un retiro de art&#xed;culos"/>
           </Properties>
           <Events>
@@ -141,6 +156,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
           <Events>

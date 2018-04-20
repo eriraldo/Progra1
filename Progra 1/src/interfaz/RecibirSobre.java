@@ -77,6 +77,7 @@ public class RecibirSobre extends javax.swing.JFrame {
 
         jLabel5.setText("Ingrese la cédula del Cliente al que pertenece el sobre:");
 
+        aceptar.setBackground(new java.awt.Color(102, 102, 102));
         aceptar.setText("Aceptar");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +85,7 @@ public class RecibirSobre extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setBackground(new java.awt.Color(102, 102, 102));
         cancelar.setText("Cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

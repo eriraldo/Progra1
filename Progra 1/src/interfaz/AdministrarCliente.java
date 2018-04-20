@@ -51,7 +51,7 @@ public class AdministrarCliente extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Administración de Clientes");
 
-        registrarCliente.setBackground(new java.awt.Color(51, 51, 51));
+        registrarCliente.setBackground(new java.awt.Color(102, 102, 102));
         registrarCliente.setText("Registrar Cliente");
         registrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +59,7 @@ public class AdministrarCliente extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Modificar Cliente");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +67,7 @@ public class AdministrarCliente extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 51));
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setText("Consultar Cliente");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +75,7 @@ public class AdministrarCliente extends javax.swing.JFrame {
             }
         });
 
-        eliminar.setBackground(new java.awt.Color(51, 51, 51));
+        eliminar.setBackground(new java.awt.Color(102, 102, 102));
         eliminar.setText("Eliminar Cliente");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +83,7 @@ public class AdministrarCliente extends javax.swing.JFrame {
             }
         });
 
-        listarClientes.setBackground(new java.awt.Color(51, 51, 51));
+        listarClientes.setBackground(new java.awt.Color(102, 102, 102));
         listarClientes.setText("Listar Clientes");
         listarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +91,7 @@ public class AdministrarCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
         jButton3.setText("Regresar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -55,6 +55,7 @@ public class TipoDeCambio extends javax.swing.JFrame {
 
         ventaLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Consultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +63,7 @@ public class TipoDeCambio extends javax.swing.JFrame {
             }
         });
 
+        volver.setBackground(new java.awt.Color(102, 102, 102));
         volver.setText("volver");
         volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

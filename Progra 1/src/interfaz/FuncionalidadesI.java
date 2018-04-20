@@ -52,7 +52,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Funcionalidades del Counter");
 
-        administrarCliente.setBackground(new java.awt.Color(51, 51, 51));
+        administrarCliente.setBackground(new java.awt.Color(102, 102, 102));
         administrarCliente.setText("Administración de Clientes");
         administrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +60,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(51, 51, 51));
+        jButton4.setBackground(new java.awt.Color(102, 102, 102));
         jButton4.setText("consultar tipo de Cambio");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +68,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
-        recepcion.setBackground(new java.awt.Color(51, 51, 51));
+        recepcion.setBackground(new java.awt.Color(102, 102, 102));
         recepcion.setText("Recepción de Artículos");
         recepcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +76,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
-        retiro.setBackground(new java.awt.Color(51, 51, 51));
+        retiro.setBackground(new java.awt.Color(102, 102, 102));
         retiro.setText("Retiro de Artículos");
         retiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +84,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
-        AdminEntregables.setBackground(new java.awt.Color(51, 51, 51));
+        AdminEntregables.setBackground(new java.awt.Color(102, 102, 102));
         AdminEntregables.setText("Administración de Entregables");
         AdminEntregables.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +92,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
-        listaClientes.setBackground(new java.awt.Color(51, 51, 51));
+        listaClientes.setBackground(new java.awt.Color(102, 102, 102));
         listaClientes.setText("Listado de Clientes con paquetes pendientes");
         listaClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +100,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
-        reporte.setBackground(new java.awt.Color(51, 51, 51));
+        reporte.setBackground(new java.awt.Color(102, 102, 102));
         reporte.setText("Reporte de Resumen Contable");
         reporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class FuncionalidadesI extends javax.swing.JFrame {
             }
         });
 
-        cambiarRango.setBackground(new java.awt.Color(51, 51, 51));
+        cambiarRango.setBackground(new java.awt.Color(102, 102, 102));
         cambiarRango.setText("Cambiar rango de Ascenso");
         cambiarRango.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -50,6 +50,7 @@ public class ListarClientes extends javax.swing.JFrame {
         lista.setRows(5);
         jScrollPane1.setViewportView(lista);
 
+        listar.setBackground(new java.awt.Color(102, 102, 102));
         listar.setText("Ver");
         listar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +58,7 @@ public class ListarClientes extends javax.swing.JFrame {
             }
         });
 
+        regresar.setBackground(new java.awt.Color(102, 102, 102));
         regresar.setText("Regresar");
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

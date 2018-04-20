@@ -62,6 +62,7 @@ public class detalleEntregadosEnFecha extends javax.swing.JFrame {
         cuadro.setRows(5);
         jScrollPane1.setViewportView(cuadro);
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Consultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +70,7 @@ public class detalleEntregadosEnFecha extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setText("Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

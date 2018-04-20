@@ -49,6 +49,7 @@ public class EliminarCliente extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese la cédula del cliente que desea eliminar: ");
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +57,7 @@ public class EliminarCliente extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setBackground(new java.awt.Color(102, 102, 102));
         cancelar.setText("cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

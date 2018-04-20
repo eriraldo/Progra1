@@ -66,6 +66,7 @@ public class estadoCasilleroCliente extends javax.swing.JFrame {
         cuadro.setRows(5);
         jScrollPane1.setViewportView(cuadro);
 
+        consultar.setBackground(new java.awt.Color(102, 102, 102));
         consultar.setText("Consultar");
         consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +74,7 @@ public class estadoCasilleroCliente extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
         jButton2.setText("Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

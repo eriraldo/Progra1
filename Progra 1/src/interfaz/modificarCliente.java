@@ -112,6 +112,7 @@ public class modificarCliente extends javax.swing.JFrame {
 
         jLabel4.setText("Seccione el valor que se va a cambiar:");
 
+        aceptar.setBackground(new java.awt.Color(102, 102, 102));
         aceptar.setText("Aceptar");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +120,7 @@ public class modificarCliente extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setBackground(new java.awt.Color(102, 102, 102));
         cancelar.setText("Cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

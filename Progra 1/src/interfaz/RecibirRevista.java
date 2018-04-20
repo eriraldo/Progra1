@@ -74,6 +74,7 @@ public class RecibirRevista extends javax.swing.JFrame {
         catalogo.setBackground(new java.awt.Color(0, 102, 102));
         catalogo.setText("catálogo");
 
+        aceptar.setBackground(new java.awt.Color(102, 102, 102));
         aceptar.setText("aceptar");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +82,7 @@ public class RecibirRevista extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setBackground(new java.awt.Color(102, 102, 102));
         cancelar.setText("cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

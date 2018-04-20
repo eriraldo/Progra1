@@ -65,6 +65,7 @@ public class retiroArticulo extends javax.swing.JFrame {
         areaTexto.setRows(5);
         jScrollPane1.setViewportView(areaTexto);
 
+        mostrarPendientes.setBackground(new java.awt.Color(102, 102, 102));
         mostrarPendientes.setText("Mostrar Pendientes");
         mostrarPendientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +75,7 @@ public class retiroArticulo extends javax.swing.JFrame {
 
         jLabel3.setText("Ingrese los números de refencia de los artículos que desea retirar el cliente seguidos por una coma:");
 
+        retirar.setBackground(new java.awt.Color(102, 102, 102));
         retirar.setText("Retirar Artículos");
         retirar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +83,7 @@ public class retiroArticulo extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setBackground(new java.awt.Color(102, 102, 102));
         cancelar.setText("Cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +91,7 @@ public class retiroArticulo extends javax.swing.JFrame {
             }
         });
 
+        tipoCambio.setBackground(new java.awt.Color(102, 102, 102));
         tipoCambio.setText("ver tipo de cambio");
         tipoCambio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

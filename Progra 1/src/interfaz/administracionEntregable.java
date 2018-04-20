@@ -50,6 +50,7 @@ public class administracionEntregable extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Administración de Entregables");
 
+        estadoCasillero.setBackground(new java.awt.Color(102, 102, 102));
         estadoCasillero.setText("Estado del casillero de un Cliente");
         estadoCasillero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +58,7 @@ public class administracionEntregable extends javax.swing.JFrame {
             }
         });
 
+        detalleRecibidos.setBackground(new java.awt.Color(102, 102, 102));
         detalleRecibidos.setText("Detalle de artículos recibidos en fecha particular");
         detalleRecibidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +66,7 @@ public class administracionEntregable extends javax.swing.JFrame {
             }
         });
 
+        detalleEntregados.setBackground(new java.awt.Color(102, 102, 102));
         detalleEntregados.setText("Detalle de artículos entregados en fecha particular");
         detalleEntregados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +74,7 @@ public class administracionEntregable extends javax.swing.JFrame {
             }
         });
 
+        detalleArtPendRetirar.setBackground(new java.awt.Color(102, 102, 102));
         detalleArtPendRetirar.setText("Detalle de artículos pendientes de retirar");
         detalleArtPendRetirar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +82,7 @@ public class administracionEntregable extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(102, 102, 102));
         jButton5.setText("Detalle de un retiro de artículos");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +90,7 @@ public class administracionEntregable extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -52,6 +52,7 @@ public class cambiarRango extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese el nuevo valor para Ascender de rango:");
 
+        aceptar.setBackground(new java.awt.Color(102, 102, 102));
         aceptar.setText("Aceptar");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +60,7 @@ public class cambiarRango extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setBackground(new java.awt.Color(102, 102, 102));
         cancelar.setText("Cancelar");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

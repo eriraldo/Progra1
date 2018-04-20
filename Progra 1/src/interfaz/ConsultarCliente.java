@@ -53,6 +53,7 @@ public class ConsultarCliente extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese la cédula:");
 
+        consultarCliente.setBackground(new java.awt.Color(102, 102, 102));
         consultarCliente.setText("consultar");
         consultarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +66,7 @@ public class ConsultarCliente extends javax.swing.JFrame {
         cuadroInfoCliente.setText("\n");
         jScrollPane1.setViewportView(cuadroInfoCliente);
 
+        regresar.setBackground(new java.awt.Color(102, 102, 102));
         regresar.setText("regresar");
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

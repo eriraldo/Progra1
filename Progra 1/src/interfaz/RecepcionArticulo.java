@@ -48,6 +48,7 @@ public class RecepcionArticulo extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setText("Recepción de Artículos");
 
+        paquete.setBackground(new java.awt.Color(102, 102, 102));
         paquete.setText("Paquete");
         paquete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +56,7 @@ public class RecepcionArticulo extends javax.swing.JFrame {
             }
         });
 
+        revista.setBackground(new java.awt.Color(102, 102, 102));
         revista.setText("Revista");
         revista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +64,7 @@ public class RecepcionArticulo extends javax.swing.JFrame {
             }
         });
 
+        sobre.setBackground(new java.awt.Color(102, 102, 102));
         sobre.setText("Sobre");
         sobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +72,7 @@ public class RecepcionArticulo extends javax.swing.JFrame {
             }
         });
 
+        regresar.setBackground(new java.awt.Color(102, 102, 102));
         regresar.setText("Regresar");
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -53,7 +53,7 @@ public class listarPendientesTotales extends javax.swing.JFrame {
         cuadro.setRows(5);
         jScrollPane1.setViewportView(cuadro);
 
-        aceptar.setBackground(new java.awt.Color(51, 51, 51));
+        aceptar.setBackground(new java.awt.Color(102, 102, 102));
         aceptar.setText("Listar");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +61,7 @@ public class listarPendientesTotales extends javax.swing.JFrame {
             }
         });
 
-        regresar.setBackground(new java.awt.Color(51, 51, 51));
+        regresar.setBackground(new java.awt.Color(102, 102, 102));
         regresar.setText("regresar");
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +69,7 @@ public class listarPendientesTotales extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
         jButton1.setText("enviar correo a clientes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
