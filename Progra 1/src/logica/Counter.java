@@ -540,8 +540,7 @@ public class Counter {
         if(tipoSobre.equals("Aereo")||tipoSobre.equals("aereo")){       //verifica que tipo de sobre es
             if (contenido.equals("Documento")||contenido.equals("documento")){
                 resul = 0;
-                                                                                //verifica si es articulo o documento
-                
+                                                                                //verifica si es articulo o documento     
             }
             else if(contenido.equals("Articulo")||contenido.equals("articulo")){
                 if (moneda==false)      //verifica la moneda
@@ -589,14 +588,14 @@ public class Counter {
         double peso = paquete.getPeso();
         if(fragil && electronico){              //toma en cuenta cuando es fragil y/o electronico
             if(moneda==false)
-                resul = (tipoCambio*4)+(peso*0.02);
+                resul = (tipoCambio*4)+(peso*0.02*tipoCambio);
             else
                 resul = 4+(peso*0.02);
             
         }
         if ((fragil&&!electronico) || (!fragil && electronico)){
             if(moneda==false)
-                resul = (tipoCambio*2)+(peso*0.02);
+                resul = (tipoCambio*2)+(peso*0.02*tipoCambio);
             else
                 resul = 2+(peso*0.02);
             
@@ -937,6 +936,7 @@ public class Counter {
         Casillero cas = listaCasilleros[i];
         resul+="Paquetes:\n";
         int cont = 0;
+        cas.resetListaEntregables();
         ArrayList array = cas.getListaEntregables();        //agrego a lista global de entregables para no hacer otra funcion
         cas.resetInformeEstado();
         cas.setInformeEstado("Informe de Estado de Casillero:\n------------------------------\n\n");      //Esto es usado en otra funcion adelante, no aqui
@@ -1176,8 +1176,8 @@ public class Counter {
         double totalImpuestosDolares = 0;
         double totalDescuentosColones = 0;
         double totalDescuentosDolares = 0;
-        double totalFinalColones =0;
-        double totalFinalDolares=0;
+        double totalFinalColones = 0;
+        double totalFinalDolares = 0;
         String resul ="Reporte contable para el dia "+fecha+"\n---------------------------------------\n";
         int cont=0;
         while(listaCasilleros[cont]!=null){
@@ -1202,8 +1202,7 @@ public class Counter {
                             totalFinalColones+=impTotalCol;
                             double impTotalDol = impDol-desDol;
                             totalFinalDolares+=impTotalDol;         //realiza las sumatorias del reporte con desglose 
-                            totalFinalColones+=impCol;
-                            totalFinalDolares+=impDol;
+                            
                             index++;
                         }
                         else{
@@ -1225,8 +1224,7 @@ public class Counter {
                             totalFinalColones+=impTotalCol;
                             double impTotalDol = impDol-desDol;     //se hacen las sumatorias del reporte con desglose
                             totalFinalDolares+=impTotalDol;
-                            totalFinalColones+=impCol;
-                            totalFinalDolares+=impDol;
+                            
                             index++;
                         }
                         else{
@@ -1248,8 +1246,7 @@ public class Counter {
                             totalFinalColones+=impTotalCol;
                             double impTotalDol = impDol-desDol;
                             totalFinalDolares+=impTotalDol;     //se hacen las sumatorias del reporte con desglose
-                            totalFinalColones+=impCol;
-                            totalFinalDolares+=impDol;
+                            
                             index++;
                         }
                         else{
@@ -1341,25 +1338,38 @@ public class Counter {
      */
     public boolean validarCorreo(String mail){
         boolean contains = false;
+        boolean invalid = false;
         char[] arrayInvalidos = new char[]{'(',')','<','>',',',';',':','[',']','%','&',' ','"','$','#','!','*','=','{','}','?','/'};    //caracteres invalidos
         int indexA =0;
         int indexCh=0;
         while(indexCh<mail.length()){
             char comp = mail.charAt(indexCh);
             while(indexA<arrayInvalidos.length){
-                if (arrayInvalidos[indexA]==comp){
+                if (arrayInvalidos[indexA] == comp){
                     contains = true;        //booleano que indica que SI tiene un caracter invalido
                     break;
-                    
                 }
-                else
-                    indexA++;
+                else{
+                    if(comp == '@'&&indexCh == 0){
+                        invalid = true;
+                        break;
+                    }
+                    else if(comp == '@' && (indexCh == mail.length())){
+                        invalid = true;
+                        break;
+                        
+                    }
+                    else
+                        indexA++;
+                }
+                    
             }
             indexCh++;
             indexA = 0;
         }
         
-        if (contains == false && contadorApariciones(mail,'@')==1){ //si no tiene caracter invalido y si solo tiene 1 arroba
+        
+        if (contains == false && invalid == false && contadorApariciones(mail,'@')==1){ //si no tiene caracter invalido y si solo tiene 1 arroba
             return true;
             
         }

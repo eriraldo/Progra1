@@ -97,7 +97,7 @@ public class RecibirSobre extends javax.swing.JFrame {
 
         jLabel8.setText("Descripción del Sobre:");
 
-        jLabel9.setText("(manila o sobre)");
+        jLabel9.setText("(manila o aereo)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -222,30 +222,34 @@ public class RegistrarCliente extends javax.swing.JFrame {
         else{
             System.out.println(tel.length());
             Counter nuevo = new Counter();
-            if (tel.length() == 8){
-                if(nuevo.validarCorreo(email)){
-                
-                    if(nuevo.verificarAddCliente( id) == false){
-                        nuevo.addCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
-                        Funcionalidades.setCounter(nuevo);
-                        //Funcionalidades.counter.consultarCliente(id);
-                        //funcion.consultarCliente(id);
-                        String numCasillero = nuevo.numeroDeCasillero(id);
-                        JOptionPane.showMessageDialog(null,"Cliente añadido a la Base de Datos del Counter, su numero de casillero es: " + numCasillero);
-                        close();
-                        AdministrarCliente fun = new AdministrarCliente();
-                        fun.setVisible(true);
-                    }
+            if((rang.equals("oro"))||(rang.equals("plata"))||(rang.equals("normal"))||(rang.equals("Oro"))||(rang.equals("Plata"))||(rang.equals("Normal"))){
+                if (tel.length() == 8){
+                    if(nuevo.validarCorreo(email)){
+
+                        if(nuevo.verificarAddCliente( id) == false){
+                            nuevo.addCliente(nombre, id, email, gen, tel, dir, nacimiento, rang);
+                            Funcionalidades.setCounter(nuevo);
+                            String numCasillero = nuevo.numeroDeCasillero(id);
+                            JOptionPane.showMessageDialog(null,"Cliente añadido a la Base de Datos del Counter, su numero de casillero es: " + numCasillero);
+                            close();
+                            AdministrarCliente fun = new AdministrarCliente();
+                            fun.setVisible(true);
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null,"El cliente que desea agreagar ya esta en la Base de Datos del Counter");
+                        }
+                        }
                     else{
-                        JOptionPane.showMessageDialog(null,"el cliente que desea agreagar ya esta en la Base de Datos del Counter");
+                        JOptionPane.showMessageDialog(null,"Revise que su correo electronico este bien escrito");
                     }
-                    }
+                }
                 else{
-                    JOptionPane.showMessageDialog(null,"revise que su correo electronico este bien escrito");
+                    JOptionPane.showMessageDialog(null,"Revise que su numero telefonico este bien digitado");
                 }
             }
             else{
-                JOptionPane.showMessageDialog(null,"revise que su numero telefonico este bien digitado");
+                JOptionPane.showMessageDialog(null,"El rango tiene algun error");
+                
             }
             
         }

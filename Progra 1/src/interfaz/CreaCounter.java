@@ -170,7 +170,7 @@ public class CreaCounter extends javax.swing.JFrame {
         Counter nuevo = new Counter();
         if (nuevo.crearCounter(nombre, id, direccion, cantCasInt)){
             Funcionalidades.setCounter(nuevo);
-            JOptionPane.showMessageDialog(null,"se creo el nuevo counter");
+            JOptionPane.showMessageDialog(null,"Se creo el nuevo counter");
             close();
             FuncionalidadesI funcion = new FuncionalidadesI();
             funcion.setVisible(true);
